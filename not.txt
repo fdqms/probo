@@ -1,1 +1,3 @@
 mailpit portu 1025,8025
+
+https://getproboprobo.s3.eu-central-1.amazonaws.com/probod_Linux_x86_64.tar.gz
