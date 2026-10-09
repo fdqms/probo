@@ -1,0 +1,134 @@
+{
+  "title": "Bu cihazı kaydet",
+  "breadcrumb": "Cihazlar",
+  "registerBreadcrumb": "Kaydet",
+  "addManuallyBreadcrumb": "Manuel olarak ekle",
+  "list": {
+    "title": "Cihazlar",
+    "register": "Yeni cihaz kaydet",
+    "addManually": "Manuel olarak ekle",
+    "lastActive": "Son aktif",
+    "never": "Asla",
+    "justNow": "Şimdi",
+    "pendingHostname": "Bekliyor",
+    "connected": "Bağlandı",
+    "disconnected": "Bağlantı kesildi",
+    "columns": {
+      "hostname": "Cihaz",
+      "details": "Ayrıntılar"
+    },
+    "platforms": {
+      "DARWIN": "macOS",
+      "WINDOWS": "Windows",
+      "LINUX": "Linux",
+      "FREEBSD": "FreeBSD"
+    }
+  },
+  "empty": {
+    "title": "Henüz cihaz yok",
+    "description": "Kuruluşunuza bağlamak ve güvenlik durumunu izlemek için bir cihaz kaydedin.",
+    "register": "Cihaz kaydet",
+    "addManually": "Manuel olarak ekle"
+  },
+  "unavailable": {
+    "title": "Kayıt kullanılamıyor",
+    "description": "Bu kuruluşta cihaz kaydetme izniniz yok.",
+    "home": "Ana sayfaya dön"
+  },
+  "steps": {
+    "review": {
+      "title": "Cihaz bilgilerini incele",
+      "description": "Probo Agent'ın neleri kaydedeceğini görün."
+    },
+    "download": {
+      "title": "Ajanı indir (Download the agent)",
+      "description": "Masaüstü ajanını kur"
+    },
+    "enroll": {
+      "title": "Probo Agent'ı Aç",
+      "description": "Bu cihazı kaydetmeyi tamamlayın."
+    }
+  },
+  "review": {
+    "title": "Toplanan verileri incele",
+    "description": "Probo, envanter ve duruş (posture) raporlaması için aşağıdaki cihaz üst verilerini (metadata) toplar.",
+    "understand": "Anladım",
+    "thisDevice": {
+      "title": "Bu cihaz",
+      "hostname": "Makine adı (Hostname)",
+      "platform": "Platform",
+      "osVersion": "İşletim sistemi sürümü (OS version)"
+    },
+    "identity": {
+      "title": "Cihaz kimliği",
+      "hardwareUuid": "Donanım UUID'si (Hardware UUID)",
+      "hostname": "Makine adı",
+      "serialNumber": "Seri numarası, mevcut olduğunda"
+    },
+    "system": {
+      "title": "Sistem ayrıntıları",
+      "platform": "Platform",
+      "osVersion": "İşletim sistemi sürümü",
+      "agentVersion": "Probo Agent sürümü"
+    },
+    "activity": {
+      "title": "Etkinlik sinyalleri",
+      "enrollmentTime": "Kayıt zamanı",
+      "heartbeats": "Ajan sinyalleri (Agent heartbeats)",
+      "posture": "Duruş (posture) kontrol sonuçları"
+    }
+  },
+  "download": {
+    "title": "Probo Agent'ı İndir",
+    "description": "Bu cihazı güvenli hale getirmek ve kuruluşunuza bağlamak için uygulamayı kurun.",
+    "featured": "macOS için Probo Agent",
+    "continue": "Devam et",
+    "download": "İndir",
+    "downloadNamed": "{{title}} indir",
+    "macosIntel": {
+      "title": "macOS Intel",
+      "meta": "macOS 13.0+"
+    },
+    "windows": {
+      "title": "Windows",
+      "meta": "Windows 11+"
+    }
+  },
+  "enroll": {
+    "title": "Uygulamada devam et",
+    "description": "Bu cihazı kaydetmeyi tamamlamak için Probo Agent'ı açın.",
+    "open": "Probo Agent'ı Aç",
+    "preparing": "Hazırlanıyor…",
+    "waiting": "Ajanın ilk giriş yapması (check-in) bekleniyor…",
+    "timedOut": "Ajandan henüz haber alamadık. Masaüstü ajanının kurulu ve çalışıyor olduğundan emin olun, ardından tekrar deneyin.",
+    "failed": "Kayıt başlatılamadı. Tekrar deneyin.",
+    "tryAgain": "Tekrar dene",
+    "enrolled": "Bu cihaz kaydedildi.",
+    "enrolledWithHostname": "{{hostname}} kaydedildi.",
+    "home": "Ana sayfaya dön"
+  },
+  "addManually": {
+    "title": "Manuel kayıt",
+    "creating": "Cihaz oluşturuluyor…",
+    "failed": "Kayıt belirteci (enrollment token) oluşturulamadı. Tekrar deneyin.",
+    "created": "Cihaz oluşturuldu. Kayıt belirtecini şimdi kopyalayın — tekrar gösterilmeyecektir.",
+    "done": "Bitti",
+    "retry": "Tekrar dene",
+    "back": "Cihazlara dön",
+    "copy": "Kopyala",
+    "copied": "Kopyalandı",
+    "copyFailed": "Panoya kopyalanamadı",
+    "token": {
+      "title": "Kayıt belirteci (Enrollment token) oluşturuldu",
+      "description": "Bu kayıt belirtecini güvenli bir kanal aracılığıyla yalnızca cihaz sahibiyle paylaşın. Bir kez kullanılabilir ve süresi yedi gün sonra dolar.",
+      "releaseListHint": "<link>GitHub'daki probo-agent sürümlerine</link> göz atın (etiketler probo-agent/v*), ardından işletim sisteminiz ve mimariniz için arşivi seçin (örneğin probo-agent_Darwin_arm64.tar.gz, probo-agent_Linux_x86_64.tar.gz veya probo-agent_Windows_x86_64.zip). İndirme komutundaki vX.Y.Z, OS ve ARCH'ı seçtiğiniz varlığın değerleriyle değiştirin.",
+      "tabUnix": "macOS / Linux",
+      "tabWindows": "Windows",
+      "installUnix": "macOS veya Linux'a kurun (sudo erişimi olan bir kabuktan (shell) çalıştırın)",
+      "installWindows": "Windows'a kurun (yükseltilmiş bir PowerShell oturumundan çalıştırın)",
+      "downloadStep": "İkili dosyayı (binary) indirin ve yerleştirin",
+      "enrollStep": "Cihazı yapılandırın ve ajanı başlatın",
+      "securityNotice": "Belirteç bir CLI bayrağı (CLI flag) olarak iletilir (curl-piped-to-shell veya sudo env vars aracılığıyla değil). Kurulduktan sonra, ajan GitHub Sürümlerinden cosign imza doğrulaması ile kendini günceller."
+    }
+  }
+}

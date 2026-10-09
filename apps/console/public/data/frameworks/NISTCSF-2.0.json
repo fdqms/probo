@@ -1,0 +1,434 @@
+{
+  "name": "NIST CSF 2.0",
+  "id": "NISTCSF-2.0",
+  "logo": {
+    "light": "<?xml version=\"1.0\" encoding=\"utf-8\"?><svg version=\"1.1\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"><path fill=\"none\" stroke=\"#141e12\" d=\"M30,5L5,20l5,30l20,5l20-5l5-30L30,5z\" stroke-width=\"2\"/></svg>",
+    "dark": "<?xml version=\"1.0\" encoding=\"utf-8\"?><svg version=\"1.1\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"><path fill=\"none\" stroke=\"#eceeec\" d=\"M30,5L5,20l5,30l20,5l20-5l5-30L30,5z\" stroke-width=\"2\"/></svg>"
+  },
+  "controls": [
+    {
+      "id": "GV.OC-01",
+      "name": "Kurumsal misyon anlaşılmakta ve siber güvenlik risk yönetimine yön vermektedir"
+    },
+    {
+      "id": "GV.OC-02",
+      "name": "İç ve dış paydaşlar belirlenmiş olup, siber güvenlik risk yönetimine ilişkin ihtiyaç ve beklentileri anlaşılmaktadır"
+    },
+    {
+      "id": "GV.OC-03",
+      "name": "Siber güvenliğe ilişkin yasal, düzenleyici ve sözleşmesel gereksinimler anlaşılmakta ve yönetilmektedir"
+    },
+    {
+      "id": "GV.OC-04",
+      "name": "Siber güvenlik riskleri, kurumsal risk yönetimi ve iş kararlarında dikkate alınmaktadır"
+    },
+    {
+      "id": "GV.OC-05",
+      "name": "Kurumun bağlı olduğu çıktılar, yetenekler ve hizmetler anlaşılmaktadır"
+    },
+    {
+      "id": "GV.RM-01",
+      "name": "Risk yönetimi hedefleri oluşturulmakta ve kurumsal paydaşlar tarafından üzerinde mutabakata varılmaktadır"
+    },
+    {
+      "id": "GV.RM-02",
+      "name": "Risk iştahı ve risk toleransı beyanları oluşturulmakta, iletilmekte ve sürdürülmektedir"
+    },
+    {
+      "id": "GV.RM-03",
+      "name": "Siber güvenlik risk yönetimi faaliyetleri ve çıktıları, kurumsal risk yönetimi süreçlerine dahil edilmektedir"
+    },
+    {
+      "id": "GV.RM-04",
+      "name": "Uygun risk müdahale seçeneklerini açıklayan stratejik yön belirlenmekte ve iletilmektedir"
+    },
+    {
+      "id": "GV.RM-05",
+      "name": "Siber güvenlik riskleri için kurum genelinde iletişim kanalları oluşturulmaktadır"
+    },
+    {
+      "id": "GV.RM-06",
+      "name": "Siber güvenlik riskini hesaplamak, izlemek ve raporlamak için standartlaştırılmış bir yöntem oluşturulmakta ve iletilmektedir"
+    },
+    {
+      "id": "GV.RM-07",
+      "name": "Stratejik fırsatlar, kurumun risk iştahı ile uyumlu olmalarını sağlamak için değerlendirilmektedir"
+    },
+    {
+      "id": "GV.RR-01",
+      "name": "Kurum liderliği, siber güvenlik riskinden sorumlu ve hesap verebilirdir"
+    },
+    {
+      "id": "GV.RR-02",
+      "name": "Siber güvenlik risk yönetimi ile ilgili roller, sorumluluklar ve yetkiler oluşturulmakta, iletilmekte, anlaşılmakta ve uygulanmaktadır"
+    },
+    {
+      "id": "GV.RR-03",
+      "name": "Siber güvenlik risk stratejisi, rolleri ve sorumlulukları ile orantılı olarak yeterli kaynak tahsis edilmektedir"
+    },
+    {
+      "id": "GV.RR-04",
+      "name": "Siber güvenlik, insan kaynakları uygulamalarına dahil edilmektedir"
+    },
+    {
+      "id": "GV.PO-01",
+      "name": "Siber güvenlik risklerini yönetmeye yönelik politika oluşturulmaktadır"
+    },
+    {
+      "id": "GV.PO-02",
+      "name": "Siber güvenlik risklerini yönetmeye yönelik politika iletilmekte ve uygulanmaktadır"
+    },
+    {
+      "id": "GV.OV-01",
+      "name": "Siber güvenlik risk yönetimi performansı değerlendirilmektedir"
+    },
+    {
+      "id": "GV.OV-02",
+      "name": "Siber güvenlik risk yönetimi stratejileri ve politikaları gözden geçirilmekte ve ayarlanmaktadır"
+    },
+    {
+      "id": "GV.OV-03",
+      "name": "Siber güvenlik risk yönetimi performansı bağımsız incelemeye tabidir"
+    },
+    {
+      "id": "GV.SC-01",
+      "name": "Bir siber güvenlik tedarik zinciri risk yönetimi programı, stratejisi, hedefleri, politikaları ve süreçleri oluşturulmaktadır"
+    },
+    {
+      "id": "GV.SC-02",
+      "name": "Tedarikçiler, müşteriler ve iş ortakları için siber güvenlik rolleri ve sorumlulukları oluşturulmaktadır"
+    },
+    {
+      "id": "GV.SC-03",
+      "name": "Siber güvenlik tedarik zinciri risk yönetimi, siber güvenlik ve kurumsal risk yönetimine entegre edilmektedir"
+    },
+    {
+      "id": "GV.SC-04",
+      "name": "Tedarikçiler bilinmekte ve kritiklik düzeyine göre önceliklendirilmektedir"
+    },
+    {
+      "id": "GV.SC-05",
+      "name": "Tedarik zincirlerindeki siber güvenlik risklerini ele almaya yönelik gereksinimler oluşturulmaktadır"
+    },
+    {
+      "id": "GV.SC-06",
+      "name": "Resmi tedarikçi ilişkilerine girmeden önce siber güvenlik risklerini yönetmek için planlama ve durum tespiti (due diligence) yapılmaktadır"
+    },
+    {
+      "id": "GV.SC-07",
+      "name": "Bir tedarikçinin oluşturduğu riskler, tedarikçi ilişkisi boyunca yönetilmektedir"
+    },
+    {
+      "id": "GV.SC-08",
+      "name": "Tedarikçiler, yükümlülüklerini yerine getirdiklerini doğrulamak için izlenmektedir"
+    },
+    {
+      "id": "GV.SC-09",
+      "name": "Tedarik zinciri güvenlik uygulamaları, siber güvenlik ve kurumsal risk yönetimi programlarına entegre edilmektedir"
+    },
+    {
+      "id": "GV.SC-10",
+      "name": "Siber güvenlik tedarik zinciri risk yönetimi planları, bir ortaklık veya hizmet sözleşmesinin sona ermesinden sonra gerçekleşecek faaliyetlere yönelik hükümleri içermektedir"
+    },
+    {
+      "id": "ID.AM-01",
+      "name": "Kurum tarafından yönetilen donanım envanterleri tutulmaktadır"
+    },
+    {
+      "id": "ID.AM-02",
+      "name": "Kurum tarafından yönetilen yazılım, hizmet ve sistem envanterleri tutulmaktadır"
+    },
+    {
+      "id": "ID.AM-03",
+      "name": "Kurumun yetkili ağ iletişimi ile iç ve dış ağ veri akışlarının temsilleri (haritaları) güncel tutulmaktadır"
+    },
+    {
+      "id": "ID.AM-04",
+      "name": "Tedarikçiler tarafından sağlanan hizmetlerin envanterleri tutulmaktadır"
+    },
+    {
+      "id": "ID.AM-05",
+      "name": "Varlıklar sınıflandırma, kritiklik ve iş değerine göre önceliklendirilmektedir"
+    },
+    {
+      "id": "ID.AM-07",
+      "name": "Veri ve bilgi envanterleri tutulmaktadır"
+    },
+    {
+      "id": "ID.AM-08",
+      "name": "Sistemler, donanım, yazılım, hizmetler ve veriler, yaşam döngüleri boyunca yönetilmektedir"
+    },
+    {
+      "id": "ID.RA-01",
+      "name": "Varlıklardaki zafiyetler (güvenlik açıkları) belirlenmekte, doğrulanmakte ve kaydedilmektedir"
+    },
+    {
+      "id": "ID.RA-02",
+      "name": "Bilgi paylaşım forumlarından ve kaynaklarından siber tehdit istihbaratı alınmaktadır"
+    },
+    {
+      "id": "ID.RA-03",
+      "name": "Kuruma yönelik iç ve dış tehditler belirlenmekte ve kaydedilmektedir"
+    },
+    {
+      "id": "ID.RA-04",
+      "name": "Siber güvenlik olaylarının potansiyel etkileri ve olasılıkları belirlenmekte ve kaydedilmektedir"
+    },
+    {
+      "id": "ID.RA-05",
+      "name": "Tehditler, zafiyetler, olasılıklar ve etkiler riski belirlemek için kullanılmaktadır"
+    },
+    {
+      "id": "ID.RA-06",
+      "name": "Risk müdahaleleri belirlenmekte ve önceliklendirilmektedir"
+    },
+    {
+      "id": "ID.RA-07",
+      "name": "Riske ilişkin değişiklikler belirlenmekte ve izlenmektedir"
+    },
+    {
+      "id": "ID.IM-01",
+      "name": "İyileştirmeler değerlendirmelerden belirlenmektedir"
+    },
+    {
+      "id": "ID.IM-02",
+      "name": "İyileştirmeler güvenlik testleri ve tatbikatlarından belirlenmektedir"
+    },
+    {
+      "id": "ID.IM-03",
+      "name": "İyileştirmeler operasyonel süreçlerin yürütülmesinden belirlenmektedir"
+    },
+    {
+      "id": "ID.IM-04",
+      "name": "Olay müdahale planları değerlendirilmekte ve iyileştirilmektedir"
+    },
+    {
+      "id": "PR.AA-01",
+      "name": "Yetkili kullanıcılar, hizmetler ve donanımlar için kimlikler ve kimlik bilgileri kurum tarafından yönetilmektedir"
+    },
+    {
+      "id": "PR.AA-02",
+      "name": "Kimlikler doğrulanmakta ve kimlik bilgilerine bağlanmaktadır"
+    },
+    {
+      "id": "PR.AA-03",
+      "name": "Kullanıcılar, hizmetler ve donanımların kimliği doğrulanmaktadır (authentication)"
+    },
+    {
+      "id": "PR.AA-04",
+      "name": "Kimlik iddiaları korunmakta, iletilmekte ve doğrulanmaktadır"
+    },
+    {
+      "id": "PR.AA-05",
+      "name": "Erişim izinleri, haklar ve yetkilendirmeler, en az ayrıcalık (least privilege) politikası kapsamında tanımlanmaktadır"
+    },
+    {
+      "id": "PR.AA-06",
+      "name": "Varlıklara fiziksel erişim, riskle orantılı olarak yönetilmekte, izlenmekte ve uygulanmaktadır"
+    },
+    {
+      "id": "PR.AT-01",
+      "name": "Personele siber güvenlik farkındalığı ve eğitimi sağlanmaktadır"
+    },
+    {
+      "id": "PR.AT-02",
+      "name": "Siber güvenlik eğitimi alan bireyler, rollerini yerine getirebilecek bilgi ve becerilere sahip olduklarından emin olmak için değerlendirilmektedir"
+    },
+    {
+      "id": "PR.DS-01",
+      "name": "Durağan haldeki verilerin (data-at-rest) gizliliği, bütünlüğü ve erişilebilirliği korunmaktadır"
+    },
+    {
+      "id": "PR.DS-02",
+      "name": "Aktarım halindeki verilerin (data-in-transit) gizliliği, bütünlüğü ve erişilebilirliği korunmaktadır"
+    },
+    {
+      "id": "PR.DS-10",
+      "name": "Verilerin gizliliğini, bütünlüğünü ve erişilebilirliğini sağlama kapasitesi yönetilmektedir"
+    },
+    {
+      "id": "PR.DS-11",
+      "name": "Bilginin gizliliğini, bütünlüğünü ve erişilebilirliğini korumak için veriler kurumun risk stratejisi ile tutarlı bir şekilde yönetilmekte ve sürdürülmektedir"
+    },
+    {
+      "id": "PR.PS-01",
+      "name": "Yapılandırma (konfigürasyon) yönetimi planları ve süreçleri oluşturulmaktadır"
+    },
+    {
+      "id": "PR.PS-02",
+      "name": "Yazılım bakımı yapılmaktadır"
+    },
+    {
+      "id": "PR.PS-03",
+      "name": "Yapılandırma ayarları izlenmektedir"
+    },
+    {
+      "id": "PR.PS-04",
+      "name": "Güvenlik testleri gerçekleştirilmektedir"
+    },
+    {
+      "id": "PR.PS-05",
+      "name": "Sistem yaşam döngüsü güvenliği yönetilmektedir"
+    },
+    {
+      "id": "PR.PS-06",
+      "name": "Güvenli yazılım geliştirme uygulamaları entegre edilmektedir"
+    },
+    {
+      "id": "PR.IR-01",
+      "name": "Ağlar ve ortamlar yetkisiz mantıksal erişim ve kullanıma karşı korunmaktadır"
+    },
+    {
+      "id": "PR.IR-02",
+      "name": "Kurumun teknoloji altyapısı çevresel tehditlere karşı korunmaktadır"
+    },
+    {
+      "id": "PR.IR-03",
+      "name": "Normal ve olumsuz durumlarda dayanıklılık (resilience) gereksinimlerini karşılamak için mekanizmalar uygulanmaktadır"
+    },
+    {
+      "id": "PR.IR-04",
+      "name": "Erişilebilirliği sağlamak için yeterli kaynak kapasitesi sürdürülmektedir"
+    },
+    {
+      "id": "DE.CM-01",
+      "name": "Ağlar ve ortamlar potansiyel olarak olumsuz olayları bulmak için izlenmektedir"
+    },
+    {
+      "id": "DE.CM-02",
+      "name": "Fiziksel ortam, potansiyel olarak olumsuz olayları bulmak için izlenmektedir"
+    },
+    {
+      "id": "DE.CM-03",
+      "name": "Personel faaliyeti ve teknoloji kullanımı, potansiyel olarak olumsuz olayları bulmak için izlenmektedir"
+    },
+    {
+      "id": "DE.CM-06",
+      "name": "Dış hizmet sağlayıcı faaliyetleri, potansiyel olarak olumsuz olayları bulmak için izlenmektedir"
+    },
+    {
+      "id": "DE.CM-09",
+      "name": "Bilgi işlem donanımı, yazılımı ve verileri potansiyel olarak olumsuz olayları bulmak için izlenmektedir"
+    },
+    {
+      "id": "DE.AE-02",
+      "name": "Potansiyel olarak olumsuz olaylar, olayları daha iyi anlamak için analiz edilmektedir"
+    },
+    {
+      "id": "DE.AE-03",
+      "name": "Bilgiler birden fazla kaynaktan ilişkilendirilmektedir (korelasyon)"
+    },
+    {
+      "id": "DE.AE-04",
+      "name": "Olayların etkisi belirlenmektedir"
+    },
+    {
+      "id": "DE.AE-06",
+      "name": "Olumsuz olaylara ilişkin bilgiler yetkili personele ve araçlara sağlanmaktadır"
+    },
+    {
+      "id": "DE.AE-07",
+      "name": "Siber tehdit istihbaratı ve zafiyet bilgileri kullanılmaktadır"
+    },
+    {
+      "id": "DE.AE-08",
+      "name": "Olaylar, güvenlik olayı (incident) olarak ilan edilmektedir"
+    },
+    {
+      "id": "RS.MA-01",
+      "name": "Bir güvenlik olayı (incident) ilan edildikten sonra olay müdahale planı yürütülmektedir"
+    },
+    {
+      "id": "RS.MA-02",
+      "name": "Güvenlik olayı raporları önceliklendirilmekte (triage) ve doğrulanmaktadır"
+    },
+    {
+      "id": "RS.MA-03",
+      "name": "Güvenlik olayları kategorize edilmektedir"
+    },
+    {
+      "id": "RS.MA-04",
+      "name": "Güvenlik olayları gerektiğinde bir üst seviyeye taşınmakta (escalation) veya yükseltilmektedir"
+    },
+    {
+      "id": "RS.MA-05",
+      "name": "Güvenlik olayı kurtarma (recovery) işlemlerini başlatma kriterleri uygulanmaktadır"
+    },
+    {
+      "id": "RS.AN-03",
+      "name": "Ne olduğunu saptamak için analiz yapılmaktadır"
+    },
+    {
+      "id": "RS.AN-06",
+      "name": "Bir soruşturma (investigation) sırasında gerçekleştirilen eylemler kaydedilmektedir"
+    },
+    {
+      "id": "RS.AN-07",
+      "name": "Güvenlik olayı verileri ve meta verileri toplanmaktadır"
+    },
+    {
+      "id": "RS.AN-08",
+      "name": "Bir güvenlik olayının boyutu tahmin edilmektedir"
+    },
+    {
+      "id": "RS.MI-01",
+      "name": "Bilgiler personel ve dış paydaşlarla paylaşılmaktadır"
+    },
+    {
+      "id": "RS.MI-02",
+      "name": "Güvenlik olayları iç ve dış paydaşlara raporlanmaktadır"
+    },
+    {
+      "id": "RS.CO-01",
+      "name": "Güvenlik olayları izole edilmektedir"
+    },
+    {
+      "id": "RS.CO-02",
+      "name": "Güvenlik olayları kontrol altına alınmaktadır (containment)"
+    },
+    {
+      "id": "RS.CO-03",
+      "name": "Güvenlik olaylarının etkileri hafifletilmektedir (mitigation)"
+    },
+    {
+      "id": "RC.RP-01",
+      "name": "Kurtarma planı yürütülmektedir"
+    },
+    {
+      "id": "RC.RP-02",
+      "name": "Kurtarma planları seçilmekte ve uygulanmaktadır"
+    },
+    {
+      "id": "RC.RP-03",
+      "name": "Yedeklerin ve diğer geri yükleme varlıklarının bütünlüğü doğrulanmaktadır"
+    },
+    {
+      "id": "RC.RP-04",
+      "name": "Sistemler ve varlıklar geri yüklenmektedir (restoration)"
+    },
+    {
+      "id": "RC.RP-05",
+      "name": "Geri yüklenen varlıkların bütünlüğü doğrulanmaktadır"
+    },
+    {
+      "id": "RC.RP-06",
+      "name": "Güvenlik olayının sona erdiği ilan edilmektedir"
+    },
+    {
+      "id": "RC.CO-01",
+      "name": "Halkla ilişkiler yönetilmektedir"
+    },
+    {
+      "id": "RC.CO-02",
+      "name": "Bir güvenlik olayından sonra itibar onarılmaktadır"
+    },
+    {
+      "id": "RC.CO-03",
+      "name": "Kurtarma faaliyetleri iç paydaşlara iletilmektedir"
+    },
+    {
+      "id": "RC.CO-04",
+      "name": "Kurtarma faaliyetleri dış paydaşlara iletilmektedir"
+    }
+  ]
+}

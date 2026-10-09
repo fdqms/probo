@@ -1,0 +1,38 @@
+{
+  "title": "Onaylar",
+  "breadcrumb": "Onaylar",
+  "pending": {
+    "heading": "Onayınızı bekliyor ({{count}})",
+    "summaryTitle_one": "Onaylanacak {{count}} belge",
+    "summaryTitle_other": "Onaylanacak {{count}} belge",
+    "summaryDescription": "Çalışan kurulumunuzu tamamlamak için gereken belgeleri inceleyin ve onaylayın.",
+    "action": "Onaylamaya başla",
+    "itemAction": "Onayla"
+  },
+  "history": {
+    "heading": "İncelendi ({{count}})",
+    "statusApproved": "Onaylandı",
+    "statusRejected": "Reddedildi"
+  },
+  "empty": {
+    "none": {
+      "title": "Henüz onay isteği yok",
+      "description": "Onayınızın gerektiği belgeler burada görünecektir."
+    },
+    "allDone": {
+      "title": "Tüm işlemleri tamamladınız",
+      "description": "Güncelsiniz. Daha önce incelediğiniz belgeler aşağıda listelenmiştir."
+    }
+  },
+  "document": {
+    "instruction": "Bu belgeyi inceleyin, ardından onaylayın veya reddedin.",
+    "reviewAndApprove": "İncele ve onayla",
+    "reject": "Reddet",
+    "approved": "Bu belgeyi onayladınız.",
+    "rejected": "Bu belgeyi reddettiniz.",
+    "voided": "Bu onay artık gerekli değil.",
+    "goToNext": "Sonraki belgeye geç",
+    "finish": "Onayları bitir",
+    "backToList": "Onaylara geri dön"
+  }
+}

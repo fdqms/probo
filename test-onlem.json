@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Erişim Kontrolü Politikası",
+    "category": "Erişim Yönetimi",
+    "reference-id": "AC-01",
+    "description": "aciklama test",
+    "standards": [
+      {
+        "framework": "NISTCSF-2.0",
+        "control": "PR.AA-01"
+      },
+      {
+        "framework": "SOC2",
+        "control": "CC6.1"
+      }
+    ],
+    "tasks": [
+      {
+        "name": "Erişim politikasını belgele",
+        "description": "Erişim kontrolüne ilişkin politika dokümanını hazırla ve onaylat.",
+        "reference-id": "AC-01-T1",
+        "requested-evidences": [
+          {
+            "reference-id": "AC-01-T1-E1",
+            "type": "FILE",
+            "name": "Erişim Kontrolü Politikası PDF"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,412 @@
+[
+  {
+    "category": "Uyum & Hukuk",
+    "name": "GDPR uyumsuzluğu nedeniyle yasal ceza",
+    "description": "GDPR gibi veri gizliliği yasalarına uyulmaması, para cezalarına ve itibar zedelenmesine yol açar."
+  },
+  {
+    "category": "Uyum & Hukuk",
+    "name": "Fikri mülkiyet ihlali",
+    "description": "Üçüncü taraf içerik veya yazılımların uygun lisanslama olmadan kullanılması veya entegre edilmesi, davalarla veya ürünlerin yayından kaldırılmasıyla sonuçlanır."
+  },
+  {
+    "category": "Uyum & Hukuk",
+    "name": "İş hukuku ihlalleri yoluyla yasal risk",
+    "description": "Çalışanların yanlış sınıflandırılması veya iş yasalarına uyulmaması, cezalara veya yasal anlaşmazlıklara yol açabilir."
+  },
+  {
+    "category": "Uyum & Hukuk",
+    "name": "Eksik lisanslar veya izinler nedeniyle işin durdurulması",
+    "description": "Gerekli ticari yetki ve izinler olmadan faaliyet göstermek, para cezalarına veya faaliyetin zorunlu olarak durdurulmasına neden olur."
+  },
+  {
+    "category": "Uyum & Hukuk",
+    "name": "Kötü hazırlanmış sözleşmeler nedeniyle sözleşme riski",
+    "description": "Zayıf sözleşmeler anlaşmazlıklara, teslimatların aksamasına veya gelir kaybına yol açar."
+  },
+  {
+    "category": "Uyum & Hukuk",
+    "name": "Sınır ötesi operasyonların yetki alanı riski yaratması",
+    "description": "Yerel yasaları anlamadan birden fazla ülkede faaliyet göstermek, şirketi para cezalarına veya yasaklara maruz bırakır."
+  },
+  {
+    "category": "Uyum & Hukuk",
+    "name": "Bulut depolama ile veri egemenliği sorunu",
+    "description": "Kullanıcı verilerinin yanlış yetki alanında depolanması, yerel veri egemenliği yasalarını ihlal eder."
+  },
+  {
+    "category": "Uyum & Hukuk",
+    "name": "Üretken yapay zekanın (Generative AI) kötüye kullanımı nedeniyle fikri mülkiyet ihlali",
+    "description": "Uygun içerik kontrolleri olmadan üretken yapay zeka kullanımı, telif hakkı veya ticari marka korumalarını ihlal eden çıktılar yaratabilir."
+  },
+  {
+    "category": "Siber Güvenlik",
+    "name": "Oltalama (Phishing) yoluyla veri ihlali",
+    "description": "Çalışanları hedef alan oltalama saldırıları, kimlik bilgileri gibi hassas verilere yetkisiz erişime yol açarak veri ihlaliyle sonuçlanabilir."
+  },
+  {
+    "category": "Siber Güvenlik",
+    "name": "Kritik sistemleri kilitleyen fidye yazılımı (Ransomware)",
+    "description": "Saldırganlar kritik iş verilerini ve sistemlerini şifreleyerek erişimi geri yüklemek için fidye talep edebilir. Bu durum operasyonları aksatır ve mali kayba neden olabilir."
+  },
+  {
+    "category": "Siber Güvenlik",
+    "name": "Kötü niyetli veya ihmalkar çalışan (İç tehdit)",
+    "description": "Bir çalışan hassas verileri sızdırabilir veya sistemleri tehlikeye atarak veri kaybına veya operasyonel hasara yol açabilir."
+  },
+  {
+    "category": "Siber Güvenlik",
+    "name": "Fikri mülkiyetin (IP) çalınması",
+    "description": "Rakipler dahil olmak üzere saldırganlar, tasarımlar, algoritmalar veya ticari sırlar dahil olmak üzere fikri mülkiyeti çalarak rekabet avantajına zarar verebilir."
+  },
+  {
+    "category": "Siber Güvenlik",
+    "name": "Yama yapılmamış güvenlik açıklarının istismarı",
+    "description": "Güvenlik yamalarının zamanında uygulanmaması, sistemleri bilinen açıklar (exploit) karşısında savunmasız bırakarak saldırganların kritik sistemleri ele geçirmesine veya kontrol etmesine olanak tanır."
+  },
+  {
+    "category": "Siber Güvenlik",
+    "name": "Dağıtık hizmet reddi (DDoS) saldırısı",
+    "description": "Bir DDoS saldırısı, çevrimiçi hizmetlerinizi sahte trafikle boğarak müşteriler için erişilemez hale getirir, operasyonel kesintiye ve itibar zedelenmesine neden olur."
+  },
+  {
+    "category": "Siber Güvenlik",
+    "name": "Şirket verilerini tehlikeye atan üçüncü taraf tedarikçi ihlali",
+    "description": "Sistemlerinize erişimi olan bir üçüncü taraf tedarikçinin ihlale uğraması durumunda, tedarikçi tarafındaki zayıf güvenlik nedeniyle hassas verileriniz açığa çıkabilir."
+  },
+  {
+    "category": "Siber Güvenlik",
+    "name": "Zayıf veya var olmayan yedekleme stratejisi nedeniyle veri kaybı",
+    "description": "Yetersiz veya var olmayan yedeklemeler, kalıcı veri kaybına yol açarak operasyonları uzun süre durdurabilir."
+  },
+  {
+    "category": "Siber Güvenlik",
+    "name": "Zayıf kimlik doğrulama yoluyla hesapların ele geçirilmesi",
+    "description": "Zayıf parolalar veya çok faktörlü kimlik doğrulamanın (MFA) olmaması, hesaplara ve kritik iş sistemlerine yetkisiz erişime yol açabilir."
+  },
+  {
+    "category": "Siber Güvenlik",
+    "name": "Müşteri verisi sızıntısından kaynaklanan itibar zedelenmesi",
+    "description": "Hassas müşteri verilerini açığa çıkaran bir ihlal, güveni azaltarak ve potansiyel olarak gelir kaybına yol açarak önemli bir itibar zedelenmesine neden olabilir."
+  },
+  {
+    "category": "Siber Güvenlik",
+    "name": "Cezalara yol açan yasal uyumsuzluk",
+    "description": "Veri koruması için yasal standartların (ör. GDPR) karşılanmaması, bir ihlal veya kural ihlali sonrasında para cezalarına ve yasal işlemlere neden olabilir."
+  },
+  {
+    "category": "Siber Güvenlik",
+    "name": "Sosyal mühendislik (kimliğe bürünme veya BEC) yoluyla dolandırıcılık",
+    "description": "Yöneticileri veya tedarikçileri taklit etmek gibi sosyal mühendislik taktikleri, çalışanları hileli ödemeler yapmaları için kandırarak mali kayba neden olabilir."
+  },
+  {
+    "category": "Siber Güvenlik",
+    "name": "Veri ifşasına yol açan cihaz hırsızlığı",
+    "description": "Uygun şifreleme veya uzaktan silme yetenekleri olmadan çalışan cihazlarının kaybolması veya çalınması, hassas şirket verilerinin açığa çıkmasına neden olabilir."
+  },
+  {
+    "category": "Siber Güvenlik",
+    "name": "Veri ifşasına neden olan bulut yanlış yapılandırması (Cloud Misconfiguration)",
+    "description": "Yanlış yapılandırılmış bulut ortamları hassas verileri (ör. herkese açık depolama alanları) yanlışlıkla açığa çıkararak veri sızıntılarına yol açabilir."
+  },
+  {
+    "category": "Siber Güvenlik",
+    "name": "Veri ihlallerine yol açan API istismarları",
+    "description": "Zayıf güvenlikli veya savunmasız API'ler istismar edilebilir ve saldırganların arka uçtaki hassas verilere erişmesine, bunları değiştirmesine veya çalmasına olanak tanır."
+  },
+  {
+    "category": "Siber Güvenlik",
+    "name": "Gizlilik ihlallerine yol açan çalışanların verileri yanlış işlemesi",
+    "description": "Eğitimsiz veya ihmalkar çalışanlar hassas verileri yanlış kullanarak kazara ifşaya veya gizlilik yasası ihlallerine neden olabilir."
+  },
+  {
+    "category": "Siber Güvenlik",
+    "name": "Sosyal medya platformlarında hesap ele geçirme (Account Hijacking)",
+    "description": "Saldırganlar şirketinizin sosyal medya hesaplarını ele geçirirse, zararlı içerik yayınlayabilir veya hileli faaliyetlerde bulunarak markaya zarar verebilir."
+  },
+  {
+    "category": "Siber Güvenlik",
+    "name": "Veri ifşasına neden olan zayıf şifreleme",
+    "description": "Hassas verilerin yetersiz şifrelenmesi, ağda yakalanması veya hırsızlık durumunda verilerin açığa çıkmasına yol açarak verileri saldırganlar için kolayca erişilebilir hale getirebilir."
+  },
+  {
+    "category": "Siber Güvenlik",
+    "name": "Etkisiz değişiklik yönetimi süreci",
+    "description": "Yazılım sistemlerindeki değişiklikler üzerinde uygun kontrol olmadan yapılan yetkisiz veya test edilmemiş değişiklikler güvenlik açıkları oluşturabilir."
+  },
+  {
+    "category": "Siber Güvenlik",
+    "name": "Yetersiz olay müdahale planı (Incident Response Plan)",
+    "description": "Kötü tanımlanmış veya test edilmemiş bir müdahale planı, bir güvenlik ihlaline tepki olarak ekibin yavaş veya yetersiz yanıt vermesine yol açabilir."
+  },
+  {
+    "category": "Siber Güvenlik",
+    "name": "Yetersiz loglama ve izleme (Logging & Monitoring)",
+    "description": "Uygun loglama ve izleme olmadan, şüpheli faaliyetler veya güvenlik olayları fark edilmeyebilir."
+  },
+  {
+    "category": "Finans",
+    "name": "Nakit akışı sıkıntısı",
+    "description": "Yüksek nakit yakma oranı veya geciken gelir nedeniyle fonların tükenmesi, girişimin erken kapanmasını zorunlu kılar."
+  },
+  {
+    "category": "Finans",
+    "name": "Geciken kaynak yaratma (fundraising) nedeniyle büyümenin durgunlaşması",
+    "description": "Yatırım sağlamadaki gecikmeler, ürün geliştirmeyi, işe alımı veya genişleme planlarını durdurur."
+  },
+  {
+    "category": "Finans",
+    "name": "Yatırımcılarla uyumsuzluk",
+    "description": "Kurucular ve yatırımcılar arasında stratejik vizyon veya kilometre taşları konusundaki farklılıklar çatışmalara veya desteklerin geri çekilmesine neden olur."
+  },
+  {
+    "category": "Finans",
+    "name": "Fiyatlandırma stratejisi nedeniyle gelir kaybı",
+    "description": "Ürün fiyatlarını çok yüksek veya düşük belirlemek, müşterileri uzaklaştırır veya sürdürülemez kar marjlarına yol açar."
+  },
+  {
+    "category": "Finans",
+    "name": "Gelirin az sayıda müşteride yoğunlaşması",
+    "description": "Bir veya iki büyük müşteriye aşırı bağımlılık, bu müşterilerin ayrılması durumunda nakit akışını savunmasız hale getirir."
+  },
+  {
+    "category": "Finans",
+    "name": "Yanlış varsayımlardan kaynaklanan tahmin (forecasting) hataları",
+    "description": "İyimser projeksiyonlara dayanan zayıf finansal planlama, yetersiz sermaye ile sonuçlanır."
+  },
+  {
+    "category": "Finans",
+    "name": "Ödeme yapmayan müşterilerin borç birikimine yol açması",
+    "description": "Uygun inceleme (vetting) yapılmadan ödeme öncesi hizmet verilmesi, batık borç birikimine yol açar."
+  },
+  {
+    "category": "İnsan Kaynakları",
+    "name": "Yetenekleri çekememe işe alım gecikmesine yol açar",
+    "description": "Marka görünürlüğü, kaynaklar veya cazibe eksikliği, şirketin ihtiyaç duyduğu yetenekli personeli işe almasını engeller."
+  },
+  {
+    "category": "İnsan Kaynakları",
+    "name": "Zayıf işe alım uyumu kültürün bozulmasına yol açar",
+    "description": "Şirketin değerleri veya hızı ile uyumlu olmayan bireyleri işe almak çatışmaya neden olur ve takım içi uyumu azaltır."
+  },
+  {
+    "category": "İnsan Kaynakları",
+    "name": "Kurucu ortak anlaşmazlığı nedeniyle liderlik çöküşü",
+    "description": "Hisseler, vizyon veya roller konusunda kurucular arasındaki anlaşmazlıklar liderliği zedeler ve şirketi tehlikeye atar."
+  },
+  {
+    "category": "İnsan Kaynakları",
+    "name": "Sürdürülemez tempo ekibin tükenmişliğine yol açar",
+    "description": "İş/yaşam dengesi olmayan yoğun çalışma ortamları, yüksek çalışan devri oranlarına ve azalan üretkenliğe yol açar."
+  },
+  {
+    "category": "İnsan Kaynakları",
+    "name": "Gecikmiş işe alım nedeniyle liderlik boşlukları",
+    "description": "Önemli liderlik işe alımlarını ertelemek, karar alma kalitesini ve kurumsal büyümeyi sınırlar."
+  },
+  {
+    "category": "İnsan Kaynakları",
+    "name": "Homojen kültür; çeşitliliği, eşitliği ve kapsayıcılığı sınırlar",
+    "description": "Çeşitlilik eksikliği inovasyonu, morali ve paydaş algısını olumsuz etkiler."
+  },
+  {
+    "category": "Operasyon",
+    "name": "Kırılgan altyapı ölçeklenmeyi engeller",
+    "description": "Ölçeklenmek üzere tasarlanmamış sistemler veya süreçler, hızlı büyüme altında çöker."
+  },
+  {
+    "category": "Operasyon",
+    "name": "Tek bir araca bağımlılık nedeniyle operasyonel kesinti",
+    "description": "Operasyonlar için tek bir SaaS aracına güvenmek, erişimin kaybedilmesi veya hizmet sağlayıcının iflas etmesi durumunda güvenlik açığı yaratır."
+  },
+  {
+    "category": "Operasyon",
+    "name": "Belgelenmiş süreç eksikliğinin müşteri hizmetlerini etkilemesi",
+    "description": "Belgelenmiş prosedürlerin olmaması nedeniyle oluşan tutarsız uygulamalar, müşteri deneyimini olumsuz etkiler."
+  },
+  {
+    "category": "Operasyon",
+    "name": "Verimsiz iç süreçler nedeniyle yürütme gecikmeleri",
+    "description": "Verimsiz veya manuel iş akışları, temel operasyonlar genelinde yürütmeyi yavaşlatır, kaliteyi düşürür ve maliyetleri artırır."
+  },
+  {
+    "category": "Operasyon",
+    "name": "Tedarikçi bağımlılığı yoluyla tedarik kesintisi",
+    "description": "Tek tedarikçilere veya hizmet sağlayıcılara aşırı güven, kesintiler meydana geldiğinde operasyonel duraklamalara neden olur."
+  },
+  {
+    "category": "Operasyon",
+    "name": "Önemli kişilerin ayrılmasıyla bilgi kaybı",
+    "description": "Yedek planlar olmadan kritik bir çalışanın kaybedilmesi, temel faaliyetleri ve stratejik sürekliliği aksatır."
+  },
+  {
+    "category": "Operasyon",
+    "name": "Ürün/hizmet başarısızlığı nedeniyle müşteri kaybı (Churn)",
+    "description": "Hatalar, kesintiler veya düşük ürün performansı, kullanıcıları uzaklaştırır ve uzun vadeli marka güvenine zarar verir."
+  },
+  {
+    "category": "İtibar",
+    "name": "Olumsuz halk incelemeleriyle marka hasarı",
+    "description": "Kötü müşteri deneyimi veya halkın tepkisi, özellikle dijital platformlarda itibara hızla zarar verir."
+  },
+  {
+    "category": "İtibar",
+    "name": "Etik olmayan davranışlar yoluyla itibar kaybı",
+    "description": "Etik olmayan davranışlarda bulunmak veya bunlarla ilişkilendirilmek, halkın eleştirisine ve güven kaybına yol açar."
+  },
+  {
+    "category": "İtibar",
+    "name": "Şeffaflık eksikliği nedeniyle güven erozyonu",
+    "description": "Sorunları gizlemek veya paydaşlarla açıkça iletişim kurmamak, güvenilirliği ve itimadı zedeler."
+  },
+  {
+    "category": "İtibar",
+    "name": "Kötü kriz yönetimi nedeniyle itibar kaybı",
+    "description": "Kesinti veya ihlal gibi olayların yanlış yönetilmesi, halkın tepkisini büyütür."
+  },
+  {
+    "category": "İtibar",
+    "name": "Yanlış bilgilerin sosyal medya ile yayılması",
+    "description": "Sosyal platformlardaki hatalı adımlar veya yanlış bilgiler hızla yayılarak markaya zarar verir."
+  },
+  {
+    "category": "İtibar",
+    "name": "Aşırı vaatlerde bulunmak güvenilirliği etkiler",
+    "description": "Yerine getirilmeyen iddialı sözler vermek, müşteriler ve yatırımcılar nezdinde güvene zarar verir."
+  },
+  {
+    "category": "İtibar",
+    "name": "Yapay zeka şeffaflığı eksikliği nedeniyle müşteri tepkisi",
+    "description": "Yapay zekanın kullanıcılara açıklanmayan yollarla kullanılması, güveni zedeler veya veri koruma düzenlemelerini ihlal ederek şikayetlere ve yaptırımlara yol açar."
+  },
+  {
+    "category": "Stratejik",
+    "name": "Müşteri ihtiyaçlarıyla uyumsuzluk nedeniyle pazar başarısızlığı",
+    "description": "Gerçek pazar talebini anlayamama veya buna yanıt verememe, ürünün reddedilmesine ve zayıf satış performansına yol açar."
+  },
+  {
+    "category": "Stratejik",
+    "name": "Yön değiştirme (Pivot) yetersizliği",
+    "description": "Piyasa geri bildirimlerine rağmen etkisiz bir iş modeline bağlı kalmak, fırsatların kaybedilmesine ve şirketin başarısız olmasına neden olur."
+  },
+  {
+    "category": "Stratejik",
+    "name": "Pazarın bozulması nedeniyle rekabet kaybı",
+    "description": "Daha iyi veya daha ucuz çözümler sunan yeni veya mevcut rakipler, pazar payını ve müşteri tabanını hızla aşındırır."
+  },
+  {
+    "category": "Stratejik",
+    "name": "Ortaklık nedeniyle operasyonel istikrarsızlık",
+    "description": "Güvenilmez veya uyumsuz ortaklar teslimat gecikmelerine, hizmet arızalarına veya itibar zedelenmesine neden olabilir."
+  },
+  {
+    "category": "Stratejik",
+    "name": "Odaklanmamış genişleme markayı sulandırır",
+    "description": "İlgisiz pazarlara çok hızlı genişlemek, markanın değerini düşürür ve müşterilerin kafasını karıştırır."
+  },
+  {
+    "category": "Stratejik",
+    "name": "Zayıf farklılaşma, pazar çekişini (Traction) sınırlar",
+    "description": "Açık bir değer teklifinin (value proposition) olmaması, öne çıkmayı zorlaştırarak zayıf bir pazar çekişine yol açar."
+  },
+  {
+    "category": "Stratejik",
+    "name": "Kurucu vizyon uyumsuzluğu",
+    "description": "Kurucular arasında uzun vadeli vizyon farklılıkları, kopuk stratejilere ve ilerlemenin durmasına yol açar."
+  },
+  {
+    "category": "Teknoloji",
+    "name": "Birikmiş teknik borç (Technical Debt) ile geliştirme darboğazları",
+    "description": "Kısa vadeli kodlama kısayolları ölçeklenebilirliği sınırlar ve maliyetli yeniden düzenleme (refactoring) gerektirerek gelecekteki geliştirmeleri geciktirir."
+  },
+  {
+    "category": "Teknoloji",
+    "name": "Aşırı mühendislik (Overengineering) ile kaynak israfı",
+    "description": "Müşteri değeri düşük olan özellikleri aşırı karmaşık geliştirmek, gereksiz zorluklara ve kaynak tükenmesine yol açar."
+  },
+  {
+    "category": "Teknoloji",
+    "name": "Platform kilitlenmesi (Vendor Lock-in) nedeniyle teknoloji bağımlılığı",
+    "description": "Şartları değiştiren veya kapanan üçüncü taraf bir platforma güvenmek, operasyonları aksatır ve geçiş (migration) yapmaya zorlar."
+  },
+  {
+    "category": "Teknoloji",
+    "name": "Gölge BT (Shadow IT) güvenlik açığı getirir",
+    "description": "Çalışanların onaylanmamış araçları kullanması, güvenlik boşluklarına ve uyumluluk risklerine neden olur."
+  },
+  {
+    "category": "Teknoloji",
+    "name": "Güncel olmayan teknoloji yığını (Tech Stack) performansı sınırlar",
+    "description": "Teknoloji altyapısını güncellememek performansı düşürür ve entegrasyon zorluklarını artırır."
+  },
+  {
+    "category": "Teknoloji",
+    "name": "Zayıf test kapsamı sistem arızalarına yol açar",
+    "description": "Sürümden önce yetersiz test yapmak, hatalara, çökmelere ve kötü kullanıcı deneyimine yol açar."
+  },
+  {
+    "category": "Teknoloji",
+    "name": "Dengesiz eğitim verileri yapay zekada önyargıya yol açar",
+    "description": "Eksik veya önyargılı veri kümeleri üzerinde eğitilen yapay zeka sistemleri, ayrımcı veya yanlış sonuçlar üreterek uyumluluk ve adalet riski taşır."
+  },
+  {
+    "category": "Teknoloji",
+    "name": "Yapay zeka modellerine aşırı güven, karar başarısızlığına yol açar",
+    "description": "İnsan gözetimi olmadan kritik kararlar alan otomatik sistemler, stratejik veya operasyonel hatalara neden olur."
+  },
+  {
+    "category": "Teknoloji",
+    "name": "Yapay zeka tarafından oluşturulan kod güvenlik açıkları nedeniyle güvenlik riski",
+    "description": "Uygun doğrulamadan yoksun ve yapay zeka tarafından oluşturulan kod, üretim sistemlerine güvenlik açıkları veya arka kapılar (backdoors) getirir."
+  },
+  {
+    "category": "Sağlık",
+    "name": "Hasta verilerine yetkisiz erişim yoluyla HIPAA ihlali",
+    "description": "Yetkisiz çalışanların veya üçüncü tarafların uygun erişim kontrolü olmadan hasta verilerine erişmesi ciddi HIPAA ihlallerine yol açabilir."
+  },
+  {
+    "category": "Sağlık",
+    "name": "ePHI'nin güvenli olmayan şekilde depolanması yoluyla veri ihlali",
+    "description": "Hasta verilerinin şifreleme veya yeterli güvenlik kontrolleri olmadan saklanması, yetkisiz erişime ve zorunlu ihlal raporlamasına yol açabilir."
+  },
+  {
+    "category": "Sağlık",
+    "name": "Eksik HIPAA dokümantasyonu yoluyla denetim başarısızlığı",
+    "description": "Eksik politikalar, prosedürler veya risk değerlendirmeleri, bir HIPAA denetimi veya soruşturması sırasında uyumsuzluk bulgularına neden olabilir."
+  },
+  {
+    "category": "Sağlık",
+    "name": "Geciken olay bildirimi yoluyla ihlal bildirimi başarısızlığı",
+    "description": "ePHI içeren bir ihlalin HIPAA'nın gerektirdiği zaman dilimi içinde bildirilmemesi, ek para cezalarına ve itibar zedelenmesine yol açabilir."
+  },
+  {
+    "category": "Sağlık",
+    "name": "Uyumsuz iş ortakları (Business Associates) yoluyla tedarikçi riski",
+    "description": "Bir iş ortaklığı sözleşmesi (BAA) veya uygun kontroller olmadan ePHI işleyen üçüncü taraf hizmet sağlayıcılar, kuruluşunuzu sorumluluk altına sokabilir."
+  },
+  {
+    "category": "Sağlık",
+    "name": "Erişim kontrollerinin aşırı kısıtlanması yoluyla iş akışı kesintisi",
+    "description": "ePHI erişimindeki aşırı sınırlamalar, özellikle zamana duyarlı ortamlarda operasyonları bozabilir veya bakımı geciktirebilir."
+  },
+  {
+    "category": "Sağlık",
+    "name": "Uygunsuz ePHI ifşası yoluyla gizlilik şikayeti",
+    "description": "Hasta verilerinin yetkisiz kişilerle (ör. pazarlama veya harici ortaklar) kazara veya uygunsuz şekilde paylaşılması şikayetlere ve soruşturmalara yol açabilir."
+  },
+  {
+    "category": "Sağlık",
+    "name": "Tutarsız saklama politikaları yoluyla veri saklama riski",
+    "description": "ePHI'yi gerekenden daha uzun süre saklamak veya zamanından önce silmek, düzenlemeleri ihlal edebilir veya hasta hizmetlerini bozabilir."
+  },
+  {
+    "category": "Sağlık",
+    "name": "Hedefli kimlik bilgisi saldırıları yoluyla oltalama (Phishing) uzlaşısı",
+    "description": "ePHI içeren sistemlere giriş kimlik bilgilerine erişmeyi hedefleyen oltalama e-postaları, yetkisiz veri erişimine ve düzenleyici ihlallere yol açabilir."
+  },
+  {
+    "category": "Sağlık",
+    "name": "Güncel olmayan risk analizi yoluyla güvenlik sapması (Security Drift)",
+    "description": "HIPAA güvenlik risk değerlendirmenizin düzenli olarak güncellenmemesi, yeni sistemlerde, tedarikçilerde veya iş akışlarında güvenlik kör noktalarına neden olabilir."
+  }
+]

@@ -1,0 +1,911 @@
+{
+  "newPortalPage": {
+    "pageTitle": "Yeni uyumluluk portalı",
+    "title": "Uyumluluk portalı oluştur",
+    "description": "Yeni bir herkese açık uyumluluk portalı kurun. URL uzantısı, sayfa oluşturulduğunda otomatik olarak atanır.",
+    "fields": {
+      "entityName": {
+        "label": "Varlık adı",
+        "placeholder": "Acme A.Ş."
+      }
+    },
+    "actions": {
+      "create": "Uyumluluk portalı oluştur",
+      "creating": "Oluşturuluyor..."
+    },
+    "messages": {
+      "created": "uyumluluk portalı başarıyla oluşturuldu",
+      "successTitle": "Başarılı"
+    },
+    "errors": {
+      "create": "Uyumluluk portalı oluşturulamadı",
+      "title": "Hata"
+    }
+  },
+  "aliasField": {
+    "messages": {
+      "updated": "Takma ad başarıyla güncellendi.",
+      "removed": "Takma ad başarıyla kaldırıldı."
+    },
+    "errors": {
+      "update": "Takma ad güncellenemedi",
+      "remove": "Takma ad kaldırılamadı"
+    },
+    "placeholder": "ör. gizlilik-politikasi"
+  },
+  "hostingPage": {
+    "title": "Barındırma (Hosting)",
+    "description": "Portalınızı yayınlayın ve özel bir alan adı üzerinde sunun."
+  },
+  "visitorsPage": {
+    "title": "Ziyaretçiler",
+    "description": "Gizli belgeleri kimlerin okuyabileceğini kontrol edin ve Gizlilik Sözleşmesi (NDA) isteyin."
+  },
+  "integrationsPage": {
+    "title": "Entegrasyonlar",
+    "description": "Ekibinizin erişim taleplerinden haberdar olması için Slack'i bağlayın."
+  },
+  "brandingPage": {
+    "title": "Markalaşma",
+    "description": "Ziyaretçilerin ilk göreceği görünümü, profili ve özel bağlantıları ayarlayın."
+  },
+  "contentPage": {
+    "title": "İçerik",
+    "description": "Açılış sayfasında gösterilecek Framework'leri, taahhütleri ve referansları seçin."
+  },
+  "rightRequestsPage": {
+    "title": "Hak Talepleri",
+    "description": "Ziyaretçilerin portal üzerinden veri öznesi (data subject) hak talepleri göndermesine izin verin."
+  },
+  "accessPage": {
+    "description": "Portalınız herkese açıktır. Belge talep etmek veya Gizlilik Sözleşmesi kabul etmek için oturum açan kişiler burada görünür."
+  },
+  "visitorPage": {
+    "back": "Ziyaretçiler",
+    "joinedOn": "Katılım tarihi: {{date}}",
+    "messages": {
+      "updated": "Erişim güncellendi"
+    },
+    "errors": {
+      "update": "Erişim güncellenemedi"
+    }
+  },
+  "accessList": {
+    "empty": "Henüz ziyaretçi yok",
+    "emptyDescription": "Portalınızda oturum açan kişiler burada görünecektir.",
+    "emptyFiltered": "Eşleşen ziyaretçi yok",
+    "emptyFilteredDescription": "Farklı bir isim veya e-posta deneyin ya da aramayı temizleyin.",
+    "search": {
+      "placeholder": "İsim veya e-postaya göre ara"
+    },
+    "sort": {
+      "label": "Şuna göre sırala:",
+      "ariaLabel": "Sıralama ölçütü: {{value}}",
+      "requests": "Talep sayısına göre",
+      "joined": "Katılım tarihine göre"
+    },
+    "actions": {
+      "showMore": "Daha Fazla Göster",
+      "clearSearch": "Aramayı temizle"
+    }
+  },
+  "accessListItem": {
+    "requested_one": "{{count}} talebi incele",
+    "requested_other": "{{count}} talebi incele",
+    "nda": {
+      "signed": "Gizlilik Sözleşmesi imzalandı",
+      "processing": "Gizlilik Sözleşmesi işleniyor",
+      "pending": "Gizlilik Sözleşmesi bekliyor",
+      "failed": "Gizlilik Sözleşmesi başarısız oldu"
+    },
+    "actions": {
+      "open": "Ziyaretçiyi aç"
+    }
+  },
+  "documentAccessList": {
+    "title": "Kısıtlı Belge Erişimleri",
+    "actions": {
+      "grant": "Yetkilendir",
+      "reject": "Reddet",
+      "revoke": "İptal et",
+      "rejectOrRevoke": "Reddet veya iptal et",
+      "cancel": "İptal",
+      "showMore": "Daha Fazla Göster"
+    },
+    "selection": {
+      "count": "{{count}} seçildi",
+      "clear": "Seçimi temizle",
+      "selectAll": "Tümünü seç",
+      "selectRow": "{{title}} seç"
+    },
+    "grantConfirm": {
+      "title": "{{count}} belge yetkilendirilsin mi?",
+      "description": "Bu ziyaretçi seçilen belgeleri okuyabilecek.",
+      "confirm": "Yetkilendir"
+    },
+    "rejectOrRevokeConfirm": {
+      "title": "{{count}} belge reddedilsin veya iptal edilsin mi?",
+      "description": "Yetki verilen belgeler iptal edilecek. Bekleyen talepler reddedilecek.",
+      "confirm": "Reddet veya iptal et"
+    },
+    "empty": "Kullanılabilir belge yok",
+    "emptyFilter": "Bu duruma sahip belge yok",
+    "filter": {
+      "label": "Durum",
+      "all": "Tüm durumlar",
+      "none": "Hiçbiri"
+    }
+  },
+  "electronicSignature": {
+    "title": "Gizlilik Sözleşmesi",
+    "certificateTitle": "Tamamlama sertifikası",
+    "status": {
+      "signed": "Elektronik olarak imzalandı",
+      "processing": "İmza işlemi devam ediyor",
+      "pending": "İmza bekleniyor",
+      "failed": "İmza işlemi başarısız oldu"
+    },
+    "descriptions": {
+      "signedAt": "Bu ziyaretçi elektronik olarak {{date}} tarihinde imzaladı.",
+      "pending": "Bu ziyaretçi henüz imzalamadı.",
+      "processing": "Bu imza işlemi hala devam ediyor.",
+      "failed": "Bu imza tamamlanamadı.",
+      "completed": "Bu ziyaretçi elektronik olarak imzaladı."
+    },
+    "actions": {
+      "download": "İndir"
+    },
+    "activity": "Aktivite"
+  },
+  "eventTypeLabel": {
+    "documentViewed": "Belgeyi görüntüledi",
+    "consentGiven": "Elektronik imza atmayı kabul etti",
+    "fullNameTyped": "İsmini yazdı",
+    "signatureAccepted": "İmza atmayı kabul etti",
+    "signatureCompleted": "İmza kaydedildi",
+    "sealComputed": "Belge mühürlendi",
+    "timestampRequested": "Zaman damgası eklendi",
+    "certificateGenerated": "Sertifika oluşturuldu",
+    "processingError": "İşleme başarısız oldu"
+  },
+  "auditsPage": {
+    "title": "Denetimler",
+    "description": "Denetim raporlarını ve uyumluluk sertifikalarını yönetin"
+  },
+  "auditList": {
+    "columns": {
+      "displayed": "Görüntülenen",
+      "framework": "Framework",
+      "name": "İsim",
+      "validUntil": "Geçerlilik Tarihi",
+      "state": "Durum",
+      "visibility": "Görünürlük"
+    },
+    "empty": "Kullanılabilir denetim yok"
+  },
+  "auditListItem": {
+    "messages": {
+      "visibilityUpdated": "Denetim portalı ayarları başarıyla güncellendi.",
+      "removed": "Denetim portaldan kaldırıldı."
+    },
+    "errors": {
+      "updateVisibility": "Denetim görünürlüğü güncellenemedi",
+      "remove": "Denetim portaldan kaldırılamadı"
+    },
+    "actions": {
+      "toggle": "{{title}} öğesini uyumluluk portalında değiştir"
+    },
+    "noExpiry": "Süresiz",
+    "untitled": "İsimsiz",
+    "states": {
+      "not_started": "Başlamadı",
+      "in_progress": "Devam Ediyor",
+      "completed": "Tamamlandı",
+      "rejected": "Reddedildi",
+      "outdated": "Süresi Dolmuş"
+    }
+  },
+  "brandPage": {
+    "messages": {
+      "updated": "Uyumluluk portalı markalaşması başarıyla güncellendi"
+    },
+    "errors": {
+      "update": "Uyumluluk portalı markalaşması güncellenemedi",
+      "fileTooLarge": {
+        "title": "Dosya boyutu çok büyük",
+        "description": "Dosya boyutu çok büyük. Lütfen 5 MB'tan küçük bir dosya yükleyin."
+      }
+    },
+    "actions": {
+      "uploading": "Yükleniyor...",
+      "noLogo": "Logo yok",
+      "uploadLogo": "Logo yükle",
+      "uploadDarkLogo": "Karanlık tema logosu yükle",
+      "changeLogo": "Logoyu değiştir",
+      "removeLogo": "Logoyu kaldır",
+      "changeDarkLogo": "Karanlık tema logosunu değiştir",
+      "removeDarkLogo": "Karanlık tema logosunu kaldır"
+    },
+    "logo": {
+      "label": "Logo",
+      "description": "Bu logo herkese açık uyumluluk portalınızda görüntülenecektir.",
+      "alt": "uyumluluk portalı logosu",
+      "uploadDescription": "Logo resmi yükle (PNG, JPG, SVG, 5 MB'a kadar WEBP)"
+    },
+    "darkLogo": {
+      "label": "Karanlık tema logosu",
+      "description": "Bu logo, karanlık mod etkinleştirildiğinde kullanılacaktır.",
+      "alt": "uyumluluk portalı karanlık logosu",
+      "uploadDescription": "Karanlık tema logosu yükle (PNG, JPG, SVG, 5 MB'a kadar WEBP)"
+    },
+    "profile": {
+      "title": "Genel bilgiler",
+      "description": "Ziyaretçilere gösterilen açıklama ve iletişim bilgileri.",
+      "errors": {
+        "update": "Uyumluluk portalı bilgileri güncellenemedi"
+      },
+      "validation": {
+        "emailInvalid": "Lütfen geçerli bir e-posta adresi girin"
+      },
+      "fields": {
+        "entityName": "Varlık adı",
+        "entityNamePlaceholder": "Acme",
+        "description": "Açıklama",
+        "descriptionPlaceholder": "Ziyaretçiler için kısa açıklama",
+        "websiteUrl": "Web sitesi URL'si",
+        "email": "E-posta",
+        "emailPlaceholder": "iletisim@example.com",
+        "address": "Merkez Adresi",
+        "addressPlaceholder": "123 Ana Cd, Şehir, Ülke"
+      }
+    }
+  },
+  "commitmentDialog": {
+    "title": {
+      "create": "Taahhüt Ekle",
+      "edit": "Taahhüdü Düzenle"
+    },
+    "validation": {
+      "iconRequired": "Simge gereklidir",
+      "titleRequired": "Başlık gereklidir",
+      "descriptionRequired": "Açıklama gereklidir"
+    },
+    "messages": {
+      "created": "Taahhüt başarıyla oluşturuldu",
+      "updated": "Taahhüt başarıyla güncellendi"
+    },
+    "errors": {
+      "create": "Taahhüt oluşturulamadı",
+      "update": "Taahhüt güncellenemedi"
+    },
+    "fields": {
+      "icon": "Simge",
+      "iconPlaceholder": "Bir simge seçin",
+      "eyebrow": "Üst Başlık",
+      "eyebrowPlaceholder": "Başlığın üzerindeki küçük vurgu etiketi",
+      "title": "Başlık",
+      "titlePlaceholder": "Taahhüt başlığı",
+      "description": "Açıklama",
+      "descriptionPlaceholder": "Destekleyici gövde metni"
+    },
+    "actions": {
+      "add": "Taahhüt Ekle",
+      "update": "Taahhüdü Güncelle"
+    },
+    "icons": {
+      "lock_key": "Kilit ve anahtar",
+      "eye_slash": "Çizgili göz",
+      "fingerprint": "Parmak izi",
+      "shield_warning": "Uyarı kalkanı",
+      "shield_check": "Onaylı kalkan",
+      "siren": "Siren",
+      "key": "Anahtar",
+      "lock": "Kilit",
+      "cloud": "Bulut",
+      "database": "Veritabanı",
+      "globe": "Küre",
+      "eye": "Göz",
+      "users": "Kullanıcılar",
+      "certificate": "Sertifika",
+      "gavel": "Tokmak",
+      "heartbeat": "Kalp atışı",
+      "bell": "Zil",
+      "bug": "Böcek (Bug)",
+      "code": "Kod",
+      "server": "Sunucu"
+    }
+  },
+  "commitmentGroupDialog": {
+    "title": {
+      "create": "Grup Ekle",
+      "edit": "Grubu Düzenle"
+    },
+    "validation": {
+      "titleRequired": "Başlık gereklidir",
+      "descriptionRequired": "Açıklama gereklidir"
+    },
+    "messages": {
+      "created": "Grup başarıyla oluşturuldu",
+      "updated": "Grup başarıyla güncellendi"
+    },
+    "errors": {
+      "create": "Grup oluşturulamadı",
+      "update": "Grup güncellenemedi"
+    },
+    "fields": {
+      "title": "Başlık",
+      "titlePlaceholder": "ör. Veri Koruma",
+      "description": "Açıklama",
+      "descriptionPlaceholder": "Bu taahhüt grubunun neleri kapsadığını açıklayın"
+    },
+    "actions": {
+      "add": "Grup Ekle",
+      "update": "Grubu Güncelle"
+    }
+  },
+  "commitmentGroupList": {
+    "title": "Güvenlik Taahhütleri",
+    "description": "Taahhüt kartlarını uyumluluk portalınızda gösterilecek bölümler halinde gruplandırın",
+    "messages": {
+      "orderUpdated": "Sıra başarıyla güncellendi"
+    },
+    "errors": {
+      "updateOrder": "Sıra güncellenemedi"
+    },
+    "actions": {
+      "addGroup": "Grup Ekle"
+    },
+    "empty": "Henüz taahhüt grubu yok"
+  },
+  "commitmentGroupListItem": {
+    "messages": {
+      "deleted": "Grup başarıyla silindi",
+      "orderUpdated": "Sıra başarıyla güncellendi"
+    },
+    "errors": {
+      "delete": "Grup silinemedi",
+      "updateOrder": "Sıra güncellenemedi"
+    },
+    "delete": {
+      "title": "Grubu Sil",
+      "description": "\"{{title}}\" grubunu silmek istediğinizden emin misiniz?",
+      "warning": "Bu gruptaki tüm taahhüt kartları da silinecektir. Bu işlem geri alınamaz."
+    },
+    "columns": {
+      "icon": "Simge",
+      "title": "Başlık",
+      "description": "Açıklama"
+    },
+    "actions": {
+      "deleting": "Siliniyor...",
+      "delete": "Sil",
+      "addCommitment": "Taahhüt Ekle"
+    },
+    "empty": "Henüz taahhüt kartı yok"
+  },
+  "commitmentListItem": {
+    "messages": {
+      "deleted": "Taahhüt başarıyla silindi"
+    },
+    "errors": {
+      "delete": "Taahhüt silinemedi"
+    }
+  },
+  "documentsPage": {
+    "title": "Belgeler",
+    "description": "Politikaları, prosedürleri ve uyumluluk belgelerini yönetin"
+  },
+  "documentList": {
+    "columns": {
+      "displayed": "Görüntülenen",
+      "name": "İsim",
+      "type": "Tür",
+      "alias": "Takma Ad",
+      "visibility": "Görünürlük"
+    },
+    "empty": "Kullanılabilir aktif yayınlanmış belge yok"
+  },
+  "documentListItem": {
+    "messages": {
+      "visibilityUpdated": "Belge portalı ayarları başarıyla güncellendi.",
+      "removed": "Belge portaldan kaldırıldı."
+    },
+    "errors": {
+      "updateVisibility": "Belge görünürlüğü güncellenemedi",
+      "remove": "Belge portaldan kaldırılamadı"
+    },
+    "actions": {
+      "toggle": "{{title}} öğesini uyumluluk portalında değiştir"
+    }
+  },
+  "thirdPartyListItem": {
+    "messages": {
+      "linked": "Alt veri işleyen (subprocessor) portala eklendi.",
+      "removed": "Alt veri işleyen portaldan kaldırıldı."
+    },
+    "errors": {
+      "link": "Alt veri işleyen portala eklenemedi",
+      "remove": "Alt veri işleyen portaldan kaldırılamadı"
+    },
+    "actions": {
+      "toggle": "{{title}} öğesini uyumluluk portalında değiştir"
+    }
+  },
+  "thirdPartyList": {
+    "columns": {
+      "displayed": "Görüntülenen",
+      "name": "İsim",
+      "category": "Kategori"
+    },
+    "empty": "Kullanılabilir alt veri işleyen (subprocessor) yok"
+  },
+  "referenceList": {
+    "columns": {
+      "name": "İsim",
+      "description": "Açıklama"
+    },
+    "empty": "Kullanılabilir referans yok",
+    "dragHint": "Görüntülenen sırayı değiştirmek için referansları sürükleyip bırakın"
+  },
+  "referencesPage": {
+    "title": "Referanslar",
+    "description": "Müşterilerinizi ve iş ortaklarınızı uyumluluk portalınızda sergileyin",
+    "actions": {
+      "add": "Referans ekle"
+    }
+  },
+  "statusSection": {
+    "title": "Görünürlük",
+    "description": "Uyumluluk portalınızı yayınlayın ve arama motorlarının bulup bulamayacağını seçin.",
+    "activation": {
+      "titleActive": "Uyumluluk portalı aktif",
+      "titleInactive": "Uyumluluk portalı inaktif",
+      "description": "Müşteri güveni oluşturmak için uyumluluk portalınızı herkese açık hale getirin"
+    },
+    "indexing": {
+      "title": "Arama motoru indeksleme",
+      "description": "Arama motorlarının uyumluluk portalınızı indekslemesine ve keşfedilebilir yapmasına izin verin",
+      "disabledHint": "Arama motoru indekslemesini etkinleştirmek için önce uyumluluk portalınızı aktif hale getirin"
+    },
+    "rightsRequests": {
+      "title": "Hak talepleri",
+      "description": "Ziyaretçilerin uyumluluk portalınız üzerinden veri öznesi hak talepleri göndermesine izin verin"
+    }
+  },
+  "domainsSection": {
+    "title": "Alan Adları (Domains)",
+    "description": "Uyumluluk portalınız varsayılan olarak probopage.com alt alan adında (subdomain) her zaman erişilebilirdir. Ayrıca kendinize ait özel bir alan adında da sunabilirsiniz."
+  },
+  "slackSection": {
+    "title": "Slack bildirimleri",
+    "connectionTitle": "Bildirim kanalı",
+    "notInstalledTitle": "Slack botu kurulu değil",
+    "description": "Bu uyumluluk portalı için erişim taleplerinin nereye gönderileceğini seçin.",
+    "notInstalled": "Bir kanal seçmeden önce kuruluş ayarlarından Probo Slack uygulamasını kurun.",
+    "channel": {
+      "label": "Kanal",
+      "placeholder": "Kanal seç",
+      "help": "Seçmeden önce @Probo'yu bir kanala davet edin.",
+      "emptyTitle": "Henüz bir Slack kanalı yok",
+      "emptyDescription": "Slack'te @Probo'yu bir kanala davet edin, ardından bu listeyi tekrar açın."
+    },
+    "actions": {
+      "clear": "Temizle",
+      "install": "Kur",
+      "refresh": "Yenile",
+      "loadingMore": "Yükleniyor…"
+    }
+  },
+  "externalUrls": {
+    "title": "Özel bağlantılar",
+    "description": "Uyumluluk portalınızda görüntülenecek harici URL'leri ekleyin",
+    "validation": {
+      "nameRequired": "İsim gereklidir",
+      "urlInvalid": "Lütfen geçerli bir URL girin"
+    },
+    "messages": {
+      "created": "Bağlantı başarıyla eklendi.",
+      "updated": "Bağlantı başarıyla güncellendi.",
+      "deleted": "Bağlantı kaldırıldı.",
+      "orderUpdated": "Sıra güncellendi."
+    },
+    "errors": {
+      "create": "Bağlantı eklenemedi.",
+      "update": "Bağlantı güncellenemedi.",
+      "delete": "Bağlantı kaldırılamadı.",
+      "orderUpdate": "Sıra güncellenemedi."
+    },
+    "dialog": {
+      "titleCreate": "Bağlantı ekle",
+      "titleEdit": "Bağlantıyı düzenle"
+    },
+    "fields": {
+      "url": "URL",
+      "urlPlaceholder": "https://example.com",
+      "name": "İsim",
+      "namePlaceholder": "örneğin, Twitter veya LinkedIn"
+    },
+    "actions": {
+      "add": "Bağlantı ekle",
+      "save": "Değişiklikleri kaydet",
+      "open": "Bağlantıyı aç",
+      "remove": "Bağlantıyı kaldır"
+    },
+    "dragHint": "Görüntülenen sırayı değiştirmek için sürükleyip bırakın"
+  },
+  "sendUpdateDialog": {
+    "title": "Abonelere güncelleme gönder",
+    "description": "Bu güncelleme, bu e-posta listesinin tüm mevcut abonelerine gönderilecektir. Bu işlem geri alınamaz.",
+    "messages": {
+      "enqueued": "Güncelleme teslimat için kuyruğa alındı"
+    },
+    "errors": {
+      "enqueue": "Güncelleme teslimat için kuyruğa alınamadı"
+    },
+    "actions": {
+      "send": "Gönder"
+    }
+  },
+  "newSubscriberDialog": {
+    "title": "Abone ekle",
+    "description": "Güvenlik ve uyumluluk güncellemelerini almak için bir kişi ekleyin",
+    "validation": {
+      "fullNameRequired": "Ad ve soyad gereklidir",
+      "emailRequired": "E-posta gereklidir",
+      "emailInvalid": "Lütfen geçerli bir e-posta adresi girin"
+    },
+    "messages": {
+      "created": "Abone başarıyla eklendi"
+    },
+    "errors": {
+      "create": "Abone eklenemedi"
+    },
+    "fields": {
+      "fullName": "Ad ve soyad",
+      "fullNamePlaceholder": "John Doe",
+      "email": "E-posta adresi",
+      "emailPlaceholder": "john@example.com",
+      "skipConfirmation": "Onay e-postasını atla"
+    },
+    "consentNotice": "Bu kutuyu işaretleyerek, bu iletişimleri alması için söz konusu bireyden yürürlükteki veri koruma mevzuatına (örneğin GDPR ve CAN-SPAM) uygun olarak doğrulanabilir ön izin aldığınızı beyan edersiniz. Gerekli durumlarda izin kanıtını göstermenin tüm sorumluluğunu kabul edersiniz.",
+    "actions": {
+      "create": "Abone ekle"
+    }
+  },
+  "updateFormDialog": {
+    "title": {
+      "view": "Güncellemeyi görüntüle",
+      "edit": "Güncellemeyi düzenle",
+      "create": "Güncelleme ekle"
+    },
+    "validation": {
+      "titleRequired": "Başlık gereklidir",
+      "bodyRequired": "Gövde metni gereklidir"
+    },
+    "messages": {
+      "created": "Güncelleme başarıyla oluşturuldu",
+      "updated": "Güncelleme başarıyla kaydedildi"
+    },
+    "errors": {
+      "create": "Güncelleme oluşturulamadı",
+      "update": "Güncelleme kaydedilemedi"
+    },
+    "confidentialityNotice": "Bu güncellemeye gizli veya hassas bilgiler eklemeyin. Koruma gerektiren herhangi bir içerik bunun yerine Gizlilik Sözleşmesi (NDA) ile sınırlandırılmış belgelerinizin arkasına yerleştirilmelidir.",
+    "fields": {
+      "title": "Başlık",
+      "body": "Gövde metni"
+    },
+    "sentNotice": "Bu güncelleme gönderilmiştir ve artık düzenlenemez.",
+    "actions": {
+      "save": "Kaydet",
+      "create": "Oluştur"
+    }
+  },
+  "updatesList": {
+    "messages": {
+      "deleted": "Güncelleme başarıyla silindi"
+    },
+    "errors": {
+      "delete": "Güncelleme silinemedi"
+    },
+    "empty": "Henüz güncelleme yok",
+    "columns": {
+      "title": "Başlık",
+      "status": "Durum",
+      "created": "Oluşturulma Tarihi"
+    },
+    "status": {
+      "sent": "Gönderildi",
+      "enqueued": "Kuyrukta",
+      "processing": "İşleniyor…",
+      "draft": "Taslak"
+    },
+    "actions": {
+      "send": "Gönder",
+      "edit": "Güncellemeyi düzenle",
+      "view": "Güncellemeyi görüntüle",
+      "delete": "Güncellemeyi sil",
+      "showMore": "Daha fazla göster"
+    }
+  },
+  "mailingList": {
+    "messages": {
+      "deleted": "Abone başarıyla kaldırıldı"
+    },
+    "errors": {
+      "delete": "Abone silinemedi"
+    },
+    "empty": "Henüz e-posta listesi abonesi yok",
+    "columns": {
+      "name": "İsim",
+      "email": "E-posta",
+      "status": "Durum",
+      "subscribedOn": "Abone olma tarihi"
+    },
+    "status": {
+      "confirmed": "Onaylandı",
+      "pending": "Bekliyor"
+    },
+    "actions": {
+      "delete": "Aboneyi sil",
+      "showMore": "Daha fazla göster"
+    }
+  },
+  "newFileDialog": {
+    "title": "Dosya ekle",
+    "uploadDescription": "Dosya yükle (maks. 10MB)",
+    "selectedFile": "Seçilen dosya: {{name}}",
+    "validation": {
+      "nameRequired": "İsim gereklidir",
+      "categoryRequired": "Kategori gereklidir",
+      "fileTypeNotAllowed": "Dosya türüne izin verilmiyor"
+    },
+    "messages": {
+      "created": "Dosya başarıyla yüklendi"
+    },
+    "errors": {
+      "create": "Dosya yüklenemedi"
+    },
+    "fields": {
+      "name": "İsim",
+      "category": "Kategori",
+      "visibility": "Görünürlük"
+    },
+    "actions": {
+      "add": "Dosya ekle"
+    }
+  },
+  "editFileDialog": {
+    "title": "Dosyayı düzenle",
+    "validation": {
+      "nameRequired": "İsim gereklidir",
+      "categoryRequired": "Kategori gereklidir"
+    },
+    "messages": {
+      "updated": "Dosya başarıyla güncellendi"
+    },
+    "errors": {
+      "update": "Dosya güncellenemedi"
+    },
+    "fields": {
+      "name": "İsim",
+      "category": "Kategori"
+    },
+    "actions": {
+      "save": "Kaydet"
+    }
+  },
+  "deleteFileDialog": {
+    "title": "Dosyayı sil",
+    "description": "Bu dosyayı silmek istediğinizden emin misiniz? Bu işlem geri alınamaz.",
+    "messages": {
+      "deleted": "Dosya başarıyla silindi"
+    },
+    "errors": {
+      "delete": "Dosya silinemedi"
+    },
+    "actions": {
+      "delete": "Sil"
+    }
+  },
+  "fileListItem": {
+    "messages": {
+      "updated": "Dosya başarıyla güncellendi"
+    },
+    "errors": {
+      "update": "Dosya güncellenemedi"
+    },
+    "actions": {
+      "download": "İndir",
+      "edit": "Düzenle",
+      "delete": "Sil"
+    }
+  },
+  "fileList": {
+    "columns": {
+      "name": "İsim",
+      "category": "Kategori",
+      "uploadDate": "Yükleme tarihi",
+      "alias": "Takma Ad",
+      "visibility": "Görünürlük"
+    },
+    "empty": "Kullanılabilir dosya yok"
+  },
+  "filesPage": {
+    "title": "Dosyalar",
+    "description": "Uyumluluk portalınız için dosyaları yükleyin ve yönetin",
+    "actions": {
+      "add": "Dosya ekle"
+    }
+  },
+  "customDomainForm": {
+    "title": "Özel bir alan adı ekle",
+    "messages": {
+      "created": "Alan adı başarıyla eklendi. Alan adınızı doğrulamak ve etkinleştirmek için DNS kayıtlarını yapılandırın."
+    },
+    "errors": {
+      "create": "Alan adı eklenemedi"
+    },
+    "fields": {
+      "domain": "Alan Adı (Domain)",
+      "domainPlaceholder": "uyumluluk.example.com",
+      "domainInvalid": "Lütfen geçerli bir alan adı girin (ör. uyumluluk.example.com)"
+    },
+    "examples": "Örnekler: uyumluluk.example.com, guven.example.com",
+    "actions": {
+      "add": "Alan adı ekle"
+    }
+  },
+  "deleteDomainDialog": {
+    "title": "Özel alan adını sil",
+    "description": "Bu işlem, {{domain}} özel alan adını ve tüm yapılandırmasını kalıcı olarak silecektir.",
+    "warning": "Bu işlem geri alınamaz.",
+    "confirmationLabel": "Silme işlemini onaylamak için aşağıya \"{{domain}}\" yazın:",
+    "confirmationMismatch": "Değer, alan adıyla eşleşmiyor.",
+    "messages": {
+      "deleted": "Alan adı başarıyla silindi"
+    },
+    "errors": {
+      "delete": "Alan adı silinemedi"
+    },
+    "actions": {
+      "delete": "Alan adını sil",
+      "cancel": "İptal"
+    }
+  },
+  "domainCard": {
+    "managed": "Yönetilen",
+    "active": {
+      "title": "Alan adı aktif",
+      "description": "Özel alan adınız doğrulandı ve SSL sertifikası aktif",
+      "dns": "Bu kayıtları yerinde bırakın. Bu alan adının burayı işaret etmesini sağlarlar."
+    },
+    "pending": {
+      "title": "DNS bekleniyor",
+      "description": "DNS kayıtlarını ekledikten sonra doğrulama otomatik olarak gerçekleşecektir. Bunun yayılması birkaç dakika sürebilir.",
+      "dns": "Doğrulamayı tamamlamak için bu kayıtları DNS sağlayıcınıza ekleyin."
+    },
+    "provisioning": {
+      "title": "Sertifika veriliyor",
+      "description": "Bu alan adı için bir SSL sertifikası sağlıyoruz.",
+      "dns": "Bu alan adı kullanımda olduğu sürece bu kayıtlar yerinde kalmalıdır."
+    },
+    "renewing": {
+      "title": "Sertifika yenileniyor",
+      "description": "Yeni bir SSL sertifikası veriliyor. Mevcut olan, yenileme tamamlanana kadar aktif kalır.",
+      "dns": "Bu kayıtlar yenileme sırasında ve tamamlandıktan sonra yerinde kalmalıdır."
+    },
+    "expired": {
+      "title": "Sertifikanın süresi doldu",
+      "description": "Bu alan adının SSL sertifikasının süresi doldu ve yeniden verilmesi gerekiyor.",
+      "dns": "Sertifikayı yeniden verebilmemiz için bu kayıtların hala burayı işaret etmesi gerekiyor."
+    },
+    "failed": {
+      "title": "Sertifika sağlama başarısız oldu",
+      "description": "Bu alan adı için bir SSL sertifikası veremedik.",
+      "dns": "Bu kayıtların DNS sağlayıcınızdakilerle eşleştiğini kontrol edin. Uyuşmazlık, yaygın bir başarısızlık nedenidir."
+    },
+    "error": {
+      "title": "Sağlama hatası"
+    },
+    "sslExpires": "SSL bitiş tarihi: {{date}}",
+    "dns": {
+      "name": "İsim",
+      "value": "Değer",
+      "ttl": "TTL: {{ttl}}",
+      "copy": "Kopyala",
+      "purposePointToServers": "Alan adını Probo sunucularına yönlendir"
+    },
+    "messages": {
+      "copied": "Kopyalandı",
+      "valueCopied": "Değer panoya kopyalandı",
+      "copyFailed": "Kopyalama başarısız",
+      "valueCopyFailed": "Değer panoya kopyalanamadı"
+    },
+    "actions": {
+      "delete": "Sil"
+    }
+  },
+  "frameworkList": {
+    "title": "Uyumluluk Framework'leri",
+    "description": "Herkese açık uyumluluk portalınızda hangi Framework'lerin gösterileceğini seçin.",
+    "empty": "Kullanılabilir Framework yok",
+    "messages": {
+      "visibilityUpdated": "Framework görünürlüğü başarıyla güncellendi."
+    },
+    "errors": {
+      "visibilityUpdate": "Framework görünürlüğü güncellenemedi"
+    }
+  },
+  "ndaSection": {
+    "title": "Gizlilik Sözleşmesi (NDA)",
+    "empty": "Yüklenmiş Gizlilik Sözleşmesi (NDA) dosyası yok",
+    "description": "Ziyaretçiler, gizli belgeleri okuyabilmek için önce bu sözleşmeyi imzalamalıdır.",
+    "dropHint": "Buraya bir PDF bırakın",
+    "dropReplace": "Değiştirmek için bir PDF bırakın",
+    "dropActive": "PDF'i bırak",
+    "actions": {
+      "download": "İndir",
+      "upload": "Gizlilik Sözleşmesi (NDA) Yükle",
+      "replace": "Değiştir",
+      "delete": "Sil",
+      "uploading": "Yükleniyor..."
+    },
+    "delete": {
+      "title": "Gizlilik Sözleşmesini (NDA) Sil",
+      "description": "Gizlilik Sözleşmesi (NDA) dosyasını silmek istediğinizden emin misiniz? Bu işlem geri alınamaz.",
+      "actions": {
+        "delete": "Sil",
+        "cancel": "İptal"
+      }
+    },
+    "errors": {
+      "invalidFileType": {
+        "title": "Desteklenmeyen dosya türü",
+        "description": "Lütfen bir PDF dosyası yükleyin."
+      },
+      "fileTooLarge": {
+        "title": "Dosya boyutu çok büyük",
+        "description": "Lütfen 10 MB'tan küçük bir dosya yükleyin."
+      }
+    }
+  },
+  "subprocessorsPage": {
+    "title": "Alt Veri İşleyenler (Subprocessors)",
+    "description": "Alt veri işleyen değerlendirmelerini ve üçüncü taraf (third-party) risk bilgilerini yönetin"
+  },
+  "updatesPage": {
+    "title": "Güncellemeler",
+    "description": "Abonelere güvenlik ve uyumluluk güncellemeleri gönderin.",
+    "errors": {
+      "update": "E-posta listesi güncellenemedi"
+    },
+    "settings": {
+      "title": "Ayarlar",
+      "description": "E-posta listenizin nasıl davranacağını yapılandırın",
+      "replyTo": "Yanıtlanacak e-posta (Reply-to)",
+      "replyToPlaceholder": "guvenlik@example.com"
+    },
+    "tabs": {
+      "updates": "Güncellemeler",
+      "subscribers": "Aboneler"
+    },
+    "actions": {
+      "addUpdate": "Güncelleme ekle",
+      "addSubscriber": "Abone ekle"
+    }
+  },
+  "documentsLayout": {
+    "tabs": {
+      "audits": "Denetimler",
+      "documents": "Belgeler",
+      "files": "Dosyalar"
+    }
+  },
+  "landingLayout": {
+    "tabs": {
+      "branding": "Markalaşma",
+      "content": "İçerik"
+    }
+  }
+}

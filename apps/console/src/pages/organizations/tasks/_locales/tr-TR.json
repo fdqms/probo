@@ -1,0 +1,107 @@
+{
+  "detailsPage": {
+    "notFound": "Görev bulunamadı",
+    "empty": "—",
+    "none": "Hiçbiri",
+    "noDescription": "Açıklama yok",
+    "descriptionPlaceholder": "Açıklama ekle",
+    "unassigned": "Atanmamış",
+    "fields": {
+      "name": "İsim",
+      "description": "Açıklama",
+      "state": "Durum",
+      "priority": "Öncelik",
+      "assignedTo": "Atanan",
+      "measure": "Ölçü",
+      "timeEstimate": "Tahmini süre",
+      "timeEstimateUnit": "Tahmini süre birimi",
+      "deadline": "Son tarih",
+      "createdAt": "Oluşturulma tarihi",
+      "updatedAt": "Güncellenme tarihi"
+    },
+    "duration": {
+      "S": "Saniye",
+      "M": "Dakika",
+      "H": "Saat",
+      "D": "Gün",
+      "W": "Hafta"
+    },
+    "states": {
+      "backlog": "Bekleyenler (Backlog)",
+      "todo": "Yapılacak",
+      "inProgress": "Devam ediyor",
+      "done": "Bitti",
+      "canceled": "İptal edildi",
+      "duplicate": "Kopya"
+    },
+    "priorities": {
+      "urgent": "Acil",
+      "high": "Yüksek",
+      "medium": "Orta",
+      "low": "Düşük"
+    },
+    "actions": {
+      "addEstimate": "Tahmin ekle",
+      "clearEstimate": "Tahmini temizle",
+      "delete": "Sil",
+      "cancel": "İptal",
+      "more": "Diğer eylemler"
+    },
+    "delete": {
+      "title": "Görevi sil",
+      "description": "Bu görevi silmek istediğinizden emin misiniz?",
+      "confirm": "Sil"
+    },
+    "messages": {
+      "updated": "Görev başarıyla güncellendi.",
+      "deleted": "Görev başarıyla silindi."
+    },
+    "errors": {
+      "delete": "Görev silinemedi",
+      "update": "Görev güncellenemedi"
+    },
+    "comments": {
+      "title": "Yorumlar",
+      "empty": "Henüz yorum yok",
+      "placeholder": "Yorum ekle",
+      "fields": {
+        "description": "Yorum"
+      },
+      "actions": {
+        "submit": "Yorum ekle",
+        "delete": "Yorumu sil",
+        "showMore": "Daha fazla göster"
+      },
+      "delete": {
+        "title": "Yorumu sil",
+        "description": "Bu yorumu silmek istediğinizden emin misiniz?",
+        "confirm": "Sil"
+      },
+      "messages": {
+        "created": "Yorum başarıyla eklendi.",
+        "deleted": "Yorum başarıyla silindi."
+      },
+      "errors": {
+        "create": "Yorum eklenemedi",
+        "delete": "Yorum silinemedi",
+        "descriptionRequired": "Bir yorum girin"
+      }
+    }
+  },
+  "createDialog": {
+    "title": "Yeni görev",
+    "fields": {
+      "namePlaceholder": "Görev adı"
+    },
+    "actions": {
+      "create": "Görev oluştur"
+    },
+    "messages": {
+      "created": "Görev başarıyla oluşturuldu."
+    },
+    "errors": {
+      "create": "Görev oluşturulamadı",
+      "nameRequired": "Bir görev adı girin"
+    }
+  }
+}

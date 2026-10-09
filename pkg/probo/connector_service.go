@@ -1,0 +1,340 @@
+// Copyright (c) 2025-2026 Probo Inc <hello@probo.com>.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+
+package probo
+
+import (
+	"context"
+	"encoding/json"
+	"fmt"
+	"time"
+
+	"go.gearno.de/kit/pg"
+	"go.probo.inc/probo/pkg/connector"
+	"go.probo.inc/probo/pkg/coredata"
+	"go.probo.inc/probo/pkg/gid"
+	"go.probo.inc/probo/pkg/page"
+	"go.probo.inc/probo/pkg/validator"
+)
+
+type (
+	ConnectorService struct {
+		svc *Service
+	}
+
+	CreateConnectorRequest struct {
+		OrganizationID gid.GID
+		Provider       coredata.ConnectorProvider
+		Protocol       coredata.ConnectorProtocol
+		Connection     connector.Connection
+		// RawSettings is the provider-specific settings payload as
+		// already-marshalled JSON. Callers build it from the typed
+		// gqlgen input (or OAuth callback metadata); the service layer
+		// never sees the typed structs.
+		RawSettings json.RawMessage
+	}
+
+	ReconnectConnectorRequest struct {
+		ConnectorID    gid.GID
+		OrganizationID gid.GID
+		Provider       coredata.ConnectorProvider
+		Connection     connector.Connection
+		// RawSettings, when non-empty, replaces the connector's
+		// provider-specific settings on reconnect. Datadog captures its
+		// per-customer API domain on every OAuth callback (the domain
+		// drives the driver's API host), so a reconnect must refresh it;
+		// empty leaves the existing settings intact.
+		RawSettings json.RawMessage
+	}
+)
+
+func (car *CreateConnectorRequest) Validate() error {
+	v := validator.New()
+	v.Check(car.OrganizationID, "organization_id", validator.Required(), validator.GID(coredata.OrganizationEntityType))
+	v.Check(car.Provider, "provider", validator.Required(), validator.OneOfSlice(coredata.ConnectorProviders()))
+	v.Check(car.Protocol, "protocol", validator.Required(), validator.OneOfSlice(coredata.ConnectorProtocols()))
+	v.Check(car.Connection, "connection", validator.Required())
+	v.Check(car.RawSettings, "raw_settings", validJSONRawMessage)
+
+	return v.Error()
+}
+
+// validJSONRawMessage rejects a non-empty RawSettings that does not
+// parse as JSON. Empty RawSettings is allowed (providers without
+// extra settings).
+func validJSONRawMessage(value any) *validator.ValidationError {
+	raw, ok := value.(json.RawMessage)
+	if !ok || len(raw) == 0 {
+		return nil
+	}
+
+	if !json.Valid(raw) {
+		return &validator.ValidationError{
+			Code:    validator.ErrorCodeInvalidFormat,
+			Message: "must be valid JSON",
+		}
+	}
+
+	return nil
+}
+
+func (rcr *ReconnectConnectorRequest) Validate() error {
+	v := validator.New()
+	v.Check(rcr.ConnectorID, "connector_id", validator.Required(), validator.GID(coredata.ConnectorEntityType))
+	v.Check(rcr.OrganizationID, "organization_id", validator.Required(), validator.GID(coredata.OrganizationEntityType))
+	v.Check(rcr.Provider, "provider", validator.Required(), validator.OneOfSlice(coredata.ConnectorProviders()))
+	v.Check(rcr.Connection, "connection", validator.Required())
+	v.Check(rcr.RawSettings, "raw_settings", validJSONRawMessage)
+
+	return v.Error()
+}
+
+func (s *ConnectorService) ListForOrganizationID(
+	ctx context.Context, scope coredata.Scoper,
+	organizationID gid.GID,
+	cursor *page.Cursor[coredata.ConnectorOrderField],
+	filter *coredata.ConnectorFilter,
+) (*page.Page[*coredata.Connector, coredata.ConnectorOrderField], error) {
+	var connectors coredata.Connectors
+
+	err := s.svc.pg.WithConn(
+		ctx,
+		func(ctx context.Context, conn pg.Querier) error {
+			return connectors.LoadByOrganizationIDWithoutDecryptedConnection(
+				ctx,
+				conn,
+				scope,
+				organizationID,
+				cursor,
+				filter,
+			)
+		},
+	)
+	if err != nil {
+		return nil, fmt.Errorf("cannot list connectors: %w", err)
+	}
+
+	return page.NewPage(connectors, cursor), nil
+}
+
+func (s *ConnectorService) ListAllForOrganizationID(
+	ctx context.Context, scope coredata.Scoper,
+	organizationID gid.GID,
+) (coredata.Connectors, error) {
+	var connectors coredata.Connectors
+
+	err := s.svc.pg.WithConn(
+		ctx,
+		func(ctx context.Context, conn pg.Querier) error {
+			return connectors.LoadAllByOrganizationIDWithoutDecryptedConnection(
+				ctx,
+				conn,
+				scope,
+				organizationID,
+			)
+		},
+	)
+	if err != nil {
+		return nil, fmt.Errorf("cannot list all connectors: %w", err)
+	}
+
+	return connectors, nil
+}
+
+// GetWithConnection loads a specific connector by ID and returns the
+// full *coredata.Connector with Connection populated. Used by the
+// initiate handler's explicit reconnect path (?connector_id=<id>),
+// which needs to read the stored scope set to compute the union.
+// Contrast with Get, which uses LoadMetadataByID and returns a
+// connector with Connection == nil.
+func (s *ConnectorService) GetWithConnection(
+	ctx context.Context, scope coredata.Scoper,
+	connectorID gid.GID,
+) (*coredata.Connector, error) {
+	cnnctr := &coredata.Connector{}
+
+	err := s.svc.pg.WithConn(
+		ctx,
+		func(ctx context.Context, conn pg.Querier) error {
+			return cnnctr.LoadByID(ctx, conn, scope, connectorID, s.svc.encryptionKey)
+		},
+	)
+	if err != nil {
+		return nil, fmt.Errorf("cannot get connector: %w", err)
+	}
+
+	return cnnctr, nil
+}
+
+func (s *ConnectorService) Get(
+	ctx context.Context, scope coredata.Scoper,
+	connectorID gid.GID,
+) (*coredata.Connector, error) {
+	connector := &coredata.Connector{}
+
+	err := s.svc.pg.WithConn(
+		ctx,
+		func(ctx context.Context, conn pg.Querier) error {
+			return connector.LoadMetadataByID(ctx, conn, scope, connectorID)
+		},
+	)
+	if err != nil {
+		return nil, fmt.Errorf("cannot get connector: %w", err)
+	}
+
+	return connector, nil
+}
+
+func (s *ConnectorService) Delete(
+	ctx context.Context, scope coredata.Scoper,
+	connectorID gid.GID,
+) error {
+	return s.svc.pg.WithTx(
+		ctx,
+		func(ctx context.Context, tx pg.Tx) error {
+			cnnctr := &coredata.Connector{ID: connectorID}
+			return cnnctr.Delete(ctx, tx, scope)
+		},
+	)
+}
+
+func (s *ConnectorService) Create(
+	ctx context.Context, scope coredata.Scoper,
+	req CreateConnectorRequest,
+) (*coredata.Connector, error) {
+	if err := req.Validate(); err != nil {
+		return nil, fmt.Errorf("invalid request: %w", err)
+	}
+
+	id := gid.New(scope.GetTenantID(), coredata.ConnectorEntityType)
+	now := time.Now()
+
+	newConnector := &coredata.Connector{
+		ID:             id,
+		OrganizationID: req.OrganizationID,
+		Provider:       req.Provider,
+		Protocol:       req.Protocol,
+		Connection:     req.Connection,
+		CreatedAt:      now,
+		UpdatedAt:      now,
+	}
+
+	if len(req.RawSettings) > 0 {
+		newConnector.RawSettings = []byte(req.RawSettings)
+	}
+
+	err := s.svc.pg.WithTx(
+		ctx,
+		func(ctx context.Context, tx pg.Tx) error {
+			if err := newConnector.Insert(ctx, tx, scope, s.svc.encryptionKey); err != nil {
+				return fmt.Errorf("cannot create connector: %w", err)
+			}
+
+			return nil
+		},
+	)
+	if err != nil {
+		return nil, err
+	}
+
+	return newConnector, nil
+}
+
+// Reconnect updates an existing OAuth2 connector's connection (token)
+// in place. It validates that the loaded connector belongs to the
+// expected org and provider inside the same transaction, blocking
+// cross-org and cross-provider corruption via a crafted connector_id
+// in the initiate URL. Refresh tokens and Slack webhook settings are
+// preserved from the existing connection when the new one omits them.
+func (s *ConnectorService) Reconnect(
+	ctx context.Context, scope coredata.Scoper,
+	req ReconnectConnectorRequest,
+) (*coredata.Connector, error) {
+	if err := req.Validate(); err != nil {
+		return nil, fmt.Errorf("cannot reconnect connector: %w", err)
+	}
+
+	cnnctr := &coredata.Connector{}
+
+	err := s.svc.pg.WithTx(
+		ctx,
+		func(ctx context.Context, conn pg.Tx) error {
+			if err := cnnctr.LoadByID(ctx, conn, scope, req.ConnectorID, s.svc.encryptionKey); err != nil {
+				return fmt.Errorf("cannot load connector: %w", err)
+			}
+
+			if cnnctr.OrganizationID != req.OrganizationID {
+				return fmt.Errorf("cannot reconnect connector: organization mismatch")
+			}
+
+			if cnnctr.Provider != req.Provider {
+				return fmt.Errorf("cannot reconnect connector: provider mismatch")
+			}
+
+			expectedProtocol := coredata.ConnectorProtocol(req.Connection.Type())
+			if cnnctr.Protocol != expectedProtocol {
+				return fmt.Errorf("cannot reconnect connector: protocol mismatch")
+			}
+
+			preserveConnectionFields(req.Connection, cnnctr.Connection)
+			cnnctr.Connection = req.Connection
+
+			if len(req.RawSettings) > 0 {
+				cnnctr.RawSettings = []byte(req.RawSettings)
+			}
+
+			cnnctr.UpdatedAt = time.Now()
+
+			return cnnctr.Update(ctx, conn, scope, s.svc.encryptionKey)
+		},
+	)
+	if err != nil {
+		return nil, fmt.Errorf("cannot reconnect connector: %w", err)
+	}
+
+	return cnnctr, nil
+}
+
+// preserveConnectionFields copies refresh token and Slack webhook
+// settings from oldConn into newConn when newConn omits them. Google
+// omits refresh_token on incremental-auth reuse; a Slack access-review
+// reconnect with no incoming-webhook scope omits the webhook settings.
+func preserveConnectionFields(newConn, oldConn connector.Connection) {
+	switch n := newConn.(type) {
+	case *connector.OAuth2Connection:
+		if o, ok := oldConn.(*connector.OAuth2Connection); ok {
+			if n.RefreshToken == "" {
+				n.RefreshToken = o.RefreshToken
+			}
+		}
+	case *connector.SlackConnection:
+		if o, ok := oldConn.(*connector.SlackConnection); ok {
+			if n.RefreshToken == "" {
+				n.RefreshToken = o.RefreshToken
+			}
+
+			if n.Settings.WebhookURL == "" {
+				n.Settings.WebhookURL = o.Settings.WebhookURL
+				n.Settings.Channel = o.Settings.Channel
+				n.Settings.ChannelID = o.Settings.ChannelID
+			}
+		}
+	}
+}

@@ -1,0 +1,20 @@
+{
+  "title": "Cihaz kaydet",
+  "unavailable": {
+    "title": "Kayıt kullanılamıyor",
+    "description": "Hiçbir kuruluşta cihaz kaydetme izniniz yok.",
+    "home": "Kuruluşlara geri dön"
+  },
+  "steps": {
+    "organization": {
+      "title": "Kuruluş seç",
+      "description": "Bu cihaza hangi kuruluşun sahip olacağını seçin."
+    }
+  },
+  "organization": {
+    "title": "Kuruluş seç",
+    "description": "Bu cihaza hangi kuruluşun sahip olacağını ve yöneteceğini seçin.",
+    "placeholder": "Bir kuruluş seçin",
+    "continue": "Devam et"
+  }
+}

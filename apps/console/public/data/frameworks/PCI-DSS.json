@@ -1,0 +1,1334 @@
+{
+    "id": "PCI-DSS",
+    "name": "PCI DSS",
+    "logo": {
+      "light": "<svg id=\"Layer_1\" data-name=\"Layer 1\" xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" viewBox=\"0 0 60 60\"><defs><style>.cls-2{stroke:#fcfdfc;stroke-linecap:round;stroke-linejoin:round;}.cls-2,.cls-3{fill:none;}.cls-4{fill:#141e12;stroke-width:0px;}.cls-3{stroke:#141e12;}</style></defs><path class=\"cls-3\" d=\"M45.2334,13.1035c.6201-.0345,1.1977.3163,1.4521.8828l8.4258,18.7627c.3681.8196-.0627,1.7769-.9199,2.0459l-37.0576,11.6299c-.7637.2396-1.5814-.1627-1.8574-.9141L4.9111,17.292c-.3474-.946.318-1.9586,1.3242-2.0147l38.998-2.1738Z\"/><path class=\"cls-4\" d=\"M26.553,28.5203c0,.6231-.1557,1.1682-.4283,1.6745-.2726.4672-.662.8956-1.1682,1.2071-.5062.3115-1.1293.5452-1.8302.7009-.7009.1558-1.4797.2337-2.3754.2337h-.623v3.1931h-4.0498v-10.6307h4.7507c1.7913,0,3.1931.3115,4.2056.8956,1.0124.5841,1.5186,1.5187,1.5186,2.7258ZM22.659,28.5593c0-.9346-.7009-1.4019-2.0638-1.4019h-.5062v2.8427h.4672c.662,0,1.2072-.1169,1.5577-.3505.3504-.1947.5451-.5841.5451-1.0903ZM36.5996,35.5296c-.623.1168-1.324.1947-2.1417.1947-1.1293,0-2.1417-.1169-2.9984-.3894-.8956-.2726-1.6355-.6231-2.2585-1.0904-.6231-.4672-1.0904-1.0513-1.4019-1.7133-.3115-.701-.4673-1.4408-.4673-2.2586s.1558-1.5576.5063-2.2585c.3556-.6763.846-1.2726,1.4408-1.7523.623-.4673,1.3629-.8567,2.2195-1.1293.8567-.2725,1.7913-.3894,2.8037-.3894.7788,0,1.5187.039,2.1807.1558q.662.1558,1.1682.3505v2.8426c-.3894-.2337-.8567-.4284-1.3629-.5452-.5062-.1557-1.0514-.2336-1.5966-.2336-.9345,0-1.6744.2726-2.2585.7398-.5841.5063-.8567,1.2072-.8567,2.1807,0,.4673.0779.8956.2726,1.285.1947.3505.4283.662.7399.8957.3115.2336.6619.4283,1.0903.5451.4283.1168.8567.1947,1.324.1947s.9735-.0389,1.4407-.1557c.4673-.1169.9736-.2337,1.4798-.4673v2.6868l-1.324.3116ZM39.598,24.8989h4.0887v10.6696h-4.0887v-10.6696ZM44.1151,21.55c0,.701-.2337,1.2851-.701,1.6745-.4672.3894-1.0513.623-1.7523.623s-1.285-.1947-1.7523-.623c-.4673-.3894-.7009-.9735-.7009-1.6745,0-.7398.2336-1.285.7009-1.7133.4673-.4284,1.0514-.6231,1.7523-.6231s1.2851.1947,1.7523.6231c.4673.3894.701.9735.701,1.7133Z\"/><circle class=\"cls-4\" cx=\"46.4229\" cy=\"12.5273\" r=\"4\"/><path class=\"cls-2\" d=\"M44.7891,12.8784l.9803.9803,2.2874-2.2874\"/></svg>",
+      "dark": "<svg id=\"Layer_1\" data-name=\"Layer 1\" xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" viewBox=\"0 0 60 60\"><defs><style>.cls-2{stroke:#151715;stroke-linecap:round;stroke-linejoin:round;}.cls-2,.cls-3{fill:none;}.cls-4{fill:#eceeec;stroke-width:0px;}.cls-3{stroke:#eceeec;}</style></defs><path class=\"cls-3\" d=\"M45.2334,13.1035c.6201-.0345,1.1977.3163,1.4521.8828l8.4258,18.7627c.3681.8196-.0627,1.7769-.9199,2.0459l-37.0576,11.6299c-.7637.2396-1.5814-.1627-1.8574-.9141L4.9111,17.292c-.3474-.946.318-1.9586,1.3242-2.0147l38.998-2.1738Z\"/><path class=\"cls-4\" d=\"M26.553,28.5203c0,.6231-.1557,1.1682-.4283,1.6745-.2726.4672-.662.8956-1.1682,1.2071-.5062.3115-1.1293.5452-1.8302.7009-.7009.1558-1.4797.2337-2.3754.2337h-.623v3.1931h-4.0498v-10.6307h4.7507c1.7913,0,3.1931.3115,4.2056.8956,1.0124.5841,1.5186,1.5187,1.5186,2.7258ZM22.659,28.5593c0-.9346-.7009-1.4019-2.0638-1.4019h-.5062v2.8427h.4672c.662,0,1.2072-.1169,1.5577-.3505.3504-.1947.5451-.5841.5451-1.0903ZM36.5996,35.5296c-.623.1168-1.324.1947-2.1417.1947-1.1293,0-2.1417-.1169-2.9984-.3894-.8956-.2726-1.6355-.6231-2.2585-1.0904-.6231-.4672-1.0904-1.0513-1.4019-1.7133-.3115-.701-.4673-1.4408-.4673-2.2586s.1558-1.5576.5063-2.2585c.3556-.6763.846-1.2726,1.4408-1.7523.623-.4673,1.3629-.8567,2.2195-1.1293.8567-.2725,1.7913-.3894,2.8037-.3894.7788,0,1.5187.039,2.1807.1558q.662.1558,1.1682.3505v2.8426c-.3894-.2337-.8567-.4284-1.3629-.5452-.5062-.1557-1.0514-.2336-1.5966-.2336-.9345,0-1.6744.2726-2.2585.7398-.5841.5063-.8567,1.2072-.8567,2.1807,0,.4673.0779.8956.2726,1.285.1947.3505.4283.662.7399.8957.3115.2336.6619.4283,1.0903.5451.4283.1168.8567.1947,1.324.1947s.9735-.0389,1.4407-.1557c.4673-.1169.9736-.2337,1.4798-.4673v2.6868l-1.324.3116ZM39.598,24.8989h4.0887v10.6696h-4.0887v-10.6696ZM44.1151,21.55c0,.701-.2337,1.2851-.701,1.6745-.4672.3894-1.0513.623-1.7523.623s-1.285-.1947-1.7523-.623c-.4673-.3894-.7009-.9735-.7009-1.6745,0-.7398.2336-1.285.7009-1.7133.4673-.4284,1.0514-.6231,1.7523-.6231s1.2851.1947,1.7523.6231c.4673.3894.701.9735.701,1.7133Z\"/><circle class=\"cls-4\" cx=\"46.4229\" cy=\"12.5273\" r=\"4\"/><path class=\"cls-2\" d=\"M44.7891,12.8784l.9803.9803,2.2874-2.2874\"/></svg>"
+    },
+    "controls":[
+        {
+          "id": "1.1",
+          "name": "Ağ güvenlik kontrollerinin kurulması ve sürdürülmesi için süreçler ve mekanizmalar tanımlanmış ve anlaşılmıştır."
+        },
+        {
+          "id": "1.1.1",
+          "name": "Gereksinim 1'de tanımlanan tüm güvenlik politikaları ve operasyonel prosedürler: belgelenmiş, güncel tutulmakta, kullanımda ve etkilenen tüm taraflarca bilinmektedir."
+        },
+        {
+          "id": "1.1.2",
+          "name": "Gereksinim 1'deki faaliyetleri gerçekleştirmek için roller ve sorumluluklar belgelenmiş, atanmış ve anlaşılmıştır."
+        },
+        {
+          "id": "1.2",
+          "name": "Ağ güvenlik kontrolleri (NSC'ler) yapılandırılmış ve sürdürülmektedir."
+        },
+        {
+          "id": "1.2.1",
+          "name": "NSC kural setleri için yapılandırma standartları: tanımlanmış, uygulanmış ve sürdürülmektedir."
+        },
+        {
+          "id": "1.2.2",
+          "name": "Ağ bağlantılarında ve NSC yapılandırmalarındaki tüm değişiklikler, Gereksinim 6.5.1'de tanımlanan değişiklik kontrol sürecine uygun olarak onaylanır ve yönetilir."
+        },
+        {
+          "id": "1.2.3",
+          "name": "Herhangi bir kablosuz ağ dahil olmak üzere CDE (Kart Sahibi Veri Ortamı) ile diğer ağlar arasındaki tüm bağlantıları gösteren doğru bir ağ diyagramı/diyagramları tutulmaktadır."
+        },
+        {
+          "id": "1.2.4",
+          "name": "Sistemler ve ağlar arasındaki tüm hesap veri akışlarını gösteren doğru bir veri akışı diyagramı/diyagramları tutulur ve ortamdaki değişikliklere göre gerektiğinde güncellenir."
+        },
+        {
+          "id": "1.2.5",
+          "name": "İzin verilen tüm servisler, protokoller ve portlar tanımlanmış, onaylanmış ve tanımlı bir iş ihtiyacına sahiptir."
+        },
+        {
+          "id": "1.2.6",
+          "name": "Kullanımda olan ve güvensiz olarak kabul edilen tüm servisler, protokoller ve portlar için riski azaltacak şekilde güvenlik özellikleri tanımlanmış ve uygulanmıştır."
+        },
+        {
+          "id": "1.2.7",
+          "name": "NSC yapılandırmaları, ilgili ve etkili olduklarını doğrulamak için en az altı ayda bir gözden geçirilir."
+        },
+        {
+          "id": "1.2.8",
+          "name": "NSC'ler için yapılandırma dosyaları: yetkisiz erişime karşı güvene alınmış ve aktif ağ yapılandırmalarıyla tutarlı tutulmuştur."
+        },
+        {
+          "id": "1.3",
+          "name": "Kart sahibi veri ortamına giden ve gelen ağ erişimi kısıtlanmıştır."
+        },
+        {
+          "id": "1.3.1",
+          "name": "CDE'ye gelen (inbound) trafik şu şekilde kısıtlanmıştır: sadece gerekli olan trafiğe izin verilir ve diğer tüm trafik özel olarak reddedilir."
+        },
+        {
+          "id": "1.3.2",
+          "name": "CDE'den giden (outbound) trafik şu şekilde kısıtlanmıştır: sadece gerekli olan trafiğe izin verilir ve diğer tüm trafik özel olarak reddedilir."
+        },
+        {
+          "id": "1.3.3",
+          "name": "Kablosuz ağın bir CDE olup olmadığına bakılmaksızın tüm kablosuz ağlar ile CDE arasına NSC'ler kurulmuştur, öyle ki: kablosuz ağlardan CDE'ye gelen tüm kablosuz trafik varsayılan olarak reddedilir ve yalnızca yetkili bir iş amacına sahip kablosuz trafiğin CDE'ye girmesine izin verilir."
+        },
+        {
+          "id": "1.4",
+          "name": "Güvenilen ve güvenilmeyen ağlar arasındaki ağ bağlantıları kontrol edilir."
+        },
+        {
+          "id": "1.4.1",
+          "name": "Güvenilen ve güvenilmeyen ağlar arasında NSC'ler uygulanmıştır."
+        },
+        {
+          "id": "1.4.2",
+          "name": "Güvenilmeyen ağlardan güvenilen ağlara gelen trafik şu şekilde kısıtlanmıştır: halka açık servisler, protokoller ve portlar sağlamaya yetkili sistem bileşenleriyle olan iletişimler; güvenilen bir ağdaki sistem bileşenleri tarafından başlatılan iletişimlere verilen durum bilgili (stateful) yanıtlar; diğer tüm trafik reddedilir."
+        },
+        {
+          "id": "1.4.3",
+          "name": "Sahte (forged) kaynak IP adreslerinin güvenilen ağa girmesini tespit etmek ve engellemek için kimlik sahtekarlığını önleme (anti-spoofing) tedbirleri uygulanmıştır."
+        },
+        {
+          "id": "1.4.4",
+          "name": "Kart sahibi verilerini depolayan sistem bileşenlerine güvenilmeyen ağlardan doğrudan erişilemez."
+        },
+        {
+          "id": "1.4.5",
+          "name": "Dahili IP adreslerinin ve yönlendirme bilgilerinin ifşası yalnızca yetkili taraflarla sınırlandırılmıştır."
+        },
+        {
+          "id": "1.5",
+          "name": "Hem güvenilmeyen ağlara hem de CDE'ye bağlanabilen bilişim cihazlarından CDE'ye gelebilecek riskler azaltılmıştır."
+        },
+        {
+          "id": "1.5.1",
+          "name": "Hem güvenilmeyen ağlara (İnternet dahil) hem de CDE'ye bağlanan şirket ve çalışanlara ait cihazlar dahil olmak üzere herhangi bir bilişim cihazında güvenlik kontrolleri şu şekilde uygulanır: kurumun ağına tehdit girmesini önlemek için özel yapılandırma ayarları tanımlanmıştır; güvenlik kontrolleri aktif olarak çalışmaktadır; güvenlik kontrolleri, sınırlı bir süre için duruma göre yönetim tarafından özel olarak belgelenip yetkilendirilmediği sürece bilişim cihazı kullanıcıları tarafından değiştirilemez."
+        },
+        {
+          "id": "2.1",
+          "name": "Tüm sistem bileşenlerine güvenli yapılandırmaların uygulanmasına yönelik süreçler ve mekanizmalar tanımlanmış ve anlaşılmıştır."
+        },
+        {
+          "id": "2.1.1",
+          "name": "Gereksinim 2'de tanımlanan tüm güvenlik politikaları ve operasyonel prosedürler: belgelenmiş, güncel tutulmakta, kullanımda ve etkilenen tüm taraflarca bilinmektedir."
+        },
+        {
+          "id": "2.1.2",
+          "name": "Gereksinim 2'deki faaliyetleri gerçekleştirmek için roller ve sorumluluklar belgelenmiş, atanmış ve anlaşılmıştır."
+        },
+        {
+          "id": "2.2",
+          "name": "Sistem bileşenleri güvenli bir şekilde yapılandırılmış ve yönetilmektedir."
+        },
+        {
+          "id": "2.2.1",
+          "name": "Yapılandırma standartları aşağıdakileri sağlayacak şekilde geliştirilir, uygulanır ve sürdürülür: tüm sistem bileşenlerini kapsar; bilinen tüm güvenlik açıklarını ele alır; sektörde kabul gören sistem sıkılaştırma (hardening) standartlarıyla veya üretici sıkılaştırma önerileriyle tutarlıdır; Gereksinim 6.3.1'de tanımlandığı üzere yeni güvenlik açıkları tespit edildikçe güncellenir; yeni sistemler yapılandırıldığında uygulanır ve bir sistem bileşeni üretim ortamına bağlanmadan önce veya hemen sonrasında yerinde olduğu doğrulanır."
+        },
+        {
+          "id": "2.2.2",
+          "name": "Üretici varsayılan hesapları şu şekilde yönetilir: üretici varsayılan hesapları kullanılacaksa, varsayılan parola Gereksinim 8.3.6'ya göre değiştirilir; üretici varsayılan hesapları kullanılmayacaksa, hesap kaldırılır veya devre dışı bırakılır."
+        },
+        {
+          "id": "2.2.3",
+          "name": "Farklı güvenlik seviyeleri gerektiren birincil fonksiyonlar şu şekilde yönetilir: bir sistem bileşeninde yalnızca bir birincil fonksiyon bulunur, VEYA aynı sistem bileşeninde bulunan farklı güvenlik seviyelerine sahip birincil fonksiyonlar birbirinden izole edilir, VEYA aynı sistem bileşenindeki farklı güvenlik seviyelerine sahip birincil fonksiyonların tümü, en yüksek güvenlik ihtiyacına sahip fonksiyonun gerektirdiği seviyede güvene alınır."
+        },
+        {
+          "id": "2.2.4",
+          "name": "Yalnızca gerekli servisler, protokoller, daemon'lar ve fonksiyonlar etkinleştirilir ve gereksiz tüm işlevsellik kaldırılır veya devre dışı bırakılır."
+        },
+        {
+          "id": "2.2.5",
+          "name": "Güvensiz herhangi bir servis, protokol veya daemon mevcutsa: iş gerekçesi belgelenir ve güvensiz servisleri, protokolleri veya daemon'ları kullanma riskini azaltan ek güvenlik özellikleri belgelenir ve uygulanır."
+        },
+        {
+          "id": "2.2.6",
+          "name": "Sistem güvenlik parametreleri kötüye kullanımı önleyecek şekilde yapılandırılmıştır."
+        },
+        {
+          "id": "2.2.7",
+          "name": "Konsol dışı tüm yönetimsel erişimler güçlü kriptografi kullanılarak şifrelenir."
+        },
+        {
+          "id": "2.3",
+          "name": "Kablosuz ortamlar güvenli bir şekilde yapılandırılmış ve yönetilmektedir."
+        },
+        {
+          "id": "2.3.1",
+          "name": "CDE'ye bağlı veya hesap verilerini ileten kablosuz ortamlar için kurulum sırasında tüm kablosuz üretici varsayılanları değiştirilir veya güvenli oldukları onaylanır; bunlara şunlar dahildir (ancak bunlarla sınırlı değildir): varsayılan kablosuz şifreleme anahtarları, kablosuz erişim noktalarındaki parolalar, SNMP varsayılanları ve güvenlikle ilgili diğer kablosuz üretici varsayılanları."
+        },
+        {
+          "id": "2.3.2",
+          "name": "CDE'ye bağlı veya hesap verilerini ileten kablosuz ortamlar için kablosuz şifreleme anahtarları şu şekilde değiştirilir: anahtarı bilen personel şirketten veya bu bilginin gerekli olduğu görevden ayrıldığında; bir anahtarın ele geçirildiğinden şüphelenildiğinde veya bilindiğinde."
+        },
+        {
+          "id": "3.1",
+          "name": "Depolanan hesap verilerini korumaya yönelik süreçler ve mekanizmalar tanımlanmış ve anlaşılmıştır."
+        },
+        {
+          "id": "3.1.1",
+          "name": "Gereksinim 3'te tanımlanan tüm güvenlik politikaları ve operasyonel prosedürler: belgelenmiş, güncel tutulmakta, kullanımda ve etkilenen tüm taraflarca bilinmektedir."
+        },
+        {
+          "id": "3.1.2",
+          "name": "Gereksinim 3'teki faaliyetleri gerçekleştirmek için roller ve sorumluluklar belgelenmiş, atanmış ve anlaşılmıştır."
+        },
+        {
+          "id": "3.2",
+          "name": "Hesap verilerinin depolanması minimumda tutulur."
+        },
+        {
+          "id": "3.2.1",
+          "name": "Hesap veri depolaması, en az aşağıdakileri içeren veri saklama ve imha politikalarının, prosedürlerinin ve süreçlerinin uygulanması yoluyla minimumda tutulur: depolanan hesap verilerinin tüm konumlarını kapsama; yetkilendirme tamamlanmadan önce depolanan tüm hassas kimlik doğrulama verilerini (SAD) kapsama; veri depolama miktarını ve saklama süresini yasal, düzenleyici ve/veya iş gereksinimleri için gerekli olanla sınırlama; depolanan hesap verileri için saklama süresinin uzunluğunu tanımlayan ve belgelenmiş bir iş gerekçesi içeren özel saklama gereksinimleri; saklama politikasına göre artık ihtiyaç duyulmadığında hesap verilerini güvenli bir şekilde silme veya kurtarılamaz hale getirme süreçleri; tanımlanan saklama süresini aşan depolanmış hesap verilerinin güvenli bir şekilde silindiğini veya kurtarılamaz hale getirildiğini en az üç ayda bir doğrulamaya yönelik bir süreç."
+        },
+        {
+          "id": "3.3",
+          "name": "Hassas kimlik doğrulama verileri (SAD) yetkilendirmeden sonra saklanmaz."
+        },
+        {
+          "id": "3.3.1",
+          "name": "SAD, şifrelenmiş olsa bile yetkilendirmeden sonra saklanmaz. Alınan tüm hassas kimlik doğrulama verileri, yetkilendirme işlemi tamamlandıktan sonra kurtarılamaz hale getirilir."
+        },
+        {
+          "id": "3.3.1.1",
+          "name": "Herhangi bir track'in (iz) tam içeriği, yetkilendirme işlemi tamamlandıktan sonra saklanmaz."
+        },
+        {
+          "id": "3.3.1.2",
+          "name": "Kart doğrulama kodu (CVC vb.), yetkilendirme işlemi tamamlandıktan sonra saklanmaz."
+        },
+        {
+          "id": "3.3.1.3",
+          "name": "Kişisel kimlik numarası (PIN) ve PIN bloğu, yetkilendirme işlemi tamamlandıktan sonra saklanmaz."
+        },
+        {
+          "id": "3.3.2",
+          "name": "Yetkilendirme tamamlanmadan önce elektronik olarak depolanan SAD, güçlü kriptografi kullanılarak şifrelenir."
+        },
+        {
+          "id": "3.3.3",
+          "name": "İhraççı (issuer) hizmetlerini destekleyen ve hassas kimlik doğrulama verilerini depolayan şirketler için ek gereksinim: hassas kimlik doğrulama verilerinin herhangi bir şekilde depolanması, yalnızca meşru bir ihraç (issuing) iş ihtiyacı için gerekli olanla sınırlıdır, güvene alınır ve güçlü kriptografi kullanılarak şifrelenir."
+        },
+        {
+          "id": "3.4",
+          "name": "Tam PAN'ın görüntülerine erişim ve PAN'ı kopyalama yeteneği kısıtlanmıştır."
+        },
+        {
+          "id": "3.4.1",
+          "name": "Görüntülendiğinde PAN maskelenir (BIN ve son dört hane görüntülenecek maksimum basamak sayısıdır), böylece yalnızca meşru bir iş ihtiyacı olan personel PAN'ın BIN ve son dört hanesinden fazlasını görebilir."
+        },
+        {
+          "id": "3.4.2",
+          "name": "Uzaktan erişim teknolojileri kullanıldığında, belgelenmiş, açık yetkilendirmesi ve meşru, tanımlanmış bir iş ihtiyacı olanlar hariç, tüm personel için teknik kontroller PAN'ın kopyalanmasını ve/veya yerinin değiştirilmesini önler."
+        },
+        {
+          "id": "3.5",
+          "name": "Birincil hesap numarası (PAN) depolandığı her yerde güvene alınır."
+        },
+        {
+          "id": "3.5.1",
+          "name": "PAN, aşağıdaki yaklaşımlardan herhangi biri kullanılarak depolandığı her yerde okunamaz hale getirilir: tüm PAN'ın güçlü kriptografisine dayalı tek yönlü hash'ler; kesme (truncation) (hashleme, PAN'ın kesilmiş parçasını değiştirmek için kullanılamaz); indeks token'ları; ilişkili anahtar yönetimi süreçleri ve prosedürleriyle güçlü kriptografi."
+        },
+        {
+          "id": "3.5.1.1",
+          "name": "PAN'ı okunamaz hale getirmek için kullanılan hash'ler (Gereksinim 3.5.1'in ilk maddesine göre), Gereksinim 3.6 ve 3.7 uyarınca ilişkili anahtar yönetimi süreçleri ve prosedürleriyle tüm PAN'ın anahtarlanmış kriptografik hash'leridir."
+        },
+        {
+          "id": "3.5.1.2",
+          "name": "PAN'ı okunamaz hale getirmek için dosya, sütun veya alan düzeyinde veritabanı şifrelemesi yerine disk düzeyinde veya bölüm düzeyinde şifreleme kullanılıyorsa, bu yalnızca şu şekilde uygulanır: çıkarılabilir elektronik medyada VEYA çıkarılamayan elektronik medya için kullanılıyorsa, PAN ayrıca Gereksinim 3.5.1'i karşılayan başka bir mekanizma ile okunamaz hale getirilir."
+        },
+        {
+          "id": "3.5.1.3",
+          "name": "PAN'ı okunamaz hale getirmek için dosya, sütun veya alan düzeyinde veritabanı şifrelemesi yerine disk düzeyinde veya bölüm düzeyinde şifreleme kullanılıyorsa, şu şekilde yönetilir: mantıksal erişim, yerel işletim sistemi kimlik doğrulamasından ve erişim kontrol mekanizmalarından ayrı ve bağımsız olarak yönetilir; şifre çözme anahtarları kullanıcı hesaplarıyla ilişkilendirilmez; şifrelenmemiş verilere erişim sağlayan kimlik doğrulama faktörleri (parolalar, parola öbekleri veya kriptografik anahtarlar) güvenli bir şekilde saklanır."
+        },
+        {
+          "id": "3.6",
+          "name": "Depolanan hesap verilerini korumak için kullanılan kriptografik anahtarlar güvene alınır."
+        },
+        {
+          "id": "3.6.1",
+          "name": "Depolanan hesap verilerini korumak için kullanılan kriptografik anahtarları ifşa ve kötüye kullanıma karşı korumak için aşağıdakileri içeren prosedürler tanımlanmış ve uygulanmıştır: anahtarlara erişim, gerekli olan en az sayıda emanetçi (custodian) ile sınırlandırılmıştır; anahtar şifreleyen anahtarlar en az korudukları veri şifreleyen anahtarlar kadar güçlüdür; anahtar şifreleyen anahtarlar veri şifreleyen anahtarlardan ayrı olarak saklanır; anahtarlar mümkün olan en az konumda ve biçimde güvenli bir şekilde saklanır."
+        },
+        {
+          "id": "3.6.1.1",
+          "name": "Sadece servis sağlayıcılar için ek gereksinim: Kriptografik mimarinin belgelenmiş bir tanımı aşağıdakileri içerecek şekilde tutulur: anahtar gücü ve son kullanma tarihi dahil olmak üzere depolanan hesap verilerinin korunması için kullanılan tüm algoritmaların, protokollerin ve anahtarların ayrıntıları; üretim ve test ortamlarında aynı kriptografik anahtarların kullanımının önlenmesi; her anahtar için anahtar kullanımının tanımı; anahtar yönetimi için kullanılan herhangi bir HSM, KMS ve diğer SCD'lerin envanteri."
+        },
+        {
+          "id": "3.6.1.2",
+          "name": "Depolanan hesap verilerini şifrelemek/şifresini çözmek için kullanılan gizli ve özel anahtarlar, her zaman aşağıdaki biçimlerden bir (veya daha fazlası) halinde saklanır: en az veri şifreleyen anahtar kadar güçlü olan ve veri şifreleme anahtarından ayrı olarak saklanan bir anahtar şifreleyen anahtarla şifrelenmiş olarak; bir donanım güvenlik modülü (HSM) veya PTS onaylı bir etkileşim noktası (POI) cihazı gibi güvenli bir kriptografik cihaz (SCD) içinde; endüstri tarafından kabul görmüş bir yönteme uygun olarak en az iki tam uzunluklu anahtar bileşeni veya anahtar paylaşımı (key share) olarak."
+        },
+        {
+          "id": "3.6.1.3",
+          "name": "Açık metin (cleartext) kriptografik anahtar bileşenlerine erişim, gerekli olan en az sayıda emanetçi ile sınırlandırılmıştır."
+        },
+        {
+          "id": "3.6.1.4",
+          "name": "Kriptografik anahtarlar mümkün olan en az yerde saklanır."
+        },
+        {
+          "id": "3.7",
+          "name": "Depolanan hesap verilerini korumak için kriptografinin kullanıldığı yerlerde, anahtar yaşam döngüsünün tüm yönlerini kapsayan anahtar yönetimi süreçleri ve prosedürleri tanımlanmış ve uygulanmıştır."
+        },
+        {
+          "id": "3.7.1",
+          "name": "Anahtar yönetimi politikaları ve prosedürleri, depolanan hesap verilerini korumak için kullanılan güçlü kriptografik anahtarların oluşturulmasını içerecek şekilde uygulanmıştır."
+        },
+        {
+          "id": "3.7.2",
+          "name": "Anahtar yönetimi politikaları ve prosedürleri, depolanan hesap verilerini korumak için kullanılan kriptografik anahtarların güvenli dağıtımını içerecek şekilde uygulanmıştır."
+        },
+        {
+          "id": "3.7.3",
+          "name": "Anahtar yönetimi politikaları ve prosedürleri, depolanan hesap verilerini korumak için kullanılan kriptografik anahtarların güvenli depolanmasını içerecek şekilde uygulanmıştır."
+        },
+        {
+          "id": "3.7.4",
+          "name": "İlgili uygulama satıcısı veya anahtar sahibi tarafından tanımlandığı şekilde kriptoperiyodunun sonuna gelmiş anahtarların kriptografik anahtar değişiklikleri için, aşağıdaki endüstri en iyi uygulamaları ve kılavuzlarına dayalı anahtar yönetimi politikaları ve prosedürleri uygulanmıştır: kullanımda olan her anahtar türü için tanımlanmış bir kriptoperiyot; tanımlanmış kriptoperiyodun sonunda anahtar değişiklikleri için bir süreç."
+        },
+        {
+          "id": "3.7.5",
+          "name": "Anahtar yönetimi politikaları ve prosedürleri, gerekli görüldüğünde depolanan hesap verilerini korumak için kullanılan anahtarların kullanımdan kaldırılmasını, değiştirilmesini veya imha edilmesini içerecek şekilde uygulanmıştır: anahtar tanımlanmış kriptoperiyodunun sonuna ulaştığında; açık metin anahtar bileşenini bilen personel şirketten veya anahtar bileşeninin bilindiği görevden ayrıldığında olduğu gibi anahtarın bütünlüğü zayıfladığında; anahtarın ele geçirildiğinden şüphelenildiğinde veya bilindiğinde. Kullanımdan kaldırılan veya değiştirilen anahtarlar şifreleme işlemleri için kullanılmaz."
+        },
+        {
+          "id": "3.7.6",
+          "name": "Manuel açık metin kriptografik anahtar yönetimi operasyonlarının personel tarafından gerçekleştirildiği durumlarda, bu operasyonların bölünmüş bilgi (split knowledge) ve ikili kontrol kullanılarak yönetilmesini içeren anahtar yönetimi politikaları ve prosedürleri uygulanır."
+        },
+        {
+          "id": "3.7.7",
+          "name": "Anahtar yönetimi politikaları ve prosedürleri, kriptografik anahtarların yetkisiz olarak değiştirilmesinin önlenmesini içerecek şekilde uygulanmıştır."
+        },
+        {
+          "id": "3.7.8",
+          "name": "Anahtar yönetimi politikaları ve prosedürleri, kriptografik anahtar emanetçilerinin anahtar emanetçisi sorumluluklarını anladıklarını ve kabul ettiklerini resmi olarak (yazılı veya elektronik olarak) onaylamalarını içerecek şekilde uygulanmıştır."
+        },
+        {
+          "id": "3.7.9",
+          "name": "Sadece servis sağlayıcılar için ek gereksinim: bir servis sağlayıcının hesap verilerinin iletimi veya depolanması için müşterileriyle kriptografik anahtarlar paylaştığı durumlarda, bu tür anahtarların güvenli iletimi, depolanması ve güncellenmesine ilişkin kılavuz belgelenir ve servis sağlayıcının müşterilerine dağıtılır."
+        },
+        {
+          "id": "4.1",
+          "name": "Açık, halka açık ağlar üzerinden iletim sırasında kart sahibi verilerinin güçlü kriptografiyle korunmasına yönelik süreçler ve mekanizmalar tanımlanmış ve anlaşılmıştır."
+        },
+        {
+          "id": "4.1.1",
+          "name": "Gereksinim 4'te tanımlanan tüm güvenlik politikaları ve operasyonel prosedürler: belgelenmiş, güncel tutulmakta, kullanımda ve etkilenen tüm taraflarca bilinmektedir."
+        },
+        {
+          "id": "4.1.2",
+          "name": "Gereksinim 4'teki faaliyetleri gerçekleştirmek için roller ve sorumluluklar belgelenmiş, atanmış ve anlaşılmıştır."
+        },
+        {
+          "id": "4.2",
+          "name": "PAN, iletim sırasında güçlü kriptografi ile korunmaktadır."
+        },
+        {
+          "id": "4.2.1",
+          "name": "Açık, halka açık ağlar üzerinden iletim sırasında PAN'ı korumak için güçlü kriptografi ve güvenlik protokolleri şu şekilde uygulanır: yalnızca güvenilir anahtarlar ve sertifikalar kabul edilir; açık, halka açık ağlar üzerinden iletim sırasında PAN'ı korumak için kullanılan sertifikaların geçerli olduğu doğrulanır, süresi dolmamıştır veya iptal edilmemiştir; kullanımda olan protokol yalnızca güvenli sürümleri veya yapılandırmaları destekler ve güvensiz sürümlere, algoritmalara, anahtar boyutlarına veya uygulamalara geri dönmeyi (fallback) veya bunların kullanımını desteklemez; şifreleme gücü, kullanımda olan şifreleme metodolojisine uygundur."
+        },
+        {
+          "id": "4.2.1.1",
+          "name": "PAN'ı iletim sırasında korumak için kullanılan kurumun güvenilir anahtarlarının ve sertifikalarının envanteri tutulur."
+        },
+        {
+          "id": "4.2.1.2",
+          "name": "PAN ileten veya CDE'ye bağlı kablosuz ağlar, kimlik doğrulama ve iletim için güçlü kriptografi uygulamak üzere sektördeki en iyi uygulamaları kullanır."
+        },
+        {
+          "id": "4.2.2",
+          "name": "PAN, son kullanıcı mesajlaşma teknolojileri aracılığıyla gönderildiğinde güçlü kriptografi ile güvene alınır."
+        },
+        {
+          "id": "5.1",
+          "name": "Tüm sistemleri ve ağları kötü amaçlı yazılımlardan (malware) korumaya yönelik süreçler ve mekanizmalar tanımlanmış ve anlaşılmıştır."
+        },
+        {
+          "id": "5.1.1",
+          "name": "Gereksinim 5'te tanımlanan tüm güvenlik politikaları ve operasyonel prosedürler: belgelenmiş, güncel tutulmakta, kullanımda ve etkilenen tüm taraflarca bilinmektedir."
+        },
+        {
+          "id": "5.1.2",
+          "name": "Gereksinim 5'teki faaliyetleri gerçekleştirmek için roller ve sorumluluklar belgelenmiş, atanmış ve anlaşılmıştır."
+        },
+        {
+          "id": "5.2",
+          "name": "Kötü amaçlı yazılımlar (malware) önlenir veya tespit edilerek müdahale edilir."
+        },
+        {
+          "id": "5.2.1",
+          "name": "Gereksinim 5.2.3 uyarınca periyodik değerlendirmelerde sistem bileşenlerinin kötü amaçlı yazılım riski altında olmadığı sonucuna varılanlar hariç, tüm sistem bileşenlerine bir kötü amaçlı yazılımdan koruma (anti-malware) çözümü dağıtılmıştır."
+        },
+        {
+          "id": "5.2.2",
+          "name": "Dağıtılan anti-malware çözümü(çözümleri): bilinen tüm kötü amaçlı yazılım türlerini tespit eder; bilinen tüm kötü amaçlı yazılım türlerini kaldırır, engeller veya karantinaya alır."
+        },
+        {
+          "id": "5.2.3",
+          "name": "Kötü amaçlı yazılım riski altında olmayan tüm sistem bileşenleri, aşağıdakileri içerecek şekilde periyodik olarak değerlendirilir: kötü amaçlı yazılım riski altında olmayan tüm sistem bileşenlerinin belgelenmiş bir listesi; bu sistem bileşenleri için gelişen kötü amaçlı yazılım tehditlerinin tanımlanması ve değerlendirilmesi; bu tür sistem bileşenlerinin anti-malware korumasına ihtiyaç duymamaya devam edip etmediğinin onaylanması."
+        },
+        {
+          "id": "5.2.3.1",
+          "name": "Kötü amaçlı yazılım riski altında olmadığı belirlenen sistem bileşenlerinin periyodik değerlendirmelerinin sıklığı, Gereksinim 12.3.1'de belirtilen tüm unsurlara göre gerçekleştirilen kurumun hedeflenmiş risk analizinde tanımlanmıştır."
+        },
+        {
+          "id": "5.3",
+          "name": "Kötü amaçlı yazılımdan koruma mekanizmaları ve süreçleri aktiftir, bakımı yapılır ve izlenir."
+        },
+        {
+          "id": "5.3.1",
+          "name": "Anti-malware çözümü otomatik güncellemeler yoluyla güncel tutulur."
+        },
+        {
+          "id": "5.3.2",
+          "name": "Anti-malware çözümü: periyodik taramalar ve aktif veya gerçek zamanlı taramalar gerçekleştirir VEYA sistemlerin veya süreçlerin sürekli davranışsal analizini gerçekleştirir."
+        },
+        {
+          "id": "5.3.2.1",
+          "name": "Gereksinim 5.3.2'yi karşılamak için periyodik kötü amaçlı yazılım taramaları gerçekleştiriliyorsa, taramaların sıklığı, Gereksinim 12.3.1'de belirtilen tüm unsurlara göre gerçekleştirilen kurumun hedeflenmiş risk analizinde tanımlanmıştır."
+        },
+        {
+          "id": "5.3.3",
+          "name": "Çıkarılabilir elektronik medya için anti-malware çözümü: medya takıldığında, bağlandığında veya mantıksal olarak monte edildiğinde otomatik taramalar gerçekleştirir VEYA medya takıldığında, bağlandığında veya mantıksal olarak monte edildiğinde sistemlerin veya süreçlerin sürekli davranışsal analizini gerçekleştirir."
+        },
+        {
+          "id": "5.3.4",
+          "name": "Anti-malware çözümü(çözümleri) için denetim günlükleri (audit logs) etkinleştirilmiş ve Gereksinim 10.5.1 uyarınca saklanmaktadır."
+        },
+        {
+          "id": "5.3.5",
+          "name": "Kötü amaçlı yazılımdan koruma mekanizmaları, yönetim tarafından özel olarak belgelenip yetkilendirilmediği sürece, sınırlı bir süre için duruma göre kullanıcılar tarafından devre dışı bırakılamaz veya değiştirilemez."
+        },
+        {
+          "id": "5.4",
+          "name": "Kimlik avını önleme (anti-phishing) mekanizmaları kullanıcıları kimlik avı saldırılarına karşı korur."
+        },
+        {
+          "id": "5.4.1",
+          "name": "Personeli kimlik avı saldırılarına karşı tespit etmek ve korumak için süreçler ve otomatik mekanizmalar mevcuttur."
+        },
+        {
+          "id": "6.1",
+          "name": "Güvenli sistemlerin ve yazılımların geliştirilmesi ve sürdürülmesi için süreçler ve mekanizmalar tanımlanmış ve anlaşılmıştır."
+        },
+        {
+          "id": "6.1.1",
+          "name": "Gereksinim 6'da tanımlanan tüm güvenlik politikaları ve operasyonel prosedürler: belgelenmiş, güncel tutulmakta, kullanımda ve etkilenen tüm taraflarca bilinmektedir."
+        },
+        {
+          "id": "6.1.2",
+          "name": "Gereksinim 6'daki faaliyetleri gerçekleştirmek için roller ve sorumluluklar belgelenmiş, atanmış ve anlaşılmıştır."
+        },
+        {
+          "id": "6.2",
+          "name": "Özel ısmarlama (bespoke) ve özel (custom) yazılımlar güvenli bir şekilde geliştirilir."
+        },
+        {
+          "id": "6.2.1",
+          "name": "Özel ısmarlama ve özel yazılımlar şu şekilde güvenli bir şekilde geliştirilir: güvenli geliştirme için endüstri standartlarına ve/veya en iyi uygulamalara dayanarak; PCI DSS'e uygun olarak (örneğin, güvenli kimlik doğrulama ve günlükleme); yazılım geliştirme yaşam döngüsünün her aşamasında bilgi güvenliği sorunlarının değerlendirilmesini dahil ederek."
+        },
+        {
+          "id": "6.2.2",
+          "name": "Özel ısmarlama ve özel yazılımlar üzerinde çalışan yazılım geliştirme personeli, en az 12 ayda bir şu konularda eğitilir: işlevleri ve geliştirme dilleriyle ilgili yazılım güvenliği; güvenli yazılım tasarımı ve güvenli kodlama teknikleri dahil; güvenlik test araçları kullanılıyorsa, bu araçların yazılımdaki güvenlik açıklarını tespit etmek için nasıl kullanılacağı dahil."
+        },
+        {
+          "id": "6.2.3",
+          "name": "Özel ısmarlama ve özel yazılımlar, üretime veya müşterilere sunulmadan önce potansiyel kodlama güvenlik açıklarını tespit etmek ve düzeltmek için şu şekilde gözden geçirilir: kod incelemeleri (code reviews), kodun güvenli kodlama yönergelerine göre geliştirildiğini sağlar; kod incelemeleri hem mevcut hem de ortaya çıkan yazılım açıklarını arar; uygun düzeltmeler sürümden (release) önce uygulanır."
+        },
+        {
+          "id": "6.2.3.1",
+          "name": "Sürümden önce özel ısmarlama ve özel yazılımlar için manuel kod incelemeleri yapılıyorsa, kod değişiklikleri: kodu yazan (orijinal yazar) dışındaki ve kod inceleme teknikleri ile güvenli kodlama uygulamaları hakkında bilgi sahibi olan kişiler tarafından incelenir; sürümden önce yönetim tarafından incelenir ve onaylanır."
+        },
+        {
+          "id": "6.2.4",
+          "name": "Yazılım mühendisliği teknikleri veya diğer yöntemler, özel ısmarlama ve özel yazılımlardaki yaygın yazılım saldırılarını ve ilgili güvenlik açıklarını önlemek veya hafifletmek için yazılım geliştirme personeli tarafından tanımlanmış ve kullanılmaktadır; bunlara aşağıdakiler dahildir (ancak bunlarla sınırlı değildir): enjeksiyon saldırıları (injection attacks); verilere ve veri yapılarına yönelik saldırılar; kriptografi kullanımına yönelik saldırılar; iş mantığına yönelik saldırılar; erişim kontrol mekanizmalarına yönelik saldırılar; Gereksinim 6.3.1'de tanımlandığı üzere, güvenlik açığı tanımlama sürecinde tespit edilen yüksek riskli (high-risk) açıklıklardan kaynaklanan saldırılar."
+        },
+        {
+          "id": "6.3",
+          "name": "Güvenlik açıkları tespit edilir ve ele alınır."
+        },
+        {
+          "id": "6.3.1",
+          "name": "Güvenlik açıkları şu şekilde belirlenir ve yönetilir: uluslararası ve ulusal bilgisayar acil müdahale ekiplerinden (CERT'ler) gelen uyarılar dahil olmak üzere, güvenlik açığı bilgileri için endüstride tanınan kaynaklar kullanılarak yeni güvenlik açıkları belirlenir; açıklıklara, sektördeki en iyi uygulamalara ve potansiyel etki değerlendirmesine dayanarak bir risk derecesi atanır; risk derecelendirmeleri (risk rankings), ortam için yüksek riskli veya kritik olarak kabul edilen tüm açıklıkları en azından belirler; özel ısmarlama, özel ve üçüncü taraf yazılımlara (örneğin işletim sistemleri ve veritabanları) yönelik açıklıklar kapsanır."
+        },
+        {
+          "id": "6.3.2",
+          "name": "Güvenlik açığı ve yama (patch) yönetimini kolaylaştırmak için, özel ısmarlama ve özel yazılımların ve bu yazılımlara dahil edilen üçüncü taraf yazılım bileşenlerinin bir envanteri tutulur."
+        },
+        {
+          "id": "6.3.3",
+          "name": "Tüm sistem bileşenleri, geçerli güvenlik yamaları/güncellemeleri şu şekilde yüklenerek bilinen açıklıklardan korunur: kritik açıklıklar (Gereksinim 6.3.1'deki risk derecelendirme sürecine göre belirlenen) için yamalar/güncellemeler yayımlandıktan sonra bir ay içinde yüklenir; diğer tüm geçerli güvenlik yamaları/güncellemeleri kurum tarafından belirlenen uygun bir zaman diliminde yüklenir."
+        },
+        {
+          "id": "6.4",
+          "name": "Halka açık web uygulamaları (public-facing web applications) saldırılara karşı korunmaktadır."
+        },
+        {
+          "id": "6.4.1",
+          "name": "Halka açık web uygulamaları için yeni tehditler ve güvenlik açıkları sürekli olarak ele alınır ve bu uygulamalar bilinen saldırılara karşı korunur."
+        },
+        {
+          "id": "6.4.2",
+          "name": "Halka açık web uygulamaları için, web tabanlı saldırıları sürekli olarak tespit eden ve önleyen otomatik bir teknik çözüm dağıtılır ve en azından aşağıdakilere sahiptir: halka açık web uygulamalarının önüne kurulur ve web tabanlı saldırıları tespit edecek ve önleyecek şekilde yapılandırılır; uygulanabilir olduğunda aktif olarak çalışır ve günceldir; denetim günlükleri oluşturur; web tabanlı saldırıları engellemek veya derhal araştırılan bir uyarı oluşturmak için yapılandırılmıştır."
+        },
+        {
+          "id": "6.4.3",
+          "name": "Tüketicinin tarayıcısına yüklenen ve çalıştırılan tüm ödeme sayfası betikleri (script) şu şekilde yönetilir: her bir betiğin yetkilendirildiğini doğrulamak için bir yöntem uygulanır; her bir betiğin bütünlüğünü sağlamak için bir yöntem uygulanır; her birinin neden gerekli olduğuna dair yazılı iş veya teknik gerekçesiyle birlikte tüm betiklerin bir envanteri tutulur."
+        },
+        {
+          "id": "6.5",
+          "name": "Tüm sistem bileşenlerindeki değişiklikler güvenli bir şekilde yönetilir."
+        },
+        {
+          "id": "6.5.1",
+          "name": "Üretim ortamındaki tüm sistem bileşenlerinde değişiklikler, aşağıdakileri içeren yerleşik prosedürlere göre yapılır: değişikliğin nedeni ve açıklaması; güvenlik etkisinin belgelenmesi; yetkili taraflarca belgelenmiş değişiklik onayı; değişikliğin sistem güvenliğini olumsuz etkilemediğini doğrulamak için test etme; özel ısmarlama ve özel yazılım değişiklikleri için, tüm güncellemeler üretime dağıtılmadan önce Gereksinim 6.2.4'e uygunluk açısından test edilir; arızaları gidermek ve güvenli bir duruma dönmek için prosedürler."
+        },
+        {
+          "id": "6.5.2",
+          "name": "Önemli bir değişiklik tamamlandıktan sonra, geçerli tüm PCI DSS gereksinimlerinin tüm yeni veya değiştirilmiş sistem ve ağlarda yerinde olduğu doğrulanır ve belgeler uygun şekilde güncellenir."
+        },
+        {
+          "id": "6.5.3",
+          "name": "Üretim öncesi (pre-production) ortamlar üretim ortamlarından ayrılır ve bu ayrım erişim kontrolleri ile zorunlu kılınır."
+        },
+        {
+          "id": "6.5.4",
+          "name": "Yalnızca gözden geçirilmiş ve onaylanmış değişikliklerin dağıtılmasını sağlayacak şekilde sorumluluk oluşturmak için üretim ve üretim öncesi ortamlar arasında roller ve işlevler ayrılır."
+        },
+        {
+          "id": "6.5.5",
+          "name": "Canlı PAN'lar, CDE'ye dahil edilen ve geçerli tüm PCI DSS gereksinimlerine göre korunan ortamlar dışında üretim öncesi ortamlarda kullanılmaz."
+        },
+        {
+          "id": "6.5.6",
+          "name": "Sistem üretime geçmeden önce test verileri ve test hesapları sistem bileşenlerinden kaldırılır."
+        },
+        {
+          "id": "7.1",
+          "name": "Sistem bileşenlerine ve kart sahibi verilerine erişimi, iş ihtiyacı/bilmesi gereken (need to know) prensibine göre kısıtlamaya yönelik süreçler ve mekanizmalar tanımlanmış ve anlaşılmıştır."
+        },
+        {
+          "id": "7.1.1",
+          "name": "Gereksinim 7'de tanımlanan tüm güvenlik politikaları ve operasyonel prosedürler: belgelenmiş, güncel tutulmakta, kullanımda ve etkilenen tüm taraflarca bilinmektedir."
+        },
+        {
+          "id": "7.1.2",
+          "name": "Gereksinim 7'deki faaliyetleri gerçekleştirmek için roller ve sorumluluklar belgelenmiş, atanmış ve anlaşılmıştır."
+        },
+        {
+          "id": "7.2",
+          "name": "Sistem bileşenlerine ve verilere erişim uygun şekilde tanımlanmış ve atanmıştır."
+        },
+        {
+          "id": "7.2.1",
+          "name": "Bir erişim kontrol modeli tanımlanır ve aşağıdakilere göre erişim verilmesini içerir: kurumun iş ve erişim ihtiyaçlarına bağlı olarak uygun erişim; kullanıcıların iş sınıflandırması ve işlevlerine dayalı sistem bileşenlerine ve veri kaynaklarına erişim; bir işlevini yerine getirmek için gereken en az ayrıcalıklar (örneğin kullanıcı, yönetici)."
+        },
+        {
+          "id": "7.2.2",
+          "name": "Ayrıcalıklı kullanıcılar (privileged users) dahil olmak üzere kullanıcılara erişim şunlara dayanarak atanır: iş sınıflandırması ve işlevi; iş sorumluluklarını yerine getirmek için gerekli olan en az ayrıcalık."
+        },
+        {
+          "id": "7.2.3",
+          "name": "Gerekli ayrıcalıklar yetkili personel tarafından onaylanır."
+        },
+        {
+          "id": "7.2.4",
+          "name": "Üçüncü taraf/satıcı hesapları dahil tüm kullanıcı hesapları ve ilgili erişim ayrıcalıkları şu şekilde gözden geçirilir: en az altı ayda bir; kullanıcı hesaplarının ve erişimin işlevlerine göre uygun kalmasını sağlamak için; uygun olmayan herhangi bir erişim ele alınır; yönetim, erişimin uygun kalmaya devam ettiğini onaylar."
+        },
+        {
+          "id": "7.2.5",
+          "name": "Tüm uygulama ve sistem hesapları ile ilgili erişim ayrıcalıkları şu şekilde atanır ve yönetilir: sistemin veya uygulamanın çalışabilirliği için gerekli olan en az ayrıcalığa (least privileges) dayanarak; erişim, kullanılmasını özel olarak gerektiren sistemler, uygulamalar veya süreçlerle sınırlıdır."
+        },
+        {
+          "id": "7.2.5.1",
+          "name": "Uygulama ve sistem hesaplarının tüm erişimleri ve ilgili erişim ayrıcalıkları şu şekilde gözden geçirilir: periyodik olarak (Gereksinim 12.3.1'de belirtilen unsurlara göre gerçekleştirilen kurumun hedeflenmiş risk analizinde tanımlanan sıklıkta); uygulama/sistem erişiminin gerçekleştirilen işlev için uygun kalması; uygun olmayan herhangi bir erişimin ele alınması; yönetim, erişimin uygun kalmaya devam ettiğini onaylar."
+        },
+        {
+          "id": "7.2.6",
+          "name": "Depolanan kart sahibi verilerinin sorgu depolarına (query repositories) tüm kullanıcı erişimi şu şekilde kısıtlanır: kullanıcı rollerine ve en az ayrıcalığa dayalı erişim ve izin verilen eylemlerle, uygulamalar veya diğer programatik yöntemler aracılığıyla; yalnızca sorumlu yönetici(ler) depolanan CHD (Kart Sahibi Verisi) depolarına doğrudan erişebilir veya sorgulayabilir."
+        },
+        {
+          "id": "7.3",
+          "name": "Sistem bileşenlerine ve verilere erişim, bir erişim kontrol sistem(ler)i aracılığıyla yönetilir."
+        },
+        {
+          "id": "7.3.1",
+          "name": "Kullanıcının 'bilmesi gereken' ilkesine (need to know) dayalı olarak erişimi kısıtlayan ve tüm sistem bileşenlerini kapsayan bir erişim kontrol sistem(ler)i mevcuttur."
+        },
+        {
+          "id": "7.3.2",
+          "name": "Erişim kontrol sistem(ler)i, iş sınıflandırması ve işlevine göre bireylere, uygulamalara ve sistemlere atanan izinleri zorunlu kılacak şekilde yapılandırılmıştır."
+        },
+        {
+          "id": "7.3.3",
+          "name": "Erişim kontrol sistem(ler)i varsayılan olarak 'tümünü reddet' (deny all) olarak ayarlanmıştır."
+        },
+        {
+          "id": "8.1",
+          "name": "Kullanıcıları tanımlamak ve sistem bileşenlerine erişimin kimliğini doğrulamak için süreçler ve mekanizmalar tanımlanmış ve anlaşılmıştır."
+        },
+        {
+          "id": "8.1.1",
+          "name": "Gereksinim 8'de tanımlanan tüm güvenlik politikaları ve operasyonel prosedürler: belgelenmiş, güncel tutulmakta, kullanımda ve etkilenen tüm taraflarca bilinmektedir."
+        },
+        {
+          "id": "8.1.2",
+          "name": "Gereksinim 8'deki faaliyetleri gerçekleştirmek için roller ve sorumluluklar belgelenmiş, atanmış ve anlaşılmıştır."
+        },
+        {
+          "id": "8.2",
+          "name": "Kullanıcılar ve yöneticiler için kullanıcı kimliği ve ilgili hesaplar, bir hesabın yaşam döngüsü boyunca sıkı bir şekilde yönetilir."
+        },
+        {
+          "id": "8.2.1",
+          "name": "Sistem bileşenlerine veya kart sahibi verilerine erişime izin verilmeden önce tüm kullanıcılara benzersiz bir ID (kimlik) atanır."
+        },
+        {
+          "id": "8.2.2",
+          "name": "Grup, paylaşılan veya genel ID'ler veya diğer paylaşılan kimlik doğrulama bilgileri yalnızca istisnai bir temelde gerekli olduğunda kullanılır ve şu şekilde yönetilir: istisnai bir durum için gerekmediği sürece ID kullanımı önlenir; kullanım, istisnai durum için gereken süre ile sınırlıdır; kullanıma yönelik iş gerekçesi belgelenir; kullanım, yönetim tarafından açıkça onaylanır; bir hesaba erişim izni verilmeden önce bireysel kullanıcı kimliği onaylanır; yapılan her eylem bireysel bir kullanıcıya atfedilebilir."
+        },
+        {
+          "id": "8.2.3",
+          "name": "Yalnızca servis sağlayıcılar için ek gereksinim: müşteri tesislerine uzaktan erişimi olan servis sağlayıcıları, her bir müşteri tesisi için benzersiz kimlik doğrulama faktörleri kullanır."
+        },
+        {
+          "id": "8.2.4",
+          "name": "Kullanıcı kimliklerinin, kimlik doğrulama faktörlerinin ve diğer tanımlayıcı nesnelerin eklenmesi, silinmesi ve değiştirilmesi şu şekilde yönetilir: uygun onay ile yetkilendirilir; yalnızca belgelenmiş onayda belirtilen ayrıcalıklarla uygulanır."
+        },
+        {
+          "id": "8.2.5",
+          "name": "İşine son verilen (terminated) kullanıcıların erişimi derhal iptal edilir."
+        },
+        {
+          "id": "8.2.6",
+          "name": "Etkin olmayan (inactive) kullanıcı hesapları 90 günlük hareketsizlikten sonra kaldırılır veya devre dışı bırakılır."
+        },
+        {
+          "id": "8.2.7",
+          "name": "Sistem bileşenlerine uzaktan erişim yoluyla erişmek, desteklemek veya bakımını yapmak için üçüncü taraflarca kullanılan hesaplar şu şekilde yönetilir: yalnızca ihtiyaç duyulan süre boyunca etkinleştirilir ve kullanımda olmadığında devre dışı bırakılır; kullanım beklenmeyen etkinlikler için izlenir."
+        },
+        {
+          "id": "8.2.8",
+          "name": "Bir kullanıcı oturumu 15 dakikadan fazla boşta kalmışsa, kullanıcının terminali veya oturumu yeniden etkinleştirmek için yeniden kimlik doğrulaması yapması gerekir."
+        },
+        {
+          "id": "8.3",
+          "name": "Kullanıcılar ve yöneticiler için güçlü kimlik doğrulama oluşturulur ve yönetilir."
+        },
+        {
+          "id": "8.3.1",
+          "name": "Kullanıcılar ve yöneticiler için sistem bileşenlerine tüm kullanıcı erişimi, aşağıdaki kimlik doğrulama faktörlerinden en az biri aracılığıyla doğrulanır: bildiğiniz bir şey, örneğin bir parola veya parola öbeği; sahip olduğunuz bir şey, örneğin bir token cihazı veya akıllı kart; olduğunuz bir şey, örneğin biyometrik bir unsur."
+        },
+        {
+          "id": "8.3.2",
+          "name": "Tüm sistem bileşenlerinde iletim ve depolama sırasında tüm kimlik doğrulama faktörlerini okunamaz hale getirmek için güçlü kriptografi kullanılır."
+        },
+        {
+          "id": "8.3.3",
+          "name": "Herhangi bir kimlik doğrulama faktörü değiştirilmeden önce kullanıcı kimliği doğrulanır."
+        },
+        {
+          "id": "8.3.4",
+          "name": "Geçersiz kimlik doğrulama girişimleri şunlarla sınırlandırılmıştır: en fazla 10 denemeden sonra kullanıcı kimliğinin kilitlenmesi; kilitleme süresinin en az 30 dakikaya veya kullanıcının kimliği doğrulanana kadar ayarlanması."
+        },
+        {
+          "id": "8.3.5",
+          "name": "Gereksinim 8.3.1'i karşılamak için kimlik doğrulama faktörü olarak parolalar/parola öbekleri kullanılıyorsa, bunlar her kullanıcı için şu şekilde ayarlanır ve sıfırlanır: ilk kullanımda ve sıfırlamada benzersiz bir değere ayarlanır; ilk kullanımdan hemen sonra değiştirilmeye zorlanır."
+        },
+        {
+          "id": "8.3.6",
+          "name": "Gereksinim 8.3.1'i karşılamak için kimlik doğrulama faktörleri olarak parolalar/parola öbekleri kullanılıyorsa, bunlar aşağıdaki minimum karmaşıklık düzeyini karşılar: minimum 12 karakter uzunluğu (veya sistem 12 karakteri desteklemiyorsa minimum sekiz karakter uzunluğu); hem sayısal hem de alfabetik karakterler içerir."
+        },
+        {
+          "id": "8.3.7",
+          "name": "Bireylerin önceden kullanılmış olan parolaların/parola öbeklerinin (kullanılan son dört parola/parola öbeği dahil) aynısı olan yeni bir parola/parola öbeği sunmalarına izin verilmez."
+        },
+        {
+          "id": "8.3.8",
+          "name": "Kimlik doğrulama politikaları ve prosedürleri belgelenir ve aşağıdakiler dahil olmak üzere tüm kullanıcılara iletilir: güçlü kimlik doğrulama faktörlerinin seçilmesine ilişkin rehberlik; kullanıcıların kimlik doğrulama faktörlerini nasıl korumaları gerektiğine ilişkin rehberlik; daha önce kullanılmış parolaları/parola öbeklerini yeniden kullanmama talimatları; parolanın/parola öbeğinin ele geçirildiğine dair herhangi bir şüphe veya bilgi varsa parolaları/parola öbeklerini değiştirme talimatları ve olayın nasıl bildirileceği."
+        },
+        {
+          "id": "8.3.9",
+          "name": "Kullanıcı erişimi için tek kimlik doğrulama faktörü olarak parolalar/parola öbekleri kullanılıyorsa (örneğin, herhangi bir tek faktörlü kimlik doğrulama uygulamasında), şu seçeneklerden biri uygulanır: parolalar/parola öbekleri en az 90 günde bir değiştirilir VEYA hesapların güvenlik duruşu dinamik olarak analiz edilir ve kaynaklara gerçek zamanlı erişim buna göre otomatik olarak belirlenir."
+        },
+        {
+          "id": "8.3.10",
+          "name": "Yalnızca servis sağlayıcılar için ek gereksinim: müşteri kullanıcısının kart sahibi verilerine erişimi için tek kimlik doğrulama faktörü olarak parolalar/parola öbekleri kullanılıyorsa (örneğin, herhangi bir tek faktörlü kimlik doğrulama uygulamasında), müşteri kullanıcılarına aşağıdakileri içeren rehberlik sağlanır: müşterilerin kullanıcı parolalarını/parola öbeklerini periyodik olarak değiştirmeleri için rehberlik; parolaların/parola öbeklerinin ne zaman ve hangi koşullar altında değiştirileceğine dair rehberlik."
+        },
+        {
+          "id": "8.3.10.1",
+          "name": "Yalnızca servis sağlayıcılar için ek gereksinim: müşteri kullanıcı erişimi için tek kimlik doğrulama faktörü olarak parolalar/parola öbekleri kullanılıyorsa (örneğin, herhangi bir tek faktörlü kimlik doğrulama uygulamasında) şu seçeneklerden biri uygulanır: parolalar/parola öbekleri en az 90 günde bir değiştirilir VEYA hesapların güvenlik duruşu dinamik olarak analiz edilir ve kaynaklara gerçek zamanlı erişim buna göre otomatik olarak belirlenir."
+        },
+        {
+          "id": "8.3.11",
+          "name": "Fiziksel veya mantıksal güvenlik token'ları, akıllı kartlar veya sertifikalar gibi kimlik doğrulama faktörlerinin kullanıldığı yerlerde: faktörler bireysel bir kullanıcıya atanır ve birden fazla kullanıcı arasında paylaşılmaz; fiziksel ve/veya mantıksal kontroller, yalnızca amaçlanan kullanıcının söz konusu faktörü erişim sağlamak için kullanabilmesini temin eder."
+        },
+        {
+          "id": "8.4",
+          "name": "CDE'ye güvenli erişim için çok faktörlü kimlik doğrulama (MFA) uygulanır."
+        },
+        {
+          "id": "8.4.1",
+          "name": "Yönetimsel erişime sahip personel için CDE'ye konsol dışı tüm erişimlerde MFA uygulanır."
+        },
+        {
+          "id": "8.4.2",
+          "name": "CDE'ye konsol dışı tüm erişimlerde MFA uygulanır."
+        },
+        {
+          "id": "8.4.3",
+          "name": "Kurumun ağı dışından kaynaklanan ve CDE'ye erişebilecek veya onu etkileyebilecek tüm uzaktan erişimler için MFA uygulanır."
+        },
+        {
+          "id": "8.5",
+          "name": "Çok faktörlü kimlik doğrulama (MFA) sistemleri kötüye kullanımı önleyecek şekilde yapılandırılmıştır."
+        },
+        {
+          "id": "8.5.1",
+          "name": "MFA sistemleri şu şekilde uygulanır: MFA sistemi tekrarlama (replay) saldırılarına karşı duyarlı değildir; MFA sistemleri, sınırlı bir süre için istisnai bir temelde yönetim tarafından özel olarak belgelenip yetkilendirilmedikçe, yönetici kullanıcılar dahil hiçbir kullanıcı tarafından atlanamaz (bypass edilemez); en az iki farklı türde kimlik doğrulama faktörü kullanılır; erişim izni verilmeden önce tüm kimlik doğrulama faktörlerinin başarıyla doğrulanması gerekir."
+        },
+        {
+          "id": "8.6",
+          "name": "Uygulama ve sistem hesaplarının ve ilişkili kimlik doğrulama faktörlerinin kullanımı sıkı bir şekilde yönetilir."
+        },
+        {
+          "id": "8.6.1",
+          "name": "Sistemler veya uygulamalar tarafından kullanılan hesaplar etkileşimli oturum açma için kullanılabiliyorsa, şu şekilde yönetilir: istisnai bir durum için gerekmediği sürece etkileşimli kullanım önlenir; etkileşimli kullanım, istisnai durum için gereken süre ile sınırlıdır; etkileşimli kullanıma yönelik iş gerekçesi belgelenir; etkileşimli kullanım yönetim tarafından açıkça onaylanır; hesaba erişim izni verilmeden önce bireysel kullanıcı kimliği doğrulanır; yapılan her eylem bireysel bir kullanıcıya atfedilebilir."
+        },
+        {
+          "id": "8.6.2",
+          "name": "Etkileşimli oturum açma için kullanılabilen herhangi bir uygulama ve sistem hesabı için parolalar/parola öbekleri betiklerde, yapılandırma/özellik dosyalarında veya özel ısmarlama ve özel kaynak kodlarında sabit (hard coded) kodlanmaz."
+        },
+        {
+          "id": "8.6.3",
+          "name": "Herhangi bir uygulama ve sistem hesabına ait parolalar/parola öbekleri kötüye kullanıma karşı şu şekilde korunur: parolalar/parola öbekleri periyodik olarak (Gereksinim 12.3.1'de belirtilen tüm unsurlara göre gerçekleştirilen kurumun hedeflenmiş risk analizinde tanımlanan sıklıkta) ve ele geçirilme şüphesi veya onayı üzerine değiştirilir; parolalar/parola öbekleri, kurumun parolaları/parola öbeklerini ne sıklıkta değiştirdiğine uygun yeterli karmaşıklıkla (complexity) oluşturulur."
+        },
+        {
+          "id": "9.1",
+          "name": "Kart sahibi verilerine fiziksel erişimi kısıtlamaya yönelik süreçler ve mekanizmalar tanımlanmış ve anlaşılmıştır."
+        },
+        {
+          "id": "9.1.1",
+          "name": "Gereksinim 9'da tanımlanan tüm güvenlik politikaları ve operasyonel prosedürler: belgelenmiş, güncel tutulmakta, kullanımda ve etkilenen tüm taraflarca bilinmektedir."
+        },
+        {
+          "id": "9.1.2",
+          "name": "Gereksinim 9'daki faaliyetleri gerçekleştirmek için roller ve sorumluluklar belgelenmiş, atanmış ve anlaşılmıştır."
+        },
+        {
+          "id": "9.2",
+          "name": "Fiziksel erişim kontrolleri, kart sahibi verilerini içeren tesislere ve sistemlere girişi yönetir."
+        },
+        {
+          "id": "9.2.1",
+          "name": "CDE'deki sistemlere fiziksel erişimi kısıtlamak için uygun tesis (facility) giriş kontrolleri mevcuttur."
+        },
+        {
+          "id": "9.2.1.1",
+          "name": "CDE içindeki hassas (sensitive) alanlara bireysel fiziksel erişim, video kameralar veya fiziksel erişim kontrol mekanizmaları (veya her ikisi) ile şu şekilde izlenir: CDE içindeki hassas alanlara giriş/çıkış noktaları izlenir; izleme cihazları veya mekanizmaları kurcalanmaya veya devre dışı bırakılmaya karşı korunur; toplanan veriler incelenir ve diğer girişlerle (entries) ilişkilendirilir; toplanan veriler, yasalarla aksi belirtilmedikçe en az üç ay süreyle saklanır."
+        },
+        {
+          "id": "9.2.2",
+          "name": "Tesis içinde halka açık (publicly accessible) ağ prizlerinin (network jacks) kullanımını kısıtlamak için fiziksel ve/veya mantıksal kontroller uygulanmıştır."
+        },
+        {
+          "id": "9.2.3",
+          "name": "CDE'ye kablosuz erişimi kısıtlamak için fiziksel ve/veya mantıksal kontroller uygulanmıştır."
+        },
+        {
+          "id": "9.2.4",
+          "name": "Hassas alanlardaki konsollara erişim, kullanımda olmadığında kilitleme yoluyla kısıtlanır."
+        },
+        {
+          "id": "9.3",
+          "name": "Personel ve ziyaretçiler için fiziksel erişim yetkilendirilir ve yönetilir."
+        },
+        {
+          "id": "9.3.1",
+          "name": "CDE'ye personel fiziksel erişimini yetkilendirmek ve yönetmek için aşağıdakiler de dahil olmak üzere prosedürler uygulanmıştır: personelin belirlenmesi; bir bireyin fiziksel erişim gereksinimlerindeki değişikliklerin yönetilmesi; personelin fiziksel erişiminin iptal edilmesi veya sonlandırılması; anahtarlar, erişim kartları vb. gibi fiziksel erişim mekanizmalarının devre dışı bırakılması."
+        },
+        {
+          "id": "9.3.1.1",
+          "name": "Personel için CDE içindeki hassas alanlara fiziksel erişim şu şekilde kontrol edilir: erişim yetkilendirilir ve bireysel işlevine dayanır; işine son verilme durumunda erişim derhal iptal edilir; anahtarlar, erişim kartları vb. gibi tüm fiziksel erişim mekanizmaları işine son verilme durumunda iade edilir veya devre dışı bırakılır."
+        },
+        {
+          "id": "9.3.2",
+          "name": "Tesis içi personel (onsite personnel) ile ziyaretçileri tanımlamak ve ayırt etmek için prosedürler şu şekilde uygulanmıştır: tesis içi personel ve ziyaretçiler kolayca ayırt edilebilir."
+        },
+        {
+          "id": "9.3.3",
+          "name": "Kart sahibi veri ortamına (CDE) ziyaretçi erişimi şu şekilde yönetilir: ziyaretçilere girmeden önce yetki verilir; ziyaretçilere her zaman eşlik edilir; ziyaretçiler açıkça tanımlanır ve ziyaretçileri tesis içi personelden görsel olarak ayırt eden bir yaka kartı (badge) veya başka bir kimlik verilir; ziyaretçi yaka kartları veya kimlikleri, ziyaretçiler tesisten ayrılmadan önce veya son kullanma tarihinde teslim edilir veya devre dışı bırakılır."
+        },
+        {
+          "id": "9.3.4",
+          "name": "Tesis içinde ve kart sahibi verilerinin depolandığı veya iletildiği bilgisayar odalarında ve veri merkezlerinde ziyaretçi etkinliğinin fiziksel bir izini tutmak için aşağıdakileri içeren bir ziyaretçi günlüğü (log) kullanılır: ziyaretçinin adı ve temsil ettiği kurum; ziyaretin tarihi/saati; fiziksel erişimi onaylayan personelin adı; günlüğün, yasalarla aksi belirtilmedikçe en az üç ay süreyle saklanması."
+        },
+        {
+          "id": "9.4",
+          "name": "Kart sahibi verilerini içeren medya güvenli bir şekilde depolanır, erişilir, dağıtılır ve imha edilir."
+        },
+        {
+          "id": "9.4.1",
+          "name": "Kart sahibi verilerini içeren tüm medyalar fiziksel olarak güvene alınır."
+        },
+        {
+          "id": "9.4.1.1",
+          "name": "Kart sahibi verilerini içeren çevrimdışı (offline) medya yedeklemeleri güvenli bir yerde saklanır."
+        },
+        {
+          "id": "9.4.1.2",
+          "name": "Çevrimdışı medya yedekleme konum(lar)ının güvenliği en az 12 ayda bir gözden geçirilir."
+        },
+        {
+          "id": "9.4.2",
+          "name": "Kart sahibi verilerini içeren tüm medya, verilerin hassasiyetine (sensitivity) göre sınıflandırılır."
+        },
+        {
+          "id": "9.4.3",
+          "name": "Tesis dışına gönderilen kart sahibi verilerini içeren medya şu şekilde güvene alınır: tesis dışına gönderilen medyanın günlüğü (log) tutulur; medya, güvenli kurye veya doğru şekilde izlenebilen başka bir teslimat yöntemiyle gönderilir; tesis dışı izleme günlükleri medyanın konumu hakkında ayrıntılar içerir."
+        },
+        {
+          "id": "9.4.4",
+          "name": "Yönetim, tesis dışına taşınan kart sahibi verilerini içeren tüm medyayı (medyanın bireylere dağıtıldığı durumlar dahil) onaylar."
+        },
+        {
+          "id": "9.4.5",
+          "name": "Kart sahibi verilerini içeren tüm elektronik medyaların envanter günlükleri (logs) tutulur."
+        },
+        {
+          "id": "9.4.5.1",
+          "name": "Kart sahibi verilerini içeren elektronik medya envanterleri en az 12 ayda bir gerçekleştirilir."
+        },
+        {
+          "id": "9.4.6",
+          "name": "Kart sahibi verilerini içeren basılı (hard-copy) materyaller, iş veya hukuki nedenlerle artık gerekmediğinde imha edilir."
+        },
+        {
+          "id": "9.4.7",
+          "name": "Kart sahibi verilerini içeren elektronik medya, iş veya hukuki nedenlerle artık gerekmediğinde imha edilir."
+        },
+        {
+          "id": "9.5",
+          "name": "Etkileşim noktası (POI) cihazları kurcalanmaya (tampering) ve yetkisiz değiştirmeye (unauthorized substitution) karşı korunur."
+        },
+        {
+          "id": "9.5.1",
+          "name": "Ödeme kartı form faktörü ile doğrudan fiziksel etkileşim yoluyla ödeme kartı verilerini yakalayan POI cihazları, aşağıdakiler dahil olmak üzere kurcalanmaya ve yetkisiz değiştirmeye karşı korunur: bir POI cihazı listesinin tutulması; POI cihazlarının kurcalanma veya yetkisiz değiştirilme açısından düzenli aralıklarla incelenmesi; personelin şüpheli davranışların farkında olması ve cihazların kurcalanmasını veya yetkisiz değiştirilmesini rapor etmesi için eğitilmesi."
+        },
+        {
+          "id": "9.5.1.1",
+          "name": "POI cihazlarının güncel bir listesi şu şekilde tutulur: cihazın markası ve modeli; cihazın yeri; cihaz seri numarası veya diğer benzersiz tanımlama yöntemi."
+        },
+        {
+          "id": "9.5.1.2",
+          "name": "POI cihazı yüzeyleri, kurcalamayı ve yetkisiz değiştirmeyi tespit etmek için periyodik olarak incelenir."
+        },
+        {
+          "id": "9.5.1.2.1",
+          "name": "Periyodik POI cihaz incelemelerinin sıklığı ve gerçekleştirilen incelemelerin türü, Gereksinim 12.3.1'de belirtilen tüm unsurlara göre gerçekleştirilen kurumun hedeflenmiş risk analizinde tanımlanmıştır."
+        },
+        {
+          "id": "9.5.1.3",
+          "name": "POI ortamlarındaki personele, POI cihazlarının kurcalanması veya değiştirilmesi girişimlerinin farkında olmaları için eğitim verilir."
+        },
+        {
+          "id": "10.1",
+          "name": "Sistem bileşenlerine ve kart sahibi verilerine tüm erişimi günlüğe kaydetmek (logging) ve izlemek (monitoring) için süreçler ve mekanizmalar tanımlanmış ve anlaşılmıştır."
+        },
+        {
+          "id": "10.1.1",
+          "name": "Gereksinim 10'da tanımlanan tüm güvenlik politikaları ve operasyonel prosedürler: belgelenmiş, güncel tutulmakta, kullanımda ve etkilenen tüm taraflarca bilinmektedir."
+        },
+        {
+          "id": "10.1.2",
+          "name": "Gereksinim 10'daki faaliyetleri gerçekleştirmek için roller ve sorumluluklar belgelenmiş, atanmış ve anlaşılmıştır."
+        },
+        {
+          "id": "10.2",
+          "name": "Denetim günlükleri (audit logs), anormalliklerin ve şüpheli etkinliklerin tespitini ve olayların adli analizini (forensic analysis) desteklemek için uygulanmıştır."
+        },
+        {
+          "id": "10.2.1",
+          "name": "Denetim günlükleri tüm sistem bileşenleri ve kart sahibi verileri için etkinleştirilmiş ve aktiftir."
+        },
+        {
+          "id": "10.2.1.1",
+          "name": "Denetim günlükleri, kart sahibi verilerine tüm bireysel kullanıcı erişimini yakalar."
+        },
+        {
+          "id": "10.2.1.2",
+          "name": "Denetim günlükleri, uygulama veya sistem hesaplarının herhangi bir etkileşimli kullanımı dahil olmak üzere, yönetimsel erişime sahip herhangi bir birey tarafından gerçekleştirilen tüm eylemleri yakalar."
+        },
+        {
+          "id": "10.2.1.3",
+          "name": "Denetim günlükleri, denetim günlüklerine olan tüm erişimi yakalar."
+        },
+        {
+          "id": "10.2.1.4",
+          "name": "Denetim günlükleri, tüm geçersiz mantıksal erişim denemelerini yakalar."
+        },
+        {
+          "id": "10.2.1.5",
+          "name": "Denetim günlükleri, kimlik ve kimlik doğrulama bilgilerindeki tüm değişiklikleri yakalar, bunlarla sınırlı olmamak üzere: yeni hesapların oluşturulması; ayrıcalıkların yükseltilmesi; yönetimsel erişime sahip hesaplarda tüm değişiklikler, eklemeler veya silinmeler."
+        },
+        {
+          "id": "10.2.1.6",
+          "name": "Denetim günlükleri aşağıdakileri yakalar: yeni denetim günlüklerinin başlatılması (initialization) ve mevcut denetim günlüklerinin durdurulması, başlatılması veya duraklatılması."
+        },
+        {
+          "id": "10.2.1.7",
+          "name": "Denetim günlükleri, sistem düzeyindeki (system-level) nesnelerin tüm oluşturulma ve silinme işlemlerini yakalar."
+        },
+        {
+          "id": "10.2.2",
+          "name": "Denetim günlükleri denetlenebilir her olay için aşağıdaki ayrıntıları kaydeder: kullanıcı kimliği; olay türü; tarih ve saat; başarı ve başarısızlık göstergesi; olayın kaynağı; etkilenen verilerin, sistem bileşeninin, kaynağın veya hizmetin kimliği veya adı (örneğin, adı ve protokolü)."
+        },
+        {
+          "id": "10.3",
+          "name": "Denetim günlükleri imha ve yetkisiz değişikliklerden korunur."
+        },
+        {
+          "id": "10.3.1",
+          "name": "Denetim günlüğü dosyalarına okuma erişimi (read access), işle ilgili ihtiyacı olanlarla (job-related need) sınırlandırılmıştır."
+        },
+        {
+          "id": "10.3.2",
+          "name": "Denetim günlüğü dosyaları, bireyler tarafından değiştirilmeyi önleyecek şekilde korunur."
+        },
+        {
+          "id": "10.3.3",
+          "name": "Dışa dönük teknolojilere ait olanlar da dahil olmak üzere denetim günlüğü dosyaları, anında (promptly) güvenli, merkezi, dahili bir log sunucusuna veya değiştirilmesi zor başka bir medyaya yedeklenir."
+        },
+        {
+          "id": "10.3.4",
+          "name": "Mevcut günlük verilerinin uyarı oluşturmadan değiştirilemeyeceğinden emin olmak için denetim günlüklerinde dosya bütünlüğü izleme (file integrity monitoring) veya değişiklik tespiti mekanizmaları kullanılır."
+        },
+        {
+          "id": "10.4",
+          "name": "Denetim günlükleri, anormallikleri veya şüpheli etkinlikleri tespit etmek için incelenir."
+        },
+        {
+          "id": "10.4.1",
+          "name": "Aşağıdaki denetim günlükleri en az günde bir kez incelenir: tüm güvenlik olayları; CHD ve/veya SAD depolayan, işleyen veya ileten tüm sistem bileşenlerinin günlükleri; tüm kritik sistem bileşenlerinin günlükleri; güvenlik işlevlerini yerine getiren (örneğin, NSC'ler, IDS/IPS, kimlik doğrulama sunucuları, e-ticaret yönlendirme sunucuları vb.) tüm sunucu ve sistem bileşenlerinin günlükleri."
+        },
+        {
+          "id": "10.4.1.1",
+          "name": "Denetim günlüğü incelemelerini gerçekleştirmek için otomatik mekanizmalar kullanılır."
+        },
+        {
+          "id": "10.4.2",
+          "name": "Diğer tüm sistem bileşenlerinin (Gereksinim 10.4.1'de tanımlanmayan) günlükleri periyodik olarak incelenir."
+        },
+        {
+          "id": "10.4.2.1",
+          "name": "Diğer tüm sistem bileşenleri (Gereksinim 10.4.1'de tanımlanmayan) için periyodik log incelemelerinin sıklığı, Gereksinim 12.3.1'de belirtilen tüm unsurlara göre gerçekleştirilen kurumun hedeflenmiş risk analizinde tanımlanmıştır."
+        },
+        {
+          "id": "10.4.3",
+          "name": "İnceleme süreci sırasında tespit edilen istisnalar ve anormallikler ele alınır."
+        },
+        {
+          "id": "10.5",
+          "name": "Denetim günlüğü geçmişi (audit log history) saklanır ve analiz için erişilebilir durumdadır."
+        },
+        {
+          "id": "10.5.1",
+          "name": "Denetim günlüğü geçmişi en az 12 ay süreyle saklanır ve en az en son üç ay analiz için anında erişilebilir durumdadır."
+        },
+        {
+          "id": "10.6",
+          "name": "Zaman senkronizasyon (time-synchronization) mekanizmaları tüm sistemlerde tutarlı zaman ayarlarını destekler."
+        },
+        {
+          "id": "10.6.1",
+          "name": "Sistem saatleri ve zaman, zaman senkronizasyon teknolojisi kullanılarak senkronize edilir."
+        },
+        {
+          "id": "10.6.2",
+          "name": "Sistemler doğru ve tutarlı zamana şu şekilde yapılandırılır: bir veya daha fazla belirlenmiş zaman sunucusu (time server) kullanımda; yalnızca belirlenmiş merkezi zaman sunucusu/sunucuları harici kaynaklardan zamanı alır; harici kaynaklardan alınan zaman, Uluslararası Atom Saati veya Eşgüdümlü Evrensel Zaman'a (UTC) dayanır; belirlenmiş zaman sunucusu/sunucuları zaman güncellemelerini yalnızca belirli, endüstri tarafından kabul görmüş harici kaynaklardan kabul eder; birden fazla belirlenmiş zaman sunucusunun bulunduğu durumlarda, zaman sunucuları doğru zamanı tutmak için birbirleriyle eşleşir (peer); dahili sistemler zaman bilgilerini yalnızca belirlenmiş merkezi zaman sunucusundan/sunucularından alır."
+        },
+        {
+          "id": "10.6.3",
+          "name": "Zaman senkronizasyonu ayarları ve verileri şu şekilde korunur: zaman verilerine erişim yalnızca iş ihtiyacı olan personelle sınırlandırılır; kritik sistemlerdeki zaman ayarlarına yönelik her türlü değişiklik günlüğe kaydedilir (logged), izlenir ve incelenir."
+        },
+        {
+          "id": "10.7",
+          "name": "Kritik güvenlik kontrol sistemlerinin arızaları (failures) anında tespit edilir, raporlanır ve müdahale edilir."
+        },
+        {
+          "id": "10.7.1",
+          "name": "Yalnızca servis sağlayıcılar için ek gereksinim: kritik güvenlik kontrol sistemlerindeki arızalar, bunlarla sınırlı olmamak üzere, anında tespit edilir, uyarısı verilir ve ele alınır: ağ güvenlik kontrolleri; IDS/IPS; değişiklik tespit mekanizmaları; anti-malware çözümleri; fiziksel erişim kontrolleri; mantıksal erişim kontrolleri; denetim günlüğü mekanizmaları; segmentasyon kontrolleri (eğer kullanılıyorsa)."
+        },
+        {
+          "id": "10.7.2",
+          "name": "Kritik güvenlik kontrol sistemlerindeki arızalar, bunlarla sınırlı olmamak üzere, anında tespit edilir, uyarısı verilir ve ele alınır: ağ güvenlik kontrolleri; IDS/IPS; değişiklik tespit mekanizmaları; anti-malware çözümleri; fiziksel erişim kontrolleri; mantıksal erişim kontrolleri; denetim günlüğü mekanizmaları; segmentasyon kontrolleri (eğer kullanılıyorsa); denetim günlüğü inceleme mekanizmaları."
+        },
+        {
+          "id": "10.7.3",
+          "name": "Kritik güvenlik kontrol sistemlerindeki herhangi bir arızaya, bunlarla sınırlı olmamak üzere, anında yanıt verilir: güvenlik işlevlerinin geri yüklenmesi; güvenlik arızasının süresinin (başlangıçtan bitişe kadar tarih ve saat) belirlenmesi ve belgelenmesi; arızanın nedenlerinin belirlenmesi ve belgelenmesi ile gerekli düzeltmenin belgelenmesi; arıza sırasında ortaya çıkan tüm güvenlik sorunlarının belirlenmesi ve ele alınması; güvenlik arızasının bir sonucu olarak daha fazla eylem gerekip gerekmediğinin belirlenmesi; arızanın nedeninin tekrarlanmasını önlemek için kontrollerin uygulanması; güvenlik kontrollerinin izlenmesine devam edilmesi."
+        },
+        {
+          "id": "11.1",
+          "name": "Sistemlerin ve ağların güvenliğini düzenli olarak test etmek için süreçler ve mekanizmalar tanımlanmış ve anlaşılmıştır."
+        },
+        {
+          "id": "11.1.1",
+          "name": "Gereksinim 11'de tanımlanan tüm güvenlik politikaları ve operasyonel prosedürler: belgelenmiş, güncel tutulmakta, kullanımda ve etkilenen tüm taraflarca bilinmektedir."
+        },
+        {
+          "id": "11.1.2",
+          "name": "Gereksinim 11'deki faaliyetleri gerçekleştirmek için roller ve sorumluluklar belgelenmiş, atanmış ve anlaşılmıştır."
+        },
+        {
+          "id": "11.2",
+          "name": "Kablosuz erişim noktaları (wireless access points) belirlenir ve izlenir, yetkisiz kablosuz erişim noktaları ele alınır."
+        },
+        {
+          "id": "11.2.1",
+          "name": "Yetkili ve yetkisiz kablosuz erişim noktaları şu şekilde yönetilir: kablosuz (Wi-Fi) erişim noktalarının varlığı test edilir; tüm yetkili ve yetkisiz kablosuz erişim noktaları tespit edilir ve tanımlanır; test, tespit ve tanımlama en az üç ayda bir gerçekleşir."
+        },
+        {
+          "id": "11.2.2",
+          "name": "Belgelenmiş bir iş gerekçesi (business justification) dahil olmak üzere yetkili kablosuz erişim noktalarının bir envanteri tutulur."
+        },
+        {
+          "id": "11.3",
+          "name": "Dış ve iç güvenlik açıkları (vulnerabilities) düzenli olarak belirlenir, önceliklendirilir ve ele alınır."
+        },
+        {
+          "id": "11.3.1",
+          "name": "Dahili güvenlik açığı taramaları (internal vulnerability scans) şu şekilde gerçekleştirilir: en az üç ayda bir; yüksek riskli ve kritik güvenlik açıkları (Gereksinim 6.3.1'de tanımlanan kurumun güvenlik açığı risk sıralamalarına göre) çözülür; tüm yüksek riskli ve kritik güvenlik açıklarının çözüldüğünü doğrulayan yeniden taramalar (rescans) gerçekleştirilir; tarama aracı en son güvenlik açığı bilgileriyle güncel tutulur; taramalar kalifiye personel tarafından gerçekleştirilir ve test edenin kurumsal bağımsızlığı (organizational independence) mevcuttur."
+        },
+        {
+          "id": "11.3.1.1",
+          "name": "Geçerli diğer tüm güvenlik açıkları (Gereksinim 6.3.1'de tanımlanan kurumun güvenlik açığı risk sıralamalarına göre yüksek riskli veya kritik olarak sıralanmayanlar) şu şekilde yönetilir: Gereksinim 12.3.1'de belirtilen tüm unsurlara göre gerçekleştirilen kurumun hedeflenmiş risk analizinde tanımlanan riske dayalı olarak ele alınır; gerektiğinde yeniden taramalar yapılır."
+        },
+        {
+          "id": "11.3.1.2",
+          "name": "Dahili güvenlik açığı taramaları kimlik doğrulamalı (authenticated) tarama yoluyla gerçekleştirilir."
+        },
+        {
+          "id": "11.3.1.3",
+          "name": "Herhangi bir önemli değişiklikten sonra dahili güvenlik açığı taramaları gerçekleştirilir."
+        },
+        {
+          "id": "11.3.2",
+          "name": "Harici güvenlik açığı taramaları (external vulnerability scans) şu şekilde gerçekleştirilir: en az üç ayda bir; bir PCI SSC Onaylı Tarama Satıcısı (Approved Scanning Vendor - ASV) tarafından; güvenlik açıkları çözülür ve başarılı bir tarama için ASV Program Kılavuzu gereksinimleri karşılanır; güvenlik açıklarının başarılı bir tarama için ASV Program Kılavuzu gereksinimlerine göre çözüldüğünü doğrulamak için gerektiğinde yeniden taramalar (rescans) yapılır."
+        },
+        {
+          "id": "11.3.2.1",
+          "name": "Herhangi bir önemli değişiklikten sonra harici güvenlik açığı taramaları gerçekleştirilir."
+        },
+        {
+          "id": "11.4",
+          "name": "Dış ve iç sızma testleri (penetration testing) düzenli olarak gerçekleştirilir ve istismar edilebilir güvenlik açıkları ve güvenlik zayıflıkları düzeltilir."
+        },
+        {
+          "id": "11.4.1",
+          "name": "Kurum tarafından bir sızma testi metodolojisi tanımlanır, uygulanır, sürdürülür ve şunları içerir: endüstri tarafından kabul edilen sızma testi yaklaşımları; tüm CDE çevresi ve kritik sistemler için kapsama alanı; hem ağın içinden hem de dışından test; herhangi bir segmentasyon ve kapsam azaltma (scope-reduction) kontrolünü doğrulamak için test; en azından Gereksinim 6.2.4'te listelenen güvenlik açıklarını belirlemek için uygulama katmanı (application-layer) sızma testi; işletim sistemlerinin yanı sıra ağ işlevlerini destekleyen tüm bileşenleri kapsayan ağ katmanı (network-layer) sızma testleri; son 12 ayda yaşanan tehdit ve güvenlik açıklarının gözden geçirilmesi ve değerlendirilmesi."
+        },
+        {
+          "id": "11.4.2",
+          "name": "Dahili sızma testi şu şekilde gerçekleştirilir: kurumun tanımlanmış metodolojisine göre; en az 12 ayda bir; herhangi bir önemli altyapı veya uygulama yükseltmesi veya değişikliğinden sonra."
+        },
+        {
+          "id": "11.4.3",
+          "name": "Harici sızma testi şu şekilde gerçekleştirilir: kurumun tanımlanmış metodolojisine göre; en az 12 ayda bir; herhangi bir önemli altyapı veya uygulama yükseltmesi veya değişikliğinden sonra."
+        },
+        {
+          "id": "11.4.4",
+          "name": "Sızma testi sırasında bulunan istismar edilebilir güvenlik açıkları ve güvenlik zayıflıkları şu şekilde düzeltilir: Gereksinim 6.3.1'de tanımlandığı üzere güvenlik sorununun oluşturduğu riskin kurum tarafından değerlendirilmesine uygun olarak; düzeltmeleri doğrulamak için sızma testi tekrarlanır."
+        },
+        {
+          "id": "11.4.5",
+          "name": "CDE'yi diğer ağlardan izole etmek için segmentasyon (segmentation) kullanılıyorsa, segmentasyon kontrolleri üzerinde şu şekilde sızma testleri yapılır: en az 12 ayda bir ve segmentasyon kontrollerinde/yöntemlerinde yapılan herhangi bir değişiklikten sonra; kullanımda olan tüm segmentasyon kontrollerini/yöntemlerini kapsayacak şekilde; kurumun tanımlanmış sızma testi metodolojisine göre; segmentasyon kontrollerinin/yöntemlerinin operasyonel ve etkili olduğunu ve CDE'yi kapsam dışı tüm sistemlerden izole ettiğini teyit edecek şekilde; farklı güvenlik seviyelerine sahip sistemleri ayırmak için herhangi bir izolasyon kullanımının etkinliğini teyit edecek şekilde."
+        },
+        {
+          "id": "11.4.6",
+          "name": "Yalnızca servis sağlayıcılar için ek gereksinim: CDE'yi diğer ağlardan izole etmek için segmentasyon kullanılıyorsa, segmentasyon kontrolleri üzerinde şu şekilde sızma testleri gerçekleştirilir: en az altı ayda bir ve segmentasyon kontrollerinde/yöntemlerinde yapılan herhangi bir değişiklikten sonra; kullanımda olan tüm segmentasyon kontrollerini/yöntemlerini kapsayacak şekilde; kurumun tanımlanmış sızma testi metodolojisine göre; segmentasyon kontrollerinin/yöntemlerinin operasyonel ve etkili olduğunu ve CDE'yi kapsam dışı tüm sistemlerden izole ettiğini teyit edecek şekilde; farklı güvenlik seviyelerine sahip sistemleri ayırmak için herhangi bir izolasyon kullanımının etkinliğini teyit edecek şekilde."
+        },
+        {
+          "id": "11.4.7",
+          "name": "Yalnızca çok kiracılı (multi-tenant) servis sağlayıcılar için ek gereksinim: çok kiracılı servis sağlayıcılar, Gereksinim 11.4.3 ve 11.4.4 uyarınca müşterilerini harici sızma testi için destekler."
+        },
+        {
+          "id": "11.5",
+          "name": "Ağ izinsiz girişleri (network intrusions) ve beklenmeyen dosya değişiklikleri tespit edilir ve müdahale edilir."
+        },
+        {
+          "id": "11.5.1",
+          "name": "Ağa izinsiz girişleri tespit etmek ve/veya önlemek için izinsiz giriş tespiti (intrusion-detection) ve/veya izinsiz giriş önleme (intrusion-prevention) teknikleri şu şekilde kullanılır: CDE çevresindeki (perimeter) tüm trafik izlenir; CDE'deki kritik noktalardaki tüm trafik izlenir; personel şüpheli ele geçirilmeler konusunda uyarılır; tüm izinsiz giriş tespiti ve önleme motorları, temel çizgileri (baselines) ve imzaları (signatures) güncel tutulur."
+        },
+        {
+          "id": "11.5.1.1",
+          "name": "Yalnızca servis sağlayıcılar için ek gereksinim: izinsiz giriş tespit ve/veya izinsiz giriş önleme teknikleri, gizli kötü amaçlı yazılım iletişim kanallarını tespit eder, uyarısını verir/önler ve ele alır."
+        },
+        {
+          "id": "11.5.2",
+          "name": "Bir değişiklik tespit mekanizması (örneğin, dosya bütünlüğü izleme - file integrity monitoring araçları) şu şekilde dağıtılır: kritik dosyaların yetkisiz değiştirilmesi (değişiklikler, eklemeler ve silmeler dahil) konusunda personeli uyarmak için; kritik dosya karşılaştırmaları en az haftada bir kez gerçekleştirilir."
+        },
+        {
+          "id": "11.6",
+          "name": "Ödeme sayfalarındaki yetkisiz değişiklikler tespit edilir ve müdahale edilir."
+        },
+        {
+          "id": "11.6.1",
+          "name": "Bir değişiklik ve kurcalama tespit (tamper-detection) mekanizması şu şekilde dağıtılır: tüketici tarayıcısı tarafından alındığı şekliyle HTTP başlıklarında ve ödeme sayfalarının içeriklerinde yetkisiz değişikliklere (ele geçirilme göstergeleri, değişiklikler, eklemeler ve silmeler dahil) karşı personeli uyarmak için; mekanizma alınan HTTP başlığını ve ödeme sayfasını değerlendirecek şekilde yapılandırılmıştır."
+        },
+        {
+          "id": "12.1",
+          "name": "Kurumun bilgi varlıklarının (information assets) korunmasını yöneten ve yönlendiren kapsamlı bir bilgi güvenliği politikası bilinmekte ve günceldir."
+        },
+        {
+          "id": "12.1.1",
+          "name": "Genel bir bilgi güvenliği politikası: oluşturulur; yayımlanır; sürdürülür; ilgili satıcılar (vendors) ve iş ortaklarının (business partners) yanı sıra tüm ilgili personele dağıtılır."
+        },
+        {
+          "id": "12.1.2",
+          "name": "Bilgi güvenliği politikası: en az 12 ayda bir gözden geçirilir; iş hedeflerindeki veya ortamdaki risklerdeki değişiklikleri yansıtacak şekilde gerektiğinde güncellenir."
+        },
+        {
+          "id": "12.1.3",
+          "name": "Güvenlik politikası, tüm personel için bilgi güvenliği rollerini ve sorumluluklarını açıkça tanımlar ve tüm personel bilgi güvenliği sorumluluklarının farkındadır ve bunları kabul eder."
+        },
+        {
+          "id": "12.1.4",
+          "name": "Bilgi güvenliği sorumluluğu resmi olarak bir Bilgi Güvenliği Yöneticisine (Chief Information Security Officer) veya üst yönetimin bilgi güvenliği konusunda bilgili başka bir üyesine atanır."
+        },
+        {
+          "id": "12.2",
+          "name": "Son kullanıcı (end-user) teknolojileri için kabul edilebilir kullanım (acceptable use) politikaları tanımlanır ve uygulanır."
+        },
+        {
+          "id": "12.2.1",
+          "name": "Son kullanıcı teknolojileri için kabul edilebilir kullanım politikaları, aşağıdakileri içerecek şekilde belgelenir ve uygulanır: yetkili tarafların açık onayı; teknolojinin kabul edilebilir kullanımları; donanım ve yazılım dahil olmak üzere çalışan kullanımı için şirket tarafından onaylanan ürünlerin listesi."
+        },
+        {
+          "id": "12.3",
+          "name": "Kart sahibi veri ortamına yönelik riskler resmi olarak tanımlanır, değerlendirilir ve yönetilir."
+        },
+        {
+          "id": "12.3.1",
+          "name": "Ne sıklıkta gerçekleştirileceğine dair esneklik sağlayan her bir PCI DSS gereksinimi (örneğin, periyodik olarak gerçekleştirilecek gereksinimler), belgelenmiş ve şunları içeren hedeflenmiş bir risk analizi (targeted risk analysis) ile desteklenir: korunan varlıkların tanımlanması; gereksinimin karşı koruma sağladığı tehdit(ler)in tanımlanması; bir tehdidin gerçekleşme olasılığına ve/veya etkisine katkıda bulunan faktörlerin tanımlanması; tehdidin gerçekleşme olasılığını en aza indirmek için gereksinimin ne sıklıkta gerçekleştirilmesi gerektiğini belirleyen ve bunun gerekçesini içeren sonuç analizi."
+        },
+        {
+          "id": "12.3.2",
+          "name": "Kurumun özelleştirilmiş yaklaşımla (customized approach) karşıladığı her bir PCI DSS gereksinimi için hedeflenmiş bir risk analizi gerçekleştirilir."
+        },
+        {
+          "id": "12.3.3",
+          "name": "Kullanımdaki kriptografik şifre paketleri (cipher suites) ve protokoller, en az aşağıdakileri içerecek şekilde belgelenir ve en az 12 ayda bir gözden geçirilir: kullanım amacı ve nerede kullanıldığı da dahil olmak üzere kullanımdaki tüm kriptografik şifre paketlerinin ve protokollerin güncel bir envanteri; kullanımdaki tüm kriptografik şifre paketlerinin ve protokollerin devam eden yaşayabilirliğine (viability) ilişkin endüstri trendlerinin aktif olarak izlenmesi; kriptografik güvenlik açıklarında beklenen değişikliklere yanıt vermek için belgelenmiş bir strateji."
+        },
+        {
+          "id": "12.3.4",
+          "name": "Kullanılan donanım ve yazılım teknolojileri, en azından aşağıdakileri içerecek şekilde, en az 12 ayda bir gözden geçirilir: teknolojilerin satıcılardan derhal güvenlik düzeltmeleri (security fixes) almaya devam ettiğine dair analiz; teknolojilerin kurumun PCI DSS uyumluluğunu desteklemeye devam ettiğine (ve engellemediğine) dair analiz; bir satıcının (vendor) bir teknoloji için 'kullanım ömrü sonu' (end of life) planlarını duyurması gibi bir teknolojiyle ilgili herhangi bir sektör duyurusu veya trendinin belgelenmesi; satıcıların 'kullanım ömrü sonu' planlarını duyurdukları dahil olmak üzere modası geçmiş (outdated) teknolojileri düzeltmek için üst yönetim tarafından onaylanmış bir planın belgelenmesi."
+        },
+        {
+          "id": "12.4",
+          "name": "PCI DSS uyumluluğu yönetilir."
+        },
+        {
+          "id": "12.4.1",
+          "name": "Yalnızca servis sağlayıcılar için ek gereksinim: kart sahibi verilerinin korunması ve bir PCI DSS uyumluluk programı için üst yönetim tarafından sorumluluk oluşturulur."
+        },
+        {
+          "id": "12.4.2",
+          "name": "Yalnızca servis sağlayıcılar için ek gereksinim: personelin görevlerini tüm güvenlik politikalarına ve operasyonel prosedürlere uygun olarak yerine getirdiğini teyit etmek için en az üç ayda bir incelemeler gerçekleştirilir."
+        },
+        {
+          "id": "12.4.2.1",
+          "name": "Yalnızca servis sağlayıcılar için ek gereksinim: Gereksinim 12.4.2 uyarınca yürütülen incelemeler aşağıdakileri içerecek şekilde belgelenir: incelemelerin sonuçları; yerine getirilmediği tespit edilen görevler için alınan belgelenmiş düzeltme (remediation) eylemleri."
+        },
+        {
+          "id": "12.5",
+          "name": "PCI DSS kapsamı belgelenir ve doğrulanır (validated)."
+        },
+        {
+          "id": "12.5.1",
+          "name": "Her biri için işlev/kullanım açıklaması dahil olmak üzere, PCI DSS kapsamında olan (in scope) sistem bileşenlerinin envanteri tutulur ve güncel tutulur."
+        },
+        {
+          "id": "12.5.2",
+          "name": "PCI DSS kapsamı belgelenir ve kurum tarafından en az 12 ayda bir ve kapsam içi ortamda (in-scope environment) önemli bir değişiklik yapılması durumunda teyit edilir."
+        },
+        {
+          "id": "12.5.2.1",
+          "name": "Yalnızca servis sağlayıcılar için ek gereksinim: PCI DSS kapsamı belgelenir ve kurum tarafından en az altı ayda bir ve kapsam içi ortamda önemli bir değişiklik yapılması durumunda teyit edilir."
+        },
+        {
+          "id": "12.5.3",
+          "name": "Yalnızca servis sağlayıcılar için ek gereksinim: kurumsal yapıdaki önemli değişiklikler, PCI DSS kapsamı ve kontrollerin uygulanabilirliği üzerindeki etkinin belgelenmiş (dahili) bir incelemesiyle sonuçlanır."
+        },
+        {
+          "id": "12.6",
+          "name": "Güvenlik farkındalık eğitimi (security awareness education) sürekli bir etkinliktir."
+        },
+        {
+          "id": "12.6.1",
+          "name": "Tüm personelin kurumun bilgi güvenliği politikası ve prosedürleri ile kart sahibi verilerini korumadaki rolleri hakkında farkındalığını artırmak için resmi bir güvenlik farkındalık programı uygulanır."
+        },
+        {
+          "id": "12.6.2",
+          "name": "Güvenlik farkındalığı programı: en az 12 ayda bir gözden geçirilir; ve kurumun CDE'sinin güvenliğini veya kart sahibi verilerini korumadaki rolleri hakkında personele sağlanan bilgileri etkileyebilecek yeni tehdit ve güvenlik açıklarını ele almak için gerektiğinde güncellenir."
+        },
+        {
+          "id": "12.6.3",
+          "name": "Personel şu şekilde güvenlik farkındalığı eğitimi alır: işe alındığında ve en az 12 ayda bir; birden fazla iletişim yöntemi kullanılır."
+        },
+        {
+          "id": "12.6.3.1",
+          "name": "Güvenlik farkındalığı eğitimi, bunlarla sınırlı olmamak üzere, CDE'nin güvenliğini etkileyebilecek tehdit ve güvenlik açıkları hakkındaki farkındalığı içerir: oltalama (phishing) ve ilgili saldırılar; sosyal mühendislik (social engineering)."
+        },
+        {
+          "id": "12.6.3.2",
+          "name": "Güvenlik farkındalığı eğitimi, Gereksinim 12.2.1 uyarınca son kullanıcı teknolojilerinin kabul edilebilir kullanımına (acceptable use) ilişkin farkındalığı içerir."
+        },
+        {
+          "id": "12.7",
+          "name": "Personel, içeriden gelen tehditlerden (insider threats) kaynaklanan riskleri azaltmak için taranır (screened)."
+        },
+        {
+          "id": "12.7.1",
+          "name": "CDE'ye erişimi olacak potansiyel personel, iç kaynaklardan gelebilecek saldırı riskini en aza indirmek için yerel yasaların kısıtlamaları dahilinde işe alınmadan önce taranır."
+        },
+        {
+          "id": "12.8",
+          "name": "Üçüncü taraf servis sağlayıcı (TPSP) ilişkileriyle ilişkili bilgi varlıklarına (information assets) yönelik risk yönetilir."
+        },
+        {
+          "id": "12.8.1",
+          "name": "Hesap verilerinin paylaşıldığı veya hesap verilerinin güvenliğini etkileyebilecek tüm üçüncü taraf servis sağlayıcıların (TPSP'ler) bir listesi, sağlanan hizmetlerin her biri için bir açıklama dahil olmak üzere tutulur."
+        },
+        {
+          "id": "12.8.2",
+          "name": "TPSP'lerle yazılı anlaşmalar şu şekilde sürdürülür: hesap verilerinin paylaşıldığı veya kart sahibi verilerinin ve/veya hassas kimlik doğrulama verilerinin güvenliğini etkileyebilecek tüm TPSP'lerle yazılı anlaşmalar sürdürülür."
+        },
+        {
+          "id": "12.8.3",
+          "name": "Katılım (engagement) öncesi uygun durum tespitleri (due diligence) de dahil olmak üzere, TPSP'lerle çalışmak için yerleşik bir süreç uygulanır."
+        },
+        {
+          "id": "12.8.4",
+          "name": "TPSP'lerin PCI DSS uyumluluk durumunu en az 12 ayda bir izlemek için bir program uygulanır."
+        },
+        {
+          "id": "12.8.5",
+          "name": "Hangi PCI DSS gereksinimlerinin her bir TPSP tarafından yönetildiği, hangilerinin kurum tarafından yönetildiği ve TPSP ile kurum arasında paylaşılan gereksinimler hakkında bilgi tutulur."
+        },
+        {
+          "id": "12.9",
+          "name": "Üçüncü taraf servis sağlayıcılar (TPSP'ler) müşterilerinin PCI DSS uyumluluğunu destekler."
+        },
+        {
+          "id": "12.9.1",
+          "name": "Yalnızca servis sağlayıcılar için ek gereksinim: TPSP'ler talep üzerine müşterilerine şunları sağlar: TPSP'nin müşteriler adına gerçekleştirdiği veya müşterilerin kart sahibi verilerinin ve/veya hassas kimlik doğrulama verilerinin güvenliğini etkileyebilecek herhangi bir hizmet için PCI DSS uyumluluk durum bilgisi; hangi PCI DSS gereksinimlerinin TPSP'nin sorumluluğunda olduğu, hangilerinin müşterinin sorumluluğunda olduğu ve TPSP ile müşteri arasında paylaşılanlar hakkında bilgi."
+        },
+        {
+          "id": "12.9.2",
+          "name": "TPSP'ler, müşteri talebi üzerine aşağıdakileri sağlayarak müşterilerinin Gereksinim 12.8.4 ve 12.8.5'i karşılama amaçlı bilgi taleplerini destekler: TPSP'nin müşteriler adına gerçekleştirdiği veya müşterilerin kart sahibi verilerinin ve/veya hassas kimlik doğrulama verilerinin güvenliğini etkileyebilecek herhangi bir hizmet için PCI DSS uyumluluk durum bilgisi; hangi PCI DSS gereksinimlerinin TPSP'nin sorumluluğunda olduğu, hangilerinin müşterinin sorumluluğunda olduğu ve TPSP ile müşteri arasında paylaşılanlar hakkında bilgi."
+        },
+        {
+          "id": "12.10",
+          "name": "CDE'yi etkileyebilecek şüpheli ve onaylanmış güvenlik olaylarına anında (immediately) müdahale edilir."
+        },
+        {
+          "id": "12.10.1",
+          "name": "Şüpheli veya onaylanmış bir güvenlik olayı durumunda etkinleştirilmeye hazır bir olay müdahale planı (incident response plan) mevcuttur. Plan şunları içerir, ancak bunlarla sınırlı değildir: şüpheli veya onaylanmış bir güvenlik olayı durumunda roller, sorumluluklar ve iletişim ve iletişim stratejileri (en azından ödeme markalarının ve alıcıların bilgilendirilmesi dahil); farklı olay türleri için belirli kontrol altına alma (containment) ve hafifletme (mitigation) faaliyetlerini içeren olay müdahale prosedürleri; iş kurtarma ve süreklilik (continuity) prosedürleri; veri yedekleme süreçleri; ele geçirilmeleri bildirmeye yönelik yasal gerekliliklerin analizi; tüm kritik sistem bileşenlerinin kapsamı ve yanıtları; ödeme markalarından olay müdahale prosedürlerine atıfta bulunulması veya dahil edilmesi."
+        },
+        {
+          "id": "12.10.2",
+          "name": "En az 12 ayda bir güvenlik olaylarına müdahale planı: gözden geçirilir ve içerik gerektiği gibi güncellenir; Gereksinim 12.10.1'de listelenen tüm unsurları içerecek şekilde test edilir."
+        },
+        {
+          "id": "12.10.3",
+          "name": "Şüpheli veya onaylanmış güvenlik olaylarına müdahale etmek için 7/24 ulaşılabilecek belirli personel görevlendirilir."
+        },
+        {
+          "id": "12.10.4",
+          "name": "Şüpheli ve onaylanmış güvenlik olaylarına müdahale etmekten sorumlu personel, olaylara müdahale sorumlulukları konusunda uygun ve periyodik olarak eğitilir."
+        },
+        {
+          "id": "12.10.4.1",
+          "name": "Olay müdahale personeli için periyodik eğitimin sıklığı, Gereksinim 12.3.1'de belirtilen tüm unsurlara göre gerçekleştirilen kurumun hedeflenmiş risk analizinde tanımlanmıştır."
+        },
+        {
+          "id": "12.10.5",
+          "name": "Güvenlik olaylarına müdahale planı, bunlarla sınırlı olmamak üzere, güvenlik izleme sistemlerinden gelen uyarıları izlemeyi ve bunlara yanıt vermeyi içerir: izinsiz giriş tespit (intrusion-detection) ve izinsiz giriş önleme (intrusion-prevention) sistemleri; ağ güvenliği kontrolleri; kritik dosyalar için değişiklik tespit mekanizmaları; ödeme sayfaları için değişiklik ve kurcalama tespit (tamper-detection) mekanizması."
+        },
+        {
+          "id": "12.10.6",
+          "name": "Güvenlik olaylarına müdahale planı, alınan derslere (lessons learned) göre ve sektördeki gelişmeleri içerecek şekilde değiştirilir ve geliştirilir."
+        },
+        {
+          "id": "12.10.7",
+          "name": "Beklenmeyen herhangi bir yerde depolanmış PAN (Birincil Hesap Numarası) tespit edildiğinde başlatılacak olay müdahale prosedürleri mevcuttur ve şunları içerir: PAN'in CDE dışında keşfedilmesi durumunda ne yapılacağının belirlenmesi (uygun olduğu şekilde, geri alınması, güvenli bir şekilde silinmesi ve/veya halihazırda tanımlanmış CDE'ye taşınması dahil); hassas kimlik doğrulama verilerinin PAN ile birlikte depolanıp depolanmadığının belirlenmesi; hesap verilerinin nereden geldiğinin ve beklenmeyen bir yere nasıl ulaştığının belirlenmesi; hesap verilerinin beklenmeyen bir yerde bulunmasıyla sonuçlanan veri sızıntılarının (data leaks) veya süreç boşluklarının düzeltilmesi."
+        },
+        {
+          "id": "A1.1",
+          "name": "Çok kiracılı (multi-tenant) servis sağlayıcılar tüm müşteri ortamlarını ve verilerini korur ve ayırır."
+        },
+        {
+          "id": "A1.1.1",
+          "name": "Mantıksal ayırma (logical separation) şu şekilde uygulanır: sağlayıcının müşterileri başka bir müşterinin ortamına erişemez; bir müşteri servis sağlayıcının ortamına erişemez."
+        },
+        {
+          "id": "A1.1.2",
+          "name": "Kontroller, her müşterinin süreçlerinin yalnızca o müşterinin kart sahibi veri ortamına ve kart sahibi verilerine erişebilmesini sağlayacak şekilde uygulanır."
+        },
+        {
+          "id": "A1.1.3",
+          "name": "Kontroller, her müşterinin yalnızca kendisine tahsis edilen kaynaklara erişebilmesini sağlayacak şekilde uygulanır."
+        },
+        {
+          "id": "A1.1.4",
+          "name": "Müşteri ortamlarını ayırmak için kullanılan mantıksal ayırma (logical separation) kontrollerinin etkinliği en az altı ayda bir sızma testi yoluyla doğrulanır."
+        },
+        {
+          "id": "A1.2",
+          "name": "Çok kiracılı (multi-tenant) servis sağlayıcılar, tüm müşteriler için günlüğe kaydetme (logging) ve olay müdahalesini kolaylaştırır."
+        },
+        {
+          "id": "A1.2.1",
+          "name": "Her bir müşterinin ortamı için PCI DSS Gereksinim 10 ile tutarlı olan denetim günlüğü (audit logging) etkinleştirilir, buna aşağıdakiler dahildir: günlükler ortak üçüncü taraf uygulamalar için etkinleştirilir; günlükler varsayılan olarak aktiftir; günlükler yalnızca sahip olan (owning) müşterinin incelemesine açıktır; günlük konumları sahip olan müşteriye açıkça iletilir; günlük verileri ve kullanılabilirliği PCI DSS Gereksinim 10.5.1 ile tutarlıdır."
+        },
+        {
+          "id": "A1.2.2",
+          "name": "Herhangi bir müşteri için şüpheli veya onaylanmış bir güvenlik olayı durumunda anında (prompt) adli soruşturmaları desteklemek ve/veya kolaylaştırmak için süreçler veya mekanizmalar uygulanır."
+        },
+        {
+          "id": "A1.2.3",
+          "name": "Şüpheli veya onaylanmış güvenlik olaylarını ve güvenlik açıklarını bildirmek ve ele almak için aşağıdakileri içeren süreçler veya mekanizmalar uygulanır: müşteriler güvenlik olaylarını ve güvenlik açıklarını sağlayıcıya güvenli bir şekilde bildirebilir; sağlayıcı, şüpheli veya onaylanmış güvenlik olaylarını ve güvenlik açıklarını Gereksinim 6.3.1'e göre ele alır ve düzeltir."
+        },
+        {
+          "id": "A2.1",
+          "name": "SSL ve/veya erken TLS (early TLS) kullanan POI terminallerinin bilinen istismarlara (exploits) karşı duyarlı olmadığı (susceptible) teyit edilir ve kurumun resmi bir Risk Azaltma ve Geçiş Planı (Risk Mitigation and Migration Plan) mevcuttur."
+        },
+        {
+          "id": "A2.1.1",
+          "name": "Etkileşim noktasındaki (point of interaction) POS POI terminallerinin SSL ve/veya erken TLS kullandığı durumlarda kurum, cihazların bu protokoller için bilinen hiçbir istismara karşı duyarlı olmadığını teyit eder."
+        },
+        {
+          "id": "A2.1.2",
+          "name": "Etkileşim noktasındaki POS POI terminallerinin SSL ve/veya erken TLS kullandığı durumlarda kurum, terminallerdeki yazılımın bu protokoller için bilinen hiçbir istismara karşı duyarlı olmadığını teyit eder."
+        },
+        {
+          "id": "A2.1.3",
+          "name": "Etkileşim noktasındaki POS POI terminallerinin SSL ve/veya erken TLS kullandığı durumlarda, kurum ortamındaki diğer tüm SSL/erken TLS kullanımları Gereksinim 2.2.5 ve 4.2.1'e uygundur."
+        },
+        {
+          "id": "A3.1",
+          "name": "Bir PCI DSS uyumluluk programı uygulanır."
+        },
+        {
+          "id": "A3.2",
+          "name": "PCI DSS kapsamı belgelenir ve doğrulanır (validated)."
+        },
+        {
+          "id": "A3.3",
+          "name": "PCI DSS, olağan iş (business-as-usual - BAU) etkinliklerine entegre edilir."
+        },
+        {
+          "id": "A3.4",
+          "name": "Kart sahibi veri ortamına mantıksal erişim kontrol edilir ve yönetilir."
+        },
+        {
+          "id": "A3.5",
+          "name": "Şüpheli olaylar (suspicious events) tespit edilir ve müdahale edilir."
+        }
+      ]
+}

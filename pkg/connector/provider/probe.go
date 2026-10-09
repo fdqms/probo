@@ -1,0 +1,868 @@
+// Copyright (c) 2026 Probo Inc <hello@probo.com>.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+
+package provider
+
+import (
+	"bytes"
+	"context"
+	"encoding/json"
+	"errors"
+	"fmt"
+	"io"
+	"net/http"
+	"net/url"
+	"slices"
+	"strings"
+
+	"go.probo.inc/probo/pkg/accessreview/drivers"
+	"go.probo.inc/probo/pkg/cloud"
+	"go.probo.inc/probo/pkg/connector"
+	"go.probo.inc/probo/pkg/coredata"
+)
+
+// Non-URL request metadata the probe closures need. Every host-bearing URL a
+// probe emits comes from the registration's Endpoints or from the connector's
+// own settings, never from a literal here, so an APIBase override moves the
+// connection check along with the driver.
+const (
+	anthropicAPIVersion = "2023-06-01"
+	crispTierHeader     = "X-Crisp-Tier"
+	crispTierValue      = "plugin"
+	squareVersion       = "2026-05-20"
+)
+
+// ProbeConnection verifies that the connector credential is accepted by the
+// provider. It dispatches to a provider-specific Probe closure when
+// registered, otherwise issues a lightweight GET against ProbeURL or
+// BuildProbeURL. An empty probe URL means the check is skipped.
+func (r *Registry) ProbeConnection(
+	ctx context.Context,
+	httpClient *http.Client,
+	conn *coredata.Connector,
+) error {
+	reg, ok := r.Get(conn.Provider)
+	if !ok {
+		return nil
+	}
+
+	if reg.Probe != nil {
+		return reg.Probe(ctx, httpClient, conn, reg.Endpoints)
+	}
+
+	probeURL := reg.Endpoints.Probe
+	if reg.BuildProbeURL != nil {
+		built, err := reg.BuildProbeURL(conn, reg.Endpoints)
+		if err != nil {
+			return fmt.Errorf("cannot build probe URL: %w", err)
+		}
+
+		probeURL = built
+	}
+
+	return probeGET(ctx, httpClient, probeURL)
+}
+
+// ProbeCloudConnection is ProbeConnection for a workload identity connector,
+// whose credential is a cloud SDK credential rather than an *http.Client. A
+// provider that registers no ProbeCloud skips the check, matching the empty
+// probe URL contract above.
+func (r *Registry) ProbeCloudConnection(
+	ctx context.Context,
+	session cloud.Session,
+	conn *coredata.Connector,
+) error {
+	reg, ok := r.Get(conn.Provider)
+	if !ok || reg.WorkloadIdentity == nil || reg.WorkloadIdentity.Probe == nil {
+		return nil
+	}
+
+	return reg.WorkloadIdentity.Probe(ctx, session, conn)
+}
+
+func probeGET(ctx context.Context, httpClient *http.Client, probeURL string) error {
+	if probeURL == "" {
+		return nil
+	}
+
+	req, err := http.NewRequestWithContext(ctx, http.MethodGet, probeURL, nil)
+	if err != nil {
+		return fmt.Errorf("cannot create probe request: %w", err)
+	}
+
+	req.Header.Set("Accept", "application/json")
+
+	return doProbeRequest(httpClient, req)
+}
+
+func probePOSTJSON(
+	ctx context.Context,
+	httpClient *http.Client,
+	probeURL string,
+	payload any,
+	extraHeaders map[string]string,
+) error {
+	body, err := json.Marshal(payload)
+	if err != nil {
+		return fmt.Errorf("cannot marshal probe request: %w", err)
+	}
+
+	req, err := http.NewRequestWithContext(ctx, http.MethodPost, probeURL, bytes.NewReader(body))
+	if err != nil {
+		return fmt.Errorf("cannot create probe request: %w", err)
+	}
+
+	req.Header.Set("Accept", "application/json")
+	req.Header.Set("Content-Type", "application/json")
+
+	for key, value := range extraHeaders {
+		req.Header.Set(key, value)
+	}
+
+	return doProbeRequest(httpClient, req)
+}
+
+// CredentialRejectedError reports that the provider refused the credential,
+// carrying the status separately so callers can log it without the message.
+type CredentialRejectedError struct {
+	StatusCode int
+}
+
+func (e *CredentialRejectedError) Error() string {
+	return fmt.Sprintf("credential rejected: status %d", e.StatusCode)
+}
+
+// NotAnAPIEndpointError reports that the probe reached a server that answered
+// with markup instead of JSON. It carries no body: the page is the customer's
+// and may hold anything.
+type NotAnAPIEndpointError struct {
+	StatusCode int
+}
+
+func (e *NotAnAPIEndpointError) Error() string {
+	return fmt.Sprintf(
+		"endpoint returned an HTML page instead of JSON (status %d): check the instance URL points at the API",
+		e.StatusCode,
+	)
+}
+
+// doProbeRequest executes a probe request and maps the status to a verdict:
+// 401/403 always mean the credential is rejected, any 2xx/other status means
+// connected. extraReject lets a provider add statuses that also mean a hard
+// rejection (e.g. OpenRouter's 404 for a non-organization key); pass none for
+// the default 401/403-only contract.
+//
+// A 2xx that answers with an HTML document is rejected: only there does the
+// status lie.
+// A customer-supplied base URL can reach a single-page app serving its index
+// for any unknown path, or an SSO portal, and both answer 200. Other statuses
+// keep their existing verdict, so a provider's 5xx maintenance page stays a
+// transient failure rather than flipping a working connector to disconnected.
+func doProbeRequest(httpClient *http.Client, req *http.Request, extraReject ...int) error {
+	resp, err := httpClient.Do(req)
+	if err != nil {
+		return fmt.Errorf("probe request failed: %w", err)
+	}
+
+	defer func() {
+		_, _ = io.Copy(io.Discard, resp.Body)
+		_ = resp.Body.Close()
+	}()
+
+	if resp.StatusCode == http.StatusUnauthorized ||
+		resp.StatusCode == http.StatusForbidden ||
+		slices.Contains(extraReject, resp.StatusCode) {
+		return &CredentialRejectedError{StatusCode: resp.StatusCode}
+	}
+
+	if resp.StatusCode >= 200 && resp.StatusCode < 300 && respondsWithHTML(resp.Body) {
+		return &NotAnAPIEndpointError{StatusCode: resp.StatusCode}
+	}
+
+	return nil
+}
+
+// respondsWithHTML reports whether the body opens an HTML document. It matches
+// HTML specifically rather than any '<': an XML API is a legitimate thing for a
+// probe to reach, and a false positive here retires a working connector.
+//
+// Leading whitespace is skipped over a bounded number of reads, so a page
+// padded ahead of its doctype is still recognised without letting a slow or
+// endless body hold the probe open.
+func respondsWithHTML(body io.Reader) bool {
+	// The byte order mark some servers prepend to an HTML page.
+	const utf8BOM = "\xef\xbb\xbf"
+
+	prefixes := [][]byte{
+		[]byte("<!doctype"),
+		[]byte("<html"),
+		[]byte("<head"),
+		[]byte("<body"),
+	}
+
+	var (
+		buf     [512]byte
+		scanned []byte
+	)
+
+	for range 8 {
+		n, err := io.ReadFull(body, buf[:])
+		if n > 0 {
+			scanned = append(scanned, buf[:n]...)
+			scanned = bytes.TrimLeft(bytes.TrimPrefix(scanned, []byte(utf8BOM)), " \t\r\n\v\f")
+		}
+
+		// Keep reading only while everything seen so far is whitespace; the
+		// longest prefix below decides how much is enough to classify.
+		if len(scanned) >= 9 || err != nil {
+			break
+		}
+	}
+
+	lowered := bytes.ToLower(scanned)
+
+	for _, prefix := range prefixes {
+		if bytes.HasPrefix(lowered, prefix) {
+			return true
+		}
+	}
+
+	return false
+}
+
+func buildDatadogProbeURL(conn *coredata.Connector, _ Endpoints) (string, error) {
+	s, err := coredata.ConnectorSettings[coredata.DatadogConnectorSettings](conn)
+	if err != nil {
+		return "", fmt.Errorf("cannot read datadog connector settings: %w", err)
+	}
+
+	if !connector.IsValidDatadogDomain(s.Domain) {
+		return "", fmt.Errorf("invalid or missing datadog domain")
+	}
+
+	q := url.Values{}
+	q.Set("page[size]", "1")
+	q.Set("page[number]", "0")
+
+	endpoint := url.URL{
+		Scheme:   "https",
+		Host:     "api." + s.Domain,
+		Path:     "/api/v2/users",
+		RawQuery: q.Encode(),
+	}
+
+	return endpoint.String(), nil
+}
+
+func buildZendeskProbeURL(conn *coredata.Connector, _ Endpoints) (string, error) {
+	s, err := coredata.ConnectorSettings[coredata.ZendeskConnectorSettings](conn)
+	if err != nil {
+		return "", fmt.Errorf("cannot read zendesk connector settings: %w", err)
+	}
+
+	if !connector.IsValidZendeskSubdomain(s.Subdomain) {
+		return "", fmt.Errorf("invalid or missing zendesk subdomain")
+	}
+
+	q := url.Values{}
+	q.Set("page[size]", "1")
+	q.Add("role[]", "agent")
+	q.Add("role[]", "admin")
+
+	endpoint := url.URL{
+		Scheme:   "https",
+		Host:     s.Subdomain + ".zendesk.com",
+		Path:     "/api/v2/users.json",
+		RawQuery: q.Encode(),
+	}
+
+	return endpoint.String(), nil
+}
+
+func buildOktaProbeURL(conn *coredata.Connector, _ Endpoints) (string, error) {
+	s, err := coredata.ConnectorSettings[coredata.OktaConnectorSettings](conn)
+	if err != nil {
+		return "", fmt.Errorf("cannot read okta connector settings: %w", err)
+	}
+
+	if !connector.IsValidOktaDomain(s.Domain) {
+		return "", fmt.Errorf("invalid or missing okta domain")
+	}
+
+	endpoint := url.URL{
+		Scheme:   "https",
+		Host:     s.Domain,
+		Path:     "/api/v1/users",
+		RawQuery: url.Values{"limit": {"1"}}.Encode(),
+	}
+
+	return endpoint.String(), nil
+}
+
+func buildNeonProbeURL(conn *coredata.Connector, ep Endpoints) (string, error) {
+	s, err := coredata.ConnectorSettings[coredata.NeonConnectorSettings](conn)
+	if err != nil {
+		return "", fmt.Errorf("cannot read neon connector settings: %w", err)
+	}
+
+	if s.OrganizationID == "" {
+		return "", fmt.Errorf("missing neon organization_id")
+	}
+
+	endpoint, err := url.JoinPath(
+		ep.APIBase,
+		"organizations",
+		url.PathEscape(s.OrganizationID),
+		"members",
+	)
+	if err != nil {
+		return "", fmt.Errorf("cannot build neon probe URL: %w", err)
+	}
+
+	q := url.Values{"limit": {"1"}}
+
+	return endpoint + "?" + q.Encode(), nil
+}
+
+func buildScalewayProbeURL(conn *coredata.Connector, ep Endpoints) (string, error) {
+	s, err := coredata.ConnectorSettings[coredata.ScalewayConnectorSettings](conn)
+	if err != nil {
+		return "", fmt.Errorf("cannot read scaleway connector settings: %w", err)
+	}
+
+	if s.OrganizationID == "" {
+		return "", fmt.Errorf("missing scaleway organization_id")
+	}
+
+	endpoint, err := url.JoinPath(ep.APIBase, "users")
+	if err != nil {
+		return "", fmt.Errorf("cannot build scaleway probe URL: %w", err)
+	}
+
+	q := url.Values{
+		"organization_id": {s.OrganizationID},
+		"page_size":       {"1"},
+	}
+
+	return endpoint + "?" + q.Encode(), nil
+}
+
+func buildRenderProbeURL(conn *coredata.Connector, ep Endpoints) (string, error) {
+	s, err := coredata.ConnectorSettings[coredata.RenderConnectorSettings](conn)
+	if err != nil {
+		return "", fmt.Errorf("cannot read render connector settings: %w", err)
+	}
+
+	if s.OwnerID == "" {
+		return "", fmt.Errorf("missing render owner_id")
+	}
+
+	return url.JoinPath(
+		ep.APIBase,
+		"owners",
+		url.PathEscape(s.OwnerID),
+		"members",
+	)
+}
+
+func buildQoveryProbeURL(conn *coredata.Connector, ep Endpoints) (string, error) {
+	s, err := coredata.ConnectorSettings[coredata.QoveryConnectorSettings](conn)
+	if err != nil {
+		return "", fmt.Errorf("cannot read qovery connector settings: %w", err)
+	}
+
+	if s.OrganizationID == "" {
+		return "", fmt.Errorf("missing qovery organization_id")
+	}
+
+	return url.JoinPath(
+		ep.APIBase,
+		"organization",
+		url.PathEscape(s.OrganizationID),
+		"member",
+	)
+}
+
+func buildGrafanaProbeURL(conn *coredata.Connector, _ Endpoints) (string, error) {
+	s, err := coredata.ConnectorSettings[coredata.GrafanaConnectorSettings](conn)
+	if err != nil {
+		return "", fmt.Errorf("cannot read grafana connector settings: %w", err)
+	}
+
+	baseURL, err := normalizeSelfHostedBaseURL(s.BaseURL)
+	if err != nil {
+		return "", err
+	}
+
+	u, err := url.Parse(baseURL)
+	if err != nil {
+		return "", fmt.Errorf("cannot parse grafana base URL: %w", err)
+	}
+
+	u = u.JoinPath("api", "org", "users")
+	q := u.Query()
+	q.Set("perpage", "1")
+	q.Set("page", "1")
+	u.RawQuery = q.Encode()
+
+	return u.String(), nil
+}
+
+func buildMetabaseProbeURL(conn *coredata.Connector, _ Endpoints) (string, error) {
+	s, err := coredata.ConnectorSettings[coredata.MetabaseConnectorSettings](conn)
+	if err != nil {
+		return "", fmt.Errorf("cannot read metabase connector settings: %w", err)
+	}
+
+	instanceURL := strings.TrimSpace(s.InstanceURL)
+	if instanceURL == "" {
+		return "", fmt.Errorf("missing metabase instance_url")
+	}
+
+	if err := validateMetabaseInstanceURL(instanceURL); err != nil {
+		return "", err
+	}
+
+	u, err := url.Parse(instanceURL)
+	if err != nil {
+		return "", fmt.Errorf("cannot parse metabase instance URL: %w", err)
+	}
+
+	endpoint := u.JoinPath("api", "user")
+	q := endpoint.Query()
+	q.Set("status", "all")
+	q.Set("limit", "1")
+	q.Set("offset", "0")
+	endpoint.RawQuery = q.Encode()
+
+	return endpoint.String(), nil
+}
+
+func buildLangfuseProbeURL(conn *coredata.Connector, _ Endpoints) (string, error) {
+	s, err := coredata.ConnectorSettings[coredata.LangfuseConnectorSettings](conn)
+	if err != nil {
+		return "", fmt.Errorf("cannot read langfuse connector settings: %w", err)
+	}
+
+	baseURL, err := normalizeSelfHostedBaseURL(s.BaseURL)
+	if err != nil {
+		return "", err
+	}
+
+	u, err := url.Parse(baseURL)
+	if err != nil {
+		return "", fmt.Errorf("cannot parse langfuse base URL: %w", err)
+	}
+
+	return u.JoinPath("api", "public", "organizations", "memberships").String(), nil
+}
+
+func buildSigNozProbeURL(conn *coredata.Connector, _ Endpoints) (string, error) {
+	s, err := coredata.ConnectorSettings[coredata.SigNozConnectorSettings](conn)
+	if err != nil {
+		return "", fmt.Errorf("cannot read signoz connector settings: %w", err)
+	}
+
+	baseURL, err := normalizeSelfHostedBaseURL(s.BaseURL)
+	if err != nil {
+		return "", err
+	}
+
+	u, err := url.Parse(baseURL)
+	if err != nil {
+		return "", fmt.Errorf("cannot parse signoz base URL: %w", err)
+	}
+
+	return u.JoinPath("api", "v1", "user").String(), nil
+}
+
+func buildAuthentikProbeURL(conn *coredata.Connector, _ Endpoints) (string, error) {
+	s, err := coredata.ConnectorSettings[coredata.AuthentikConnectorSettings](conn)
+	if err != nil {
+		return "", fmt.Errorf("cannot read authentik connector settings: %w", err)
+	}
+
+	baseURL, err := normalizeSelfHostedBaseURL(s.BaseURL)
+	if err != nil {
+		return "", err
+	}
+
+	u, err := url.Parse(baseURL)
+	if err != nil {
+		return "", fmt.Errorf("cannot parse authentik base URL: %w", err)
+	}
+
+	return u.JoinPath("api", "v3", "core", "users", "me/").String(), nil
+}
+
+func buildPostHogProbeURL(conn *coredata.Connector) (string, error) {
+	s, err := coredata.ConnectorSettings[coredata.PostHogConnectorSettings](conn)
+	if err != nil {
+		return "", fmt.Errorf("cannot read posthog connector settings: %w", err)
+	}
+
+	baseURL := strings.TrimSpace(s.BaseURL)
+	if baseURL == "" {
+		return "", nil
+	}
+
+	return url.JoinPath(baseURL, drivers.PostHogOrganizationPath)
+}
+
+func probeLinear(
+	ctx context.Context,
+	httpClient *http.Client,
+	_ *coredata.Connector,
+	ep Endpoints,
+) error {
+	return probePOSTJSON(
+		ctx,
+		httpClient,
+		ep.APIBase,
+		map[string]string{"query": "{ viewer { id } }"},
+		nil,
+	)
+}
+
+func probeMonday(
+	ctx context.Context,
+	httpClient *http.Client,
+	_ *coredata.Connector,
+	ep Endpoints,
+) error {
+	return probePOSTJSON(
+		ctx,
+		httpClient,
+		ep.APIBase,
+		map[string]string{"query": "query { users(limit: 1) { id } }"},
+		nil,
+	)
+}
+
+// probeRailway verifies a Railway account token. Railway returns HTTP 200 with
+// a populated errors array (and data.me null) for a rejected token rather than
+// 401/403, so the generic probe would falsely pass — this closure inspects the
+// response body instead.
+func probeRailway(
+	ctx context.Context,
+	httpClient *http.Client,
+	_ *coredata.Connector,
+	ep Endpoints,
+) error {
+	body, err := json.Marshal(map[string]string{"query": "query { me { id } }"})
+	if err != nil {
+		return fmt.Errorf("cannot marshal railway probe request: %w", err)
+	}
+
+	req, err := http.NewRequestWithContext(ctx, http.MethodPost, ep.APIBase, bytes.NewReader(body))
+	if err != nil {
+		return fmt.Errorf("cannot create railway probe request: %w", err)
+	}
+
+	req.Header.Set("Accept", "application/json")
+	req.Header.Set("Content-Type", "application/json")
+
+	resp, err := httpClient.Do(req)
+	if err != nil {
+		return fmt.Errorf("railway probe request failed: %w", err)
+	}
+
+	defer func() {
+		_, _ = io.Copy(io.Discard, resp.Body)
+		_ = resp.Body.Close()
+	}()
+
+	if resp.StatusCode == http.StatusUnauthorized || resp.StatusCode == http.StatusForbidden {
+		return &CredentialRejectedError{StatusCode: resp.StatusCode}
+	}
+
+	// The errors-array rule below is Railway's documented rejection, and it
+	// only means that on a 2xx. Checked before the decode so an outage that
+	// answers with an HTML error page reports its status rather than a
+	// decode failure.
+	if resp.StatusCode < 200 || resp.StatusCode >= 300 {
+		return fmt.Errorf("railway probe returned unexpected status %d", resp.StatusCode)
+	}
+
+	var parsed struct {
+		Data struct {
+			Me *struct {
+				ID string `json:"id"`
+			} `json:"me"`
+		} `json:"data"`
+		Errors []json.RawMessage `json:"errors"`
+	}
+	if err := json.NewDecoder(resp.Body).Decode(&parsed); err != nil {
+		return fmt.Errorf("cannot decode railway probe response: %w", err)
+	}
+
+	// Railway answers 200 with an errors array rather than a 401, so this is
+	// a rejection too and must classify the same way.
+	if len(parsed.Errors) > 0 || parsed.Data.Me == nil {
+		return &CredentialRejectedError{StatusCode: resp.StatusCode}
+	}
+
+	return nil
+}
+
+// probeCrisp verifies a Crisp plugin token against the configured website.
+// Every Crisp request needs the non-auth X-Crisp-Tier header, which the default
+// probeGET does not set, so this closure builds the request itself; the Basic
+// credential is attached by the connection transport. Beyond the usual 401/403,
+// it treats 404 as a rejection too: a valid token whose website_id is wrong or
+// unbound returns 404 on operators/list — a permanent misconfiguration that
+// would otherwise pass the probe and fail every later access review, so it
+// surfaces at connection time instead.
+func probeCrisp(
+	ctx context.Context,
+	httpClient *http.Client,
+	conn *coredata.Connector,
+	ep Endpoints,
+) error {
+	s, err := coredata.ConnectorSettings[coredata.CrispConnectorSettings](conn)
+	if err != nil {
+		return fmt.Errorf("cannot read crisp connector settings: %w", err)
+	}
+
+	if s.WebsiteID == "" {
+		return fmt.Errorf("missing crisp website_id")
+	}
+
+	endpoint, err := url.JoinPath(ep.APIBase, "website", url.PathEscape(s.WebsiteID), "operators", "list")
+	if err != nil {
+		return fmt.Errorf("cannot build crisp probe URL: %w", err)
+	}
+
+	req, err := http.NewRequestWithContext(ctx, http.MethodGet, endpoint, nil)
+	if err != nil {
+		return fmt.Errorf("cannot create crisp probe request: %w", err)
+	}
+
+	req.Header.Set("Accept", "application/json")
+	req.Header.Set(crispTierHeader, crispTierValue)
+
+	return doProbeRequest(httpClient, req, http.StatusNotFound)
+}
+
+func probeAnthropic(
+	ctx context.Context,
+	httpClient *http.Client,
+	_ *coredata.Connector,
+	ep Endpoints,
+) error {
+	endpoint, err := url.JoinPath(ep.APIBase, "organizations", "users")
+	if err != nil {
+		return fmt.Errorf("cannot build anthropic probe URL: %w", err)
+	}
+
+	req, err := http.NewRequestWithContext(ctx, http.MethodGet, endpoint, nil)
+	if err != nil {
+		return fmt.Errorf("cannot create probe request: %w", err)
+	}
+
+	req.URL.RawQuery = url.Values{"limit": {"1"}}.Encode()
+
+	req.Header.Set("Accept", "application/json")
+	req.Header.Set("anthropic-version", anthropicAPIVersion)
+
+	return doProbeRequest(httpClient, req)
+}
+
+func probeHeroku(
+	ctx context.Context,
+	httpClient *http.Client,
+	_ *coredata.Connector,
+	ep Endpoints,
+) error {
+	endpoint, err := url.JoinPath(ep.APIBase, "account")
+	if err != nil {
+		return fmt.Errorf("cannot build heroku probe URL: %w", err)
+	}
+
+	req, err := http.NewRequestWithContext(ctx, http.MethodGet, endpoint, nil)
+	if err != nil {
+		return fmt.Errorf("cannot create probe request: %w", err)
+	}
+
+	// Heroku negotiates the API version through the Accept media type; the
+	// generic "application/json" the default probe sends yields 400 (not
+	// 401/403), which doProbeRequest would read as "connected" and mask a
+	// dead token. Send the versioned Accept so a revoked token surfaces as
+	// 401 (verified live: 400 with application/json, 401 with this header).
+	req.Header.Set("Accept", "application/vnd.heroku+json; version=3")
+
+	return doProbeRequest(httpClient, req)
+}
+
+// probeOpenRouter verifies an OpenRouter management key. Beyond the usual
+// 401/403, it treats 404 as a rejection too: a personal (non-organization)
+// key authenticates but the members endpoint returns 404 "This endpoint is
+// only available for organization accounts" (verified live) — a permanent,
+// not transient, signal that the connector can never list anyone, so it
+// surfaces at connection time instead of failing a campaign later.
+func probeOpenRouter(
+	ctx context.Context,
+	httpClient *http.Client,
+	_ *coredata.Connector,
+	ep Endpoints,
+) error {
+	endpoint, err := url.JoinPath(ep.APIBase, "organization", "members")
+	if err != nil {
+		return fmt.Errorf("cannot build openrouter probe URL: %w", err)
+	}
+
+	req, err := http.NewRequestWithContext(ctx, http.MethodGet, endpoint, nil)
+	if err != nil {
+		return fmt.Errorf("cannot create probe request: %w", err)
+	}
+
+	req.URL.RawQuery = url.Values{"limit": {"1"}}.Encode()
+
+	req.Header.Set("Accept", "application/json")
+
+	return doProbeRequest(httpClient, req, http.StatusNotFound)
+}
+
+// probePostHog ignores Endpoints because PostHog's APIBase is deliberately
+// empty: the data host is per-connection (an API-key region or a self-hosted
+// instance URL) or discovered at runtime, so it comes from the connector
+// settings below, never from the registration.
+func probePostHog(
+	ctx context.Context,
+	httpClient *http.Client,
+	conn *coredata.Connector,
+	_ Endpoints,
+) error {
+	probeURL, err := buildPostHogProbeURL(conn)
+	if err != nil {
+		return err
+	}
+
+	// Explicit host (API-key region or self-hosted): probe it directly.
+	if probeURL != "" {
+		return probeGET(ctx, httpClient, probeURL)
+	}
+
+	// Cloud OAuth (empty BaseURL): reuse the driver's region resolver so the
+	// probe and the campaign never drift. Only a credential every region
+	// rejected is disconnected; a transient failure on the token's own region
+	// stays connected rather than flapping the badge.
+	if _, err := drivers.ResolvePostHogRegion(ctx, httpClient); err != nil {
+		if errors.Is(err, drivers.ErrPostHogCredentialRejected) {
+			return fmt.Errorf("cannot probe posthog: %w", err)
+		}
+
+		return nil
+	}
+
+	return nil
+}
+
+// buildSegmentProbeURL builds the Segment users probe URL from the connector's
+// stored base URL (the region-resolved host). GET /users returns 401 on a dead
+// or under-scoped Public API token.
+func buildSegmentProbeURL(conn *coredata.Connector, _ Endpoints) (string, error) {
+	s, err := coredata.ConnectorSettings[coredata.SegmentConnectorSettings](conn)
+	if err != nil {
+		return "", fmt.Errorf("cannot read segment connector settings: %w", err)
+	}
+
+	if s.BaseURL == "" {
+		return "", fmt.Errorf("missing segment base URL")
+	}
+
+	u, err := url.Parse(s.BaseURL)
+	if err != nil {
+		return "", fmt.Errorf("cannot parse segment base URL: %w", err)
+	}
+
+	q := url.Values{}
+	q.Set("pagination.count", "1")
+
+	u.Path = "/users"
+	u.RawQuery = q.Encode()
+
+	return u.String(), nil
+}
+
+// buildGoogleAnalyticsProbeURL targets the selected account's accessBindings,
+// the driver's first call, so the probe fails for a connection that can list
+// accounts but cannot read access bindings.
+func buildGoogleAnalyticsProbeURL(conn *coredata.Connector, ep Endpoints) (string, error) {
+	s, err := coredata.ConnectorSettings[coredata.GoogleAnalyticsConnectorSettings](conn)
+	if err != nil {
+		return "", fmt.Errorf("cannot read google analytics connector settings: %w", err)
+	}
+
+	if s.AccountID == "" {
+		return "", fmt.Errorf("missing google analytics account ID")
+	}
+
+	return drivers.GoogleAnalyticsAccountBindingsProbeURL(s.AccountID, ep.APIBase)
+}
+
+// probeSquare checks a Square credential (OAuth Bearer token or Personal Access
+// Token) with a GET /v2/merchants/me, sending the required Square-Version
+// header. The endpoint returns 401 on a dead token and works for both OAuth and
+// PAT connections, which are always scoped to a single merchant.
+func probeSquare(
+	ctx context.Context,
+	httpClient *http.Client,
+	_ *coredata.Connector,
+	ep Endpoints,
+) error {
+	endpoint, err := url.JoinPath(ep.APIBase, "merchants", "me")
+	if err != nil {
+		return fmt.Errorf("cannot build square probe URL: %w", err)
+	}
+
+	req, err := http.NewRequestWithContext(ctx, http.MethodGet, endpoint, nil)
+	if err != nil {
+		return fmt.Errorf("cannot create probe request: %w", err)
+	}
+
+	req.Header.Set("Accept", "application/json")
+	req.Header.Set("Square-Version", squareVersion)
+
+	return doProbeRequest(httpClient, req)
+}
+
+func buildGitHubProbeURL(conn *coredata.Connector, ep Endpoints) (string, error) {
+	return connector.ResolveProbeURLFor(
+		conn.Connection,
+		connector.ProtocolType(conn.Protocol),
+		ep.APIBase,
+		ep.Probe,
+	)
+}
+
+func probeGitHub(
+	ctx context.Context,
+	httpClient *http.Client,
+	conn *coredata.Connector,
+	ep Endpoints,
+) error {
+	probeURL, err := buildGitHubProbeURL(conn, ep)
+	if err != nil {
+		return err
+	}
+
+	return probeGET(ctx, httpClient, probeURL)
+}

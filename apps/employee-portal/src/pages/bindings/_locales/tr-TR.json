@@ -1,0 +1,57 @@
+{
+  "bind": {
+    "title": "Slack'i Probo'ya Bağla",
+    "description": "Probot'un size yardımcı olabilmesi için bu Slack hesabını Probo kimliğinize bağlayın.",
+    "breadcrumb": "Bağla",
+    "fields": {
+      "tenant": "Çalışma Alanı (Workspace)",
+      "account": "Hesap"
+    },
+    "actions": {
+      "confirm": "Slack hesabını bağla"
+    },
+    "messages": {
+      "linked": "Slack hesabınız artık Probo'ya bağlandı."
+    },
+    "missingToken": {
+      "title": "Onay bağlantısı yok",
+      "description": "Özel bir onay bağlantısı almak için Slack'te /probot login komutunu çalıştırın."
+    },
+    "errors": {
+      "linkFailed": "Bağlama başarısız oldu",
+      "invalidOrExpiredTokenTitle": "Bu bağlantının süresi dolmuş",
+      "invalidOrExpiredToken": "Bottan yeni bir özel onay bağlantısı isteyin."
+    }
+  },
+  "list": {
+    "title": "Slack",
+    "breadcrumb": "Slack",
+    "description": "Probot'un size bu kuruluştan yardımcı olabilmesi için Slack hesabınızı bağlayın.",
+    "connectedDescription": "{{account}} · {{workspace}}",
+    "providers": {
+      "slack": "Slack"
+    },
+    "columns": {
+      "account": "Hesap",
+      "action": "Eylem"
+    },
+    "actions": {
+      "unlink": "Bağlantıyı kaldır",
+      "cancel": "İptal"
+    },
+    "empty": {
+      "title": "Bağlı Slack hesabı yok",
+      "description": "Özel bir onay bağlantısı almak için Slack'te <cmd>/probot login</cmd> komutunu çalıştırın."
+    },
+    "messages": {
+      "unlinked": "Slack hesabının bağlantısı kaldırıldı."
+    },
+    "errors": {
+      "unlinkFailed": "Bu hesabın bağlantısı kaldırılamadı."
+    },
+    "confirmations": {
+      "unlinkTitle": "Slack hesabının bağlantısını kaldır",
+      "unlink": "Bu Slack hesabının bağlantısı kaldırılsın mı? Tekrar bağlayana kadar Probot size yardımcı olamaz."
+    }
+  }
+}

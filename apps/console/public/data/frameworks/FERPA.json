@@ -1,0 +1,126 @@
+{
+  "id": "FERPA",
+  "name": "FERPA",
+  "logo": {
+    "light": "<svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 60 60\" enable-background=\"new 0 0 60 60\" xml:space=\"preserve\"><rect x=\"10.500093\" y=\"10.500001\" transform=\"matrix(0.707107 -0.707107 0.707107 0.707107 -12.42638 30.000067)\" fill=\"none\" stroke=\"#141e12\" width=\"39\" height=\"39\"/><rect x=\"14.396727\" y=\"14.3968\" transform=\"matrix(0.707107 -0.707107 0.707107 0.707107 -12.426428 29.999947)\" fill=\"none\" stroke=\"#141e12\" width=\"31.206398\" height=\"31.206398\"/><path fill=\"none\" stroke=\"#141e12\" stroke-linejoin=\"round\" d=\"M39.9837,31.1087c-2.278999,0.845301-4.780701-0.233-4.780701-0.233 s1.193302-2.4489,3.472301-3.2943c2.278999-0.845301,4.780598,0.233,4.780598,0.233S42.262699,30.2633,39.9837,31.1087z\"/><path fill=\"none\" stroke=\"#141e12\" stroke-linejoin=\"round\" d=\"M36.877399,38.512798 c-2.544899,0.164001-4.714298-1.354-4.714298-1.354s1.9566-1.783897,4.501499-1.947998 c2.5448-0.164001,4.714298,1.354,4.714298,1.354S39.422298,38.348701,36.877399,38.512798z\"/><path fill=\"none\" stroke=\"#141e12\" stroke-linejoin=\"round\" d=\"M33.2052,28.852501 C32.822399,31.2246,30.2953,32.865898,30.2953,32.865898s-1.906399-2.204597-1.5236-4.576698s2.909901-4.013399,2.909901-4.013399 S33.588001,26.4804,33.2052,28.852501z\"/><path fill=\"none\" stroke=\"#141e12\" stroke-linejoin=\"round\" d=\"M24.9828,35.002602 c2.383701,0.302898,4.672001-1.657703,4.672001-1.657703s-1.5763-2.451498-3.9599-2.754299 c-2.383701-0.302898-4.672001,1.6577-4.672001,1.6577S22.599199,34.699799,24.9828,35.002602z\"/><path fill=\"none\" stroke=\"#141e12\" stroke-linejoin=\"round\" d=\"M25.849501,41.308998 c1.8536,0.048302,3.400999-1.636497,3.400999-1.636497s-1.4578-1.762802-3.3113-1.811001 c-1.8536-0.048199-3.400999,1.636501-3.400999,1.636501S23.995899,41.260799,25.849501,41.308998z\"/><path fill=\"none\" stroke=\"#141e12\" stroke-linejoin=\"round\" d=\"M34.430401,23.423201 c0.451698,2.0844,2.318699,3.4489,2.318699,3.4489s1.134701-2.015001,0.682999-4.099401 c-0.451698-2.0844-2.318699-3.4489-2.318699-3.4489S33.978699,21.3388,34.430401,23.423201z\"/><path fill=\"none\" stroke=\"#141e12\" stroke-linejoin=\"round\" d=\"M28.4242,22.279499 c-0.067101,2.361101-2.3174,4.212702-2.3174,4.212702s-2.141399-1.976601-2.0742-4.337702S26.3501,17.9419,26.3501,17.9419 S28.4914,19.9184,28.4242,22.279499z\"/><path fill=\"none\" stroke=\"#141e12\" stroke-linejoin=\"round\" d=\"M21.2068,29.0975c2.361099,0.0672,4.3377-2.0742,4.3377-2.0742 s-1.851601-2.2502-4.2127-2.3174s-4.337601,2.0741-4.337601,2.0741S18.845699,29.0303,21.2068,29.0975z\"/><path fill=\"none\" stroke=\"#141e12\" stroke-linecap=\"round\" d=\"M24.527901,45.939899 c1.3981-0.696499,4.033499-3.188499,5.056-5.462601 M20.4883,20.946501c0,0,9.6497,7.2514,9.907299,15.638998 c0.0434,1.4137-0.288399,2.727802-0.811699,3.8918 M29.5839,40.477299c6.179401-6.8633,6.518799-16.037098,11.2883-18.222399\"/><rect x=\"10.500093\" y=\"10.500001\" transform=\"matrix(0.707107 -0.707107 0.707107 0.707107 -12.42638 30.000067)\" fill=\"none\" stroke=\"#141e12\" width=\"39\" height=\"39\"/></svg>",
+    "dark": "<svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 60 60\" enable-background=\"new 0 0 60 60\" xml:space=\"preserve\"><rect x=\"10.500093\" y=\"10.500001\" transform=\"matrix(0.707107 -0.707107 0.707107 0.707107 -12.42638 30.000067)\" fill=\"none\" stroke=\"#eceeec\" width=\"39\" height=\"39\"/><rect x=\"14.396727\" y=\"14.3968\" transform=\"matrix(0.707107 -0.707107 0.707107 0.707107 -12.426428 29.999947)\" fill=\"none\" stroke=\"#eceeec\" width=\"31.206398\" height=\"31.206398\"/><path fill=\"none\" stroke=\"#eceeec\" stroke-linejoin=\"round\" d=\"M39.9837,31.1087c-2.278999,0.845301-4.780701-0.233-4.780701-0.233 s1.193302-2.4489,3.472301-3.2943c2.278999-0.845301,4.780598,0.233,4.780598,0.233S42.262699,30.2633,39.9837,31.1087z\"/><path fill=\"none\" stroke=\"#eceeec\" stroke-linejoin=\"round\" d=\"M36.877399,38.512798 c-2.544899,0.164001-4.714298-1.354-4.714298-1.354s1.9566-1.783897,4.501499-1.947998 c2.5448-0.164001,4.714298,1.354,4.714298,1.354S39.422298,38.348701,36.877399,38.512798z\"/><path fill=\"none\" stroke=\"#eceeec\" stroke-linejoin=\"round\" d=\"M33.2052,28.852501 C32.822399,31.2246,30.2953,32.865898,30.2953,32.865898s-1.906399-2.204597-1.5236-4.576698s2.909901-4.013399,2.909901-4.013399 S33.588001,26.4804,33.2052,28.852501z\"/><path fill=\"none\" stroke=\"#eceeec\" stroke-linejoin=\"round\" d=\"M24.9828,35.002602 c2.383701,0.302898,4.672001-1.657703,4.672001-1.657703s-1.5763-2.451498-3.9599-2.754299 c-2.383701-0.302898-4.672001,1.6577-4.672001,1.6577S22.599199,34.699799,24.9828,35.002602z\"/><path fill=\"none\" stroke=\"#eceeec\" stroke-linejoin=\"round\" d=\"M25.849501,41.308998 c1.8536,0.048302,3.400999-1.636497,3.400999-1.636497s-1.4578-1.762802-3.3113-1.811001 c-1.8536-0.048199-3.400999,1.636501-3.400999,1.636501S23.995899,41.260799,25.849501,41.308998z\"/><path fill=\"none\" stroke=\"#eceeec\" stroke-linejoin=\"round\" d=\"M34.430401,23.423201 c0.451698,2.0844,2.318699,3.4489,2.318699,3.4489s1.134701-2.015001,0.682999-4.099401 c-0.451698-2.0844-2.318699-3.4489-2.318699-3.4489S33.978699,21.3388,34.430401,23.423201z\"/><path fill=\"none\" stroke=\"#eceeec\" stroke-linejoin=\"round\" d=\"M28.4242,22.279499 c-0.067101,2.361101-2.3174,4.212702-2.3174,4.212702s-2.141399-1.976601-2.0742-4.337702S26.3501,17.9419,26.3501,17.9419 S28.4914,19.9184,28.4242,22.279499z\"/><path fill=\"none\" stroke=\"#eceeec\" stroke-linejoin=\"round\" d=\"M21.2068,29.0975c2.361099,0.0672,4.3377-2.0742,4.3377-2.0742 s-1.851601-2.2502-4.2127-2.3174s-4.337601,2.0741-4.337601,2.0741S18.845699,29.0303,21.2068,29.0975z\"/><path fill=\"none\" stroke=\"#eceeec\" stroke-linecap=\"round\" d=\"M24.527901,45.939899 c1.3981-0.696499,4.033499-3.188499,5.056-5.462601 M20.4883,20.946501c0,0,9.6497,7.2514,9.907299,15.638998 c0.0434,1.4137-0.288399,2.727802-0.811699,3.8918 M29.5839,40.477299c6.179401-6.8633,6.518799-16.037098,11.2883-18.222399\"/><rect x=\"10.500093\" y=\"10.500001\" transform=\"matrix(0.707107 -0.707107 0.707107 0.707107 -12.42638 30.000067)\" fill=\"none\" stroke=\"#eceeec\" width=\"39\" height=\"39\"/></svg>"
+  },
+  "controls": [
+    {
+      "id": "1.1",
+      "name": "Sağlayıcı, yalnızca şu üç koşulu aynı anda sağladığında 'okul görevlisi' istisnasına hak kazanır: (1) kurumun aksi takdirde kendi çalışanlarını kullanacağı kurumsal bir hizmeti yerine getirmesi; (2) eğitim kayıtlarının kullanımı konusunda kurumun doğrudan kontrolü altında olması; ve (3) § 99.33(a) yeniden ifşa sınırlamalarına tabi olması."
+    },
+    {
+      "id": "1.2",
+      "name": "Sağlayıcı, kurumun ebeveynlere ve öğrencilere yönelik yıllık FERPA bildiriminde meşru eğitimsel çıkara sahip bir okul görevlisi olarak resmi olarak atanmalıdır. Bu atama, eğitim kayıtlarından PII (Kişisel Tanımlayıcı Bilgi) ifşa edilmeden önce yapılmalıdır."
+    },
+    {
+      "id": "1.3",
+      "name": "Sağlayıcı, kurumla doğrudan kontrol şartını belirleyen yazılı bir sözleşmeye sahip olmalıdır. Sözleşme, kullanım amaçlarını, yeniden ifşa yasağını, güvenlik yükümlülüklerini ve sözleşme bitiminde verilerin imhasını belirtmelidir."
+    },
+    {
+      "id": "1.4",
+      "name": "Kurum, PII verileri okul görevlisi istisnası kapsamında ifşa edilse bile FERPA uyumluluğundan sorumludur. Kurum, sağlayıcının verileri kullanımını doğrudan kontrol ettiğini gösterebilmelidir."
+    },
+    {
+      "id": "2.1",
+      "name": "Sağlayıcı, yalnızca sözleşme kapsamındaki kurumsal işlevi yerine getirmek için kesinlikle gerekli olan minimum miktarda PII'ye erişebilir, toplayabilir veya kullanabilir."
+    },
+    {
+      "id": "2.2",
+      "name": "Sağlayıcı, doğrudan tanımlayıcılar (isim, öğrenci numarası), dolaylı tanımlayıcılar (doğum tarihi vb.) ve bir öğrencinin kimliğinin belirlenmesine olanak tanıyan tüm bilgileri FERPA kapsamında korunan PII olarak kabul etmelidir."
+    },
+    {
+      "id": "2.3",
+      "name": "Sözleşmedeki 'veri' veya 'öğrenci bilgisi' tanımı, FERPA korumasındaki tüm PII kapsamını, doğrudan sağlanan PII, hizmet kullanımıyla oluşturulan PII ve bir öğrenciyle ilişkilendirilebilecek meta verileri kapsamalıdır."
+    },
+    {
+      "id": "3.1",
+      "name": "Sağlayıcı, eğitim kayıtlarını yetkisiz erişim, ifşa, kullanım, değişiklik veya imhaya karşı korumak için barındırılan PII'nin hassasiyetine uygun idari, fiziksel ve teknik güvenceler uygulamalı ve sürdürmelidir."
+    },
+    {
+      "id": "3.2",
+      "name": "Sağlayıcı, PII'yi içeren güvenlik ihlallerini kapsayan yazılı bir olay müdahale planı sürdürmelidir. Plan, ihlalleri tespit etme, kontrol altına alma ve kurumu gecikmeksizin bilgilendirme prosedürlerini içermelidir."
+    },
+    {
+      "id": "3.3",
+      "name": "Sağlayıcı, PII'ye kurum içi erişimi 'bilmesi gerekenler' (need-to-know) prensibine göre kısıtlamalıdır. Yalnızca sözleşme kapsamındaki işlevleri yerine getirmesi gereken personelin erişimine izin verilmelidir."
+    },
+    {
+      "id": "3.4",
+      "name": "Sağlayıcı, PII'nin kullanımını veya korunmasını etkileyebilecek hizmet şartları, gizlilik politikası veya veri işleme uygulamalarındaki planlanan değişiklikleri uygulamadan önce kuruma bildirmelidir."
+    },
+    {
+      "id": "4.1",
+      "name": "Sağlayıcıya ifşa edilen PII, yalnızca sözleşmede tanımlanan yetkili amaç için kullanılabilir. Sağlayıcının PII'yi pazarlama, hedeflenmiş reklam veya profilleme gibi başka herhangi bir amaçla kullanması kesinlikle yasaktır."
+    },
+    {
+      "id": "4.2",
+      "name": "Sağlayıcı, reklam veya ticari profilleme oluşturmak amacıyla eğitim kayıtlarından veya öğrenci tarafından oluşturulan içeriklerden PII'yi tarayamaz veya madenciliğini (data mining) yapamaz."
+    },
+    {
+      "id": "4.3",
+      "name": "Sağlayıcı, öğrenci verileri üzerinde yapay zeka (AI) kullandığında, tüm işlemler sözleşmedeki yetkili amaçla sınırlı olmalıdır. AI sistemleri, FERPA korumalı veriler üzerinde eğitim yapmasını önleyecek şekilde yapılandırılmalıdır."
+    },
+    {
+      "id": "5.1",
+      "name": "Sağlayıcı, kurumun veli (veya uygun öğrenci) erişim taleplerini 45 gün içinde yerine getirme yükümlülüğünü (veya eyalet yasalarının gerektirdiği daha kısa süreyi) karşılayacak bir zaman dilimi içinde PII'yi kuruma erişilebilir hale getirmelidir."
+    },
+    {
+      "id": "5.2",
+      "name": "Sağlayıcı yazılı bir olay müdahale planı bulundurmalı ve PII'nin gerçek veya şüphelenilen yetkisiz ifşasını keşfettiğinde kurumu derhal bilgilendirmelidir."
+    },
+    {
+      "id": "5.3",
+      "name": "Sağlayıcı, eğitim kayıtlarından üçüncü taraflara (alt veri işleyenler dahil) yapılan tüm ifşaların yazılı bir kaydını veya günlüğünü tutmalıdır."
+    },
+    {
+      "id": "6.1",
+      "name": "Sağlayıcı, kurumun önceden yazılı izni olmadan eğitim kayıtlarından alınan PII'leri herhangi bir üçüncü tarafa yeniden ifşa edemez."
+    },
+    {
+      "id": "6.2",
+      "name": "Sağlayıcı, PII'nin ifşasını gerektiren bir mahkeme kararı veya celp aldığında, emrin veya celbin bu bildirimi yasaklamadığı sürece uymadan önce kuruma haber vermelidir."
+    },
+    {
+      "id": "6.3",
+      "name": "Sağlayıcı, eğitim kayıtlarından elde edilen PII'ye erişimi olan tüm alt veri işleyenlerin ve temsilcilerin güncel bir envanterini tutmalı ve talep üzerine kuruma sağlamalıdır."
+    },
+    {
+      "id": "7.1",
+      "name": "Sözleşmenin sona ermesi veya kurumun talebi üzerine sağlayıcı, elinde bulunan tüm PII'leri kurumun kullanımına iade etmeli veya güvenli bir şekilde imha etmelidir."
+    },
+    {
+      "id": "7.2",
+      "name": "Sağlayıcı, sözleşmedeki işlevi yerine getirmek için gerekli olan süreyle sınırlı olarak, PII'nin ne kadar süreyle tutulabileceğini belirten bir veri saklama takvimi uygulamalıdır."
+    },
+    {
+      "id": "7.3",
+      "name": "Sözleşme feshedildikten sonra sağlayıcı ürün geliştirme veya araştırma amacıyla kimliksizleştirilmiş verileri saklamak isterse, belgelenmiş bir kimliksizleştirme yöntemi uygulamalıdır."
+    },
+    {
+      "id": "8.1",
+      "name": "Sağlayıcı, PII işleme süreçlerini yöneten yazılı bir bilgi güvenliği politikası ve gizlilik politikası bulundurmalıdır."
+    },
+    {
+      "id": "8.2",
+      "name": "Sağlayıcı, PII'ye erişimi olan tüm personel, yükleniciler ve temsilcilerin FERPA gereksinimleri ve sağlayıcının veri koruma yükümlülükleri konusunda eğitilmesini sağlamalıdır."
+    },
+    {
+      "id": "8.3",
+      "name": "Sağlayıcı, PII'ye erişimi olacak tüm alt veri işleyenler ve taşeronlar üzerinde devreye girmeden önce ve periyodik olarak belgelenmiş durum tespiti (due diligence) yapmalıdır."
+    },
+    {
+      "id": "8.4",
+      "name": "Sağlayıcı, PII'yi içeren yeni işleme faaliyetleri, sistemler veya teknolojiler (yapay zeka dahil) uygularken periyodik gizlilik etki değerlendirmeleri gerçekleştirmelidir."
+    },
+    {
+      "id": "8.5",
+      "name": "Sağlayıcı, eğitim kayıtlarından elde edilen PII'leri işleyen veya depolayan sistemleri kapsayan belgelenmiş bir iş sürekliliği ve felaket kurtarma planı bulundurmalıdır."
+    },
+    {
+      "id": "8.6",
+      "name": "Sağlayıcı, kurumun FERPA yükümlülüklerine ve yazılı sözleşmenin şartlarına uyumunu denetleme veya doğrulama hakkı konusunda kurumla işbirliği yapmalıdır."
+    }
+  ]
+}

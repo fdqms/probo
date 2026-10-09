@@ -1,0 +1,362 @@
+enum ConnectorProvider
+    @goModel(model: "go.probo.inc/probo/pkg/coredata.ConnectorProvider") {
+    SLACK @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderSlack")
+    GOOGLE_WORKSPACE
+        @goEnum(
+            value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderGoogleWorkspace"
+        )
+    LINEAR @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderLinear")
+    ONE_PASSWORD
+        @goEnum(
+            value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderOnePassword"
+        )
+    HUBSPOT
+        @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderHubSpot")
+    DOCUSIGN
+        @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderDocuSign")
+    GRAFANA
+        @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderGrafana")
+    NOTION @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderNotion")
+    BREX @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderBrex")
+    TALLY @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderTally")
+    CLOUDFLARE
+        @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderCloudflare")
+    OPENAI @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderOpenAI")
+    POSTHOG @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderPostHog")
+    SENTRY @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderSentry")
+    SIGNOZ
+        @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderSigNoz")
+    SUPABASE
+        @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderSupabase")
+    BETTER_STACK
+        @goEnum(
+            value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderBetterStack"
+        )
+    GITHUB @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderGitHub")
+    INTERCOM
+        @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderIntercom")
+    RESEND @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderResend")
+    SENDGRID
+        @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderSendGrid")
+    MICROSOFT_365
+        @goEnum(
+            value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderMicrosoft365"
+        )
+    GITLAB @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderGitLab")
+    BITBUCKET
+        @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderBitbucket")
+    HEROKU @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderHeroku")
+    PAGERDUTY
+        @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderPagerDuty")
+    ASANA @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderAsana")
+    NETLIFY
+        @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderNetlify")
+    CLICKUP
+        @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderClickUp")
+    CLERK @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderClerk")
+    VERCEL @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderVercel")
+    MONDAY @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderMonday")
+    METABASE
+        @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderMetabase")
+    TAILSCALE
+        @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderTailscale")
+    ANTHROPIC
+        @goEnum(
+            value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderAnthropic"
+        )
+    CURSOR @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderCursor")
+    DATADOG @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderDatadog")
+    OKTA @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderOkta")
+    ZENDESK @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderZendesk")
+    QOVERY @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderQovery")
+    RENDER @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderRender")
+    NEON @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderNeon")
+    MERCURY
+        @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderMercury")
+    APOLLO @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderApollo")
+    DEEPGRAM
+        @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderDeepgram")
+    CLICKHOUSE
+        @goEnum(
+            value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderClickHouse"
+        )
+    LANGFUSE
+        @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderLangfuse")
+    PYLON @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderPylon")
+    OPENROUTER
+        @goEnum(
+            value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderOpenRouter"
+        )
+    INCIDENT_IO
+        @goEnum(
+            value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderIncidentIO"
+        )
+    BREVO @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderBrevo")
+    SCALEWAY
+        @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderScaleway")
+    YOUSIGN
+        @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderYousign")
+    RAILWAY
+        @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderRailway")
+    CRISP @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderCrisp")
+    DOTFILE
+        @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderDotfile")
+    SEGMENT
+        @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderSegment")
+    SQUARE @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderSquare")
+    GOOGLE_ANALYTICS
+        @goEnum(
+            value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderGoogleAnalytics"
+        )
+    UPCLOUD
+        @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderUpCloud")
+    NUKI @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderNuki")
+    AUTHENTIK
+        @goEnum(
+            value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderAuthentik"
+        )
+    CAL_COM @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderCalCom")
+    CALENDLY
+        @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderCalendly")
+    AWS @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderAWS")
+    GCP @goEnum(value: "go.probo.inc/probo/pkg/coredata.ConnectorProviderGCP")
+}
+
+enum ConnectorProtocol
+    @goModel(model: "go.probo.inc/probo/pkg/coredata.ConnectorProtocol") {
+    OAUTH2
+        @goEnum(
+            value: "go.probo.inc/probo/pkg/coredata.ConnectorProtocolOAuth2"
+        )
+    API_KEY
+        @goEnum(
+            value: "go.probo.inc/probo/pkg/coredata.ConnectorProtocolAPIKey"
+        )
+    GITHUB_APP
+        @goEnum(
+            value: "go.probo.inc/probo/pkg/coredata.ConnectorProtocolGitHubApp"
+        )
+    WORKLOAD_IDENTITY
+        @goEnum(
+            value: "go.probo.inc/probo/pkg/coredata.ConnectorProtocolWorkloadIdentity"
+        )
+}
+
+type ConnectorProviderInfo {
+    provider: ConnectorProvider!
+    displayName: String!
+    """
+    documentationUrl is the public probo.com docs page for connecting this
+    provider as an access source, or null when no doc page exists yet.
+    """
+    documentationUrl: String
+    """
+    oauthConfigured is retained for v1 clients that have not migrated to
+    configuredProtocols.
+    """
+    oauthConfigured: Boolean!
+        @deprecated(reason: "Use configuredProtocols instead.")
+    """
+    configuredProtocols lists the connector protocols that are ready to use
+    for this provider in this deployment (for example OAUTH2 or GITHUB_APP).
+    Empty when the provider is only reachable via customer-supplied
+    credentials (API key or client credentials).
+    """
+    configuredProtocols: [ConnectorProtocol!]!
+    apiKeySupported: Boolean!
+    """
+    apiKeyManaged is true when the provider connects with a Probo-supplied
+    API key (Model B, e.g. Crisp's marketplace plugin token) that the
+    operator has configured. The customer supplies only the extra settings
+    (e.g. a Website ID), not the key. False until the key is configured,
+    which keeps such a provider out of the catalog.
+    """
+    apiKeyManaged: Boolean!
+    clientCredentialsSupported: Boolean!
+    oauth2Scopes: [String!]!
+    """
+    apiKeyExtraSettings lists the per-provider settings the API-key connect
+    form must render and submit, in render order. Empty when the provider needs
+    none or has no API-key path.
+    """
+    apiKeyExtraSettings: [ConnectorProviderSettingInfo!]!
+    """
+    clientCredentialsExtraSettings lists the settings the client-credentials
+    connect form must render and submit. A provider offering both paths
+    (1Password) returns different fields here than in apiKeyExtraSettings,
+    because a different settings struct and driver sits behind each — so a
+    client cannot render one path's settings on the other.
+    """
+    clientCredentialsExtraSettings: [ConnectorProviderSettingInfo!]!
+    """
+    workloadIdentitySupported is true when this provider connects by federating
+    a Probo-issued OIDC token into the customer's cloud account, and this
+    deployment has the identity federation issuer enabled.
+    """
+    workloadIdentitySupported: Boolean!
+    """
+    workloadIdentityExtraSettings lists the settings the workload-identity
+    connect form must render and submit, in render order. Empty when the
+    provider has no workload-identity path.
+    """
+    workloadIdentityExtraSettings: [ConnectorProviderSettingInfo!]!
+}
+
+type AWSConnectorSetup {
+    issuer: String!
+    audience: String!
+    subject: String!
+    suggestedRoleName: String!
+    terraformSnippet: String!
+    cloudFormationQuickCreateURL: String!
+}
+
+type ConnectorProviderSettingInfo {
+    key: String!
+    label: String!
+    required: Boolean!
+}
+
+input ConnectorFilter {
+    providers: [ConnectorProvider!]
+}
+
+"""
+Why a connector's credential is or is not usable right now.
+
+DISCONNECTED covers every reason the credential did not work — revoked,
+expired, a role Probo cannot assume, a provider outage — because the
+underlying failure wraps provider-controlled text and stays server-side.
+"""
+enum ConnectorConnectionStatus {
+    CONNECTED
+    DISCONNECTED
+    RECONNECT_REQUIRED
+}
+
+type Connector {
+    id: ID!
+    provider: ConnectorProvider!
+    protocol: ConnectorProtocol!
+    canReconnect: Boolean! @goField(forceResolver: true)
+    oauth2Scopes: [String!]! @goField(forceResolver: true)
+    """
+    connectionStatus probes the provider live on every read, so selecting it
+    across a list of connectors costs one outbound call per connector. Select
+    it on a single connector, or on the one a mutation just returned.
+    """
+    connectionStatus: ConnectorConnectionStatus! @goField(forceResolver: true)
+    createdAt: Datetime!
+}
+
+type SlackConnection implements Node {
+    id: ID!
+    channel: String
+    channelId: String
+    createdAt: Datetime!
+    updatedAt: Datetime!
+
+    permission(action: String!): Boolean! @goField(forceResolver: true)
+}
+
+type SlackConnectionConnection {
+    edges: [SlackConnectionEdge!]!
+    pageInfo: PageInfo!
+}
+
+type SlackConnectionEdge {
+    cursor: CursorKey!
+    node: SlackConnection!
+}
+
+extend type Mutation {
+    createAPIKeyConnector(
+        input: CreateAPIKeyConnectorInput!
+    ): CreateAPIKeyConnectorPayload!
+    createClientCredentialsConnector(
+        input: CreateClientCredentialsConnectorInput!
+    ): CreateClientCredentialsConnectorPayload!
+    createWorkloadIdentityConnector(
+        input: CreateWorkloadIdentityConnectorInput!
+    ): CreateWorkloadIdentityConnectorPayload!
+    deleteConnector(input: DeleteConnectorInput!): DeleteConnectorPayload!
+    deleteSlackConnection(
+        input: DeleteSlackConnectionInput!
+    ): DeleteSlackConnectionPayload!
+}
+
+input CreateAPIKeyConnectorInput {
+    organizationId: ID!
+    provider: ConnectorProvider!
+    """
+    apiKey is the customer-supplied credential. It is null for
+    ManagedAPIKey (Model B) providers such as Crisp, where the server
+    injects Probo's own key and the customer provides only the extra
+    settings.
+    """
+    apiKey: String
+    sentryOrganizationSlug: String
+    supabaseOrganizationSlug: String
+    githubOrganization: String
+    grafanaBaseUrl: String
+    signozBaseUrl: String
+    onePasswordScimBridgeUrl: String
+    metabaseInstanceUrl: String
+    posthogRegion: String
+    posthogInstanceUrl: String
+    oktaDomain: String
+    betterStackTeamName: String
+    qoveryOrganizationId: String
+    renderWorkspaceId: String
+    neonOrganizationId: String
+    langfuseBaseUrl: String
+    scalewayOrganizationId: String
+    crispWebsiteId: String
+    segmentRegion: String
+    authentikBaseUrl: String
+}
+
+type CreateAPIKeyConnectorPayload {
+    connector: Connector!
+}
+
+input CreateClientCredentialsConnectorInput {
+    organizationId: ID!
+    provider: ConnectorProvider!
+    clientId: String!
+    clientSecret: String!
+    tokenUrl: String!
+    scope: String
+    onePasswordAccountId: String
+    onePasswordRegion: String
+}
+
+type CreateClientCredentialsConnectorPayload {
+    connector: Connector
+}
+
+input CreateWorkloadIdentityConnectorInput {
+    organizationId: ID!
+    provider: ConnectorProvider!
+    awsRoleArn: String!
+}
+
+type CreateWorkloadIdentityConnectorPayload {
+    connector: Connector!
+}
+
+input DeleteConnectorInput {
+    connectorId: ID!
+}
+
+type DeleteConnectorPayload {
+    deletedConnectorId: ID!
+}
+
+input DeleteSlackConnectionInput {
+    slackConnectionId: ID!
+}
+
+type DeleteSlackConnectionPayload {
+    deletedSlackConnectionId: ID!
+}

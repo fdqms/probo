@@ -1,0 +1,232 @@
+{
+  "bannerTranslationSection": {
+    "title": "Afiş (Banner)",
+    "policyLinkHelp": "Politika bağlantılarını eklemek için {{cookie_policy_link}} ve {{privacy_policy_link}} kullanın."
+  },
+  "panelTranslationSection": {
+    "title": "Tercihler paneli",
+    "necessaryCategoryHelp": "Gerekli çerezler (cookies) kategorisine atıfta bulunmak için {{necessary_category}} kullanın.",
+    "accessibilityLabels": "Erişilebilirlik etiketleri",
+    "categoryNames": "Kategori isimleri",
+    "translatedName": "Çevrilmiş isim",
+    "translatedDescription": "Çevrilmiş açıklama"
+  },
+  "placeholderTranslationSection": {
+    "title": "Yer Tutucu (Placeholder)",
+    "description": "Ziyaretçi izin verene kadar engellenen içeriğin yerine gösterilir.",
+    "categoryHelp": "İçerik kategorisine atıfta bulunmak için {{category}} kullanın."
+  },
+  "translationEditor": {
+    "messages": {
+      "successTitle": "Başarılı",
+      "saved": "Çeviri kaydedildi"
+    },
+    "errors": {
+      "title": "Hata",
+      "save": "Çeviri kaydedilemedi"
+    },
+    "exampleCategory": "Analitik",
+    "actions": {
+      "saving": "Kaydediliyor...",
+      "save": "Çevirileri kaydet"
+    },
+    "labels": {
+      "bannerTitle": "Afiş başlığı",
+      "bannerDescription": "Afiş açıklaması",
+      "acceptAllButton": "Tümünü kabul et düğmesi",
+      "rejectAllButton": "Tümünü reddet düğmesi",
+      "customizeButton": "Özelleştir düğmesi",
+      "cookiePolicyLinkText": "Çerez politikası bağlantı metni",
+      "privacyPolicyLinkText": "Gizlilik politikası bağlantı metni",
+      "panelTitle": "Panel başlığı",
+      "panelDescription": "Panel açıklaması",
+      "saveButton": "Kaydet düğmesi",
+      "ariaClose": "Kapat (ARIA)",
+      "ariaShowDetails": "Ayrıntıları göster (ARIA)",
+      "ariaHideDetails": "Ayrıntıları gizle (ARIA)",
+      "ariaCookieSettings": "Çerez ayarları (ARIA)",
+      "placeholderText": "Yer tutucu metni",
+      "placeholderButton": "Yer tutucu düğmesi"
+    }
+  },
+  "translationsPage": {
+    "necessaryFallback": "Gerekli",
+    "languageDefault": "{{language}} (varsayılan)",
+    "defaultLanguageDescription": "Bu varsayılan dildir. Bir ziyaretçinin dili mevcut olmadığında bu çeviriler gösterilir."
+  },
+  "trackerAttribution": {
+    "firstParty": "Birinci taraf (First party)",
+    "thirdParty": "Üçüncü taraf (Third party)",
+    "visitorSoftware": "Ziyaretçi yazılımı",
+    "undetermined": "Belirlenemedi"
+  },
+  "trackerPatternRowEdit": {
+    "fields": { "description": "Açıklama", "descriptionPlaceholder": "Açıklama", "maxAge": "Maksimum yaş" },
+    "actions": { "save": "Kaydet", "cancel": "İptal" }
+  },
+  "trackerPatternRow": {
+    "messages": { "successTitle": "Başarılı", "cookieDeleted": "Çerez silindi", "cookieMoved": "Çerez taşındı", "thirdPartyImported": "Üçüncü taraf içe aktarıldı", "cookieUpdated": "Çerez güncellendi" },
+    "errors": { "title": "Hata", "deleteCookie": "Çerez silinemedi", "moveCookie": "Çerez taşınamadı", "updateCookie": "Çerez güncellenemedi", "importThirdParty": "Üçüncü taraf içe aktarılamadı" },
+    "deleteConfirmation": "\"{{name}}\" adlı öğeyi silmek istediğinizden emin misiniz?",
+    "actions": { "edit": "Düzenle", "importThirdParties": "Üçüncü taraflara içe aktar", "include": "Dahil et", "exclude": "Hariç tut", "delete": "Sil" },
+    "types": { "cookie": "Çerez", "localStorage": "localStorage", "sessionStorage": "sessionStorage", "indexedDb": "IndexedDB", "cacheStorage": "Önbellek depolama (Cache storage)" },
+    "sources": { "script": "Betik (Script)", "preExisting": "Önceden var olan", "http": "HTTP", "extension": "Uzantı (Extension)" },
+    "duration": { "session": "Oturum", "persistent": "Kalıcı" },
+    "commonCatalog": "Ortak Katalog"
+  },
+  "trackerProperties": {
+    "messages": { "successTitle": "Başarılı", "moved": "Çerez taşındı", "copiedTitle": "Kopyalandı", "idCopied": "Ortak izleyici (tracker) kimliği panoya kopyalandı" },
+    "errors": { "title": "Hata", "move": "Çerez taşınamadı", "copy": "Ortak izleyici kimliği kopyalanamadı" },
+    "properties": { "pattern": "Desen", "matchType": "Eşleşme türü", "type": "Tür", "source": "Kaynak", "category": "Kategori", "thirdParty": "Üçüncü taraf", "maxAge": "Maksimum yaş", "description": "Açıklama", "descriptionSource": "Açıklama kaynağı", "excluded": "Hariç tutulan", "detectedCount": "Farklı izleyiciler tespit edildi", "lastMatched": "Son eşleşen" },
+    "matchTypes": { "exact": "Tam eşleşme", "glob": "Glob eşleşmesi" },
+    "trackerTypes": { "cookie": "Çerez", "localStorage": "localStorage", "sessionStorage": "sessionStorage", "indexedDb": "IndexedDB", "cacheStorage": "Önbellek depolama" },
+    "sources": { "script": "Betik", "preExisting": "Önceden var olan", "http": "HTTP", "extension": "Uzantı" },
+    "commonCatalog": "Ortak Katalog", "manual": "Manuel", "boolean": { "yes": "Evet", "no": "Hayır" }
+  },
+  "detectedTrackersSection": {
+    "title": "Tespit edilen izleyiciler (trackers)",
+    "columns": { "identifier": "Tanımlayıcı", "initiatorUrl": "Başlatıcı (Initiator) URL", "maxAge": "Maksimum yaş (saniye)", "source": "Kaynak", "detectionTime": "Tespit zamanı" },
+    "empty": "Bu desen için henüz tespit edilen izleyici yok."
+  },
+  "moveToCategorySelect": { "empty": "Kategori yok" },
+  "moveToCategoryDropdown": { "empty": "Kategori yok" },
+  "detectedTrackerRow": {
+    "sources": { "script": "Betik", "preExisting": "Önceden var olan", "http": "HTTP", "extension": "Uzantı" },
+    "duration": { "second_one": "{{count}} saniye", "second_other": "{{count}} saniye" }
+  },
+  "trackersPage": {
+    "filters": { "search": "İsim veya açıklamaya göre ara...", "allThirdParties": "Tüm üçüncü taraflar", "allCategories": "Tüm kategoriler" },
+    "types": { "all": "Tüm türler", "cookie": "Çerez", "localStorage": "localStorage", "sessionStorage": "sessionStorage", "indexedDb": "IndexedDB", "cacheStorage": "Önbellek depolama" },
+    "sources": { "all": "Tüm kaynaklar", "script": "Betik", "preExisting": "Önceden var olan", "http": "HTTP", "extension": "Uzantı" },
+    "columns": { "name": "İsim", "thirdParty": "Üçüncü taraf", "source": "Kaynak", "category": "Kategori", "maxAge": "Maksimum yaş", "lastMatched": "Son eşleşen" },
+    "empty": { "title": "İzleyici deseni yok", "description": "Henüz hiçbir çerez deseni tespit edilmedi. Desenler tespit edildiğinde burada görünecektir." }
+  },
+  "codeSnippets": {
+    "title": "JavaScript parçacığı (snippet)",
+    "messages": { "copiedTitle": "Kopyalandı", "copied": "Kod panoya kopyalandı" },
+    "errors": { "title": "Hata", "copy": "Panoya kopyalanamadı" },
+    "actions": { "copy": "Kopyala" },
+    "documentation": "ES modülü veya headless entegrasyon mu arıyorsunuz? <link>Ayrıntılı entegrasyon kılavuzları için belgelerimize bakın.</link>"
+  },
+  "bannerSettingsForm": {
+    "title": "Ayarlar",
+    "messages": { "successTitle": "Başarılı", "updated": "Afiş ayarları güncellendi" },
+    "errors": { "title": "Hata", "update": "Güncellenemedi" },
+    "fields": {
+      "name": "İsim",
+      "origin": "Orijin (Origin) URL'si",
+      "cookiePolicyUrl": "Çerez politikası URL'si",
+      "privacyPolicyUrl": "Gizlilik politikası URL'si",
+      "consentExpiryDays": "İzin süresi (gün)",
+      "defaultLanguage": "Varsayılan dil",
+      "resourceReportingEnabled": "Kaynak raporlama (Resource reporting)",
+      "resourceReportingEnabledHelp": "Etkinleştirildiğinde, afiş SDK'sı üçüncü taraf betikleri, iframe'leri ve diğer kaynakları tespit eder ve raporlar."
+    },
+    "languages": { "english": "İngilizce", "french": "Fransızca", "german": "Almanca", "spanish": "İspanyolca", "dutch": "Felemenkçe" },
+    "actions": { "saving": "Kaydediliyor...", "save": "Kaydet" }
+  },
+  "trackerResourceRowEdit": {
+    "fields": { "displayNamePlaceholder": "Görünen ad", "descriptionPlaceholder": "Açıklama" },
+    "actions": { "save": "Kaydet", "cancel": "İptal" }
+  },
+  "trackerResourceRow": {
+    "messages": { "successTitle": "Başarılı", "deleted": "Kaynak silindi", "moved": "Kaynak taşındı", "updated": "Kaynak güncellendi" },
+    "errors": { "title": "Hata", "delete": "Kaynak silinemedi", "move": "Kaynak taşınamadı", "update": "Kaynak güncellenemedi" },
+    "deleteConfirmation": "\"{{name}}\" adlı öğeyi silmek istediğinizden emin misiniz?",
+    "actions": { "edit": "Düzenle", "include": "Dahil et", "exclude": "Hariç tut", "delete": "Sil" },
+    "types": { "script": "Betik", "iframe": "Iframe", "image": "Görsel (Image)", "stylesheet": "Stil dosyası (Stylesheet)", "font": "Yazı tipi (Font)", "beacon": "İşaret (Beacon)", "fetch": "Getir (Fetch)", "media": "Medya", "serviceWorker": "Service worker" }
+  },
+  "resourcesPage": {
+    "filters": { "search": "Orijin veya yola göre ara..." },
+    "types": { "all": "Tüm türler", "script": "Betik", "iframe": "Iframe", "image": "Görsel", "stylesheet": "Stil dosyası", "font": "Yazı tipi", "beacon": "İşaret", "fetch": "Getir", "media": "Medya", "serviceWorker": "Service worker" },
+    "columns": { "type": "Tür", "origin": "Orijin", "path": "Yol (Path)", "category": "Kategori", "lastDetected": "Son tespit edilen" },
+    "empty": { "title": "Kategorize edilmemiş kaynak yok", "description": "Tespit edilen tüm kaynaklar kategorize edildi. Yeni kaynaklar tespit edildiğinde burada görünecektir." }
+  },
+  "themePreview": {
+    "title": "Tema", "defaultSnippet": "/* Varsayılan temayı kullanma — geçersiz kılma (override) gerekmez */",
+    "messages": { "copiedTitle": "Kopyalandı", "copied": "CSS parçacığı panoya kopyalandı" },
+    "actions": { "reset": "Varsayılanlara sıfırla", "copy": "Kopyala" },
+    "variables": { "bg": "Arka plan", "text": "Metin", "textsecondary": "İkincil metin", "border": "Kenarlık (Border)", "accent": "Vurgu (Accent)", "accenttext": "Vurgu metni", "radius": "Kenarlık yarıçapı", "btnradius": "Düğme yarıçapı", "fontsize": "Yazı tipi boyutu", "fontfamily": "Yazı tipi ailesi", "shadow": "Gölge" },
+    "banner": { "title": "Çerez tercihleri", "description": "Deneyiminizi geliştirmek ve site trafiğini analiz etmek için çerezleri kullanıyoruz. <policy>Gizlilik politikası</policy>", "acceptAll": "Tümünü kabul et", "rejectAll": "Tümünü reddet", "customize": "Özelleştir", "privacyBy": "Gizlilik altyapısı:" }
+  },
+  "editCookieRow": {
+    "includeTitle": "Bu çerezi afişe dahil et",
+    "fields": { "descriptionPlaceholder": "Açıklama" },
+    "actions": { "save": "Kaydet", "cancel": "İptal" },
+    "trackerTypes": { "cookie": "Çerez", "localStorage": "localStorage", "sessionStorage": "sessionStorage", "indexedDb": "IndexedDB", "cacheStorage": "Önbellek depolama" }
+  },
+  "editCategoryForm": {
+    "fields": { "namePlaceholder": "Kategori adı", "slugPlaceholder": "Kategori kısa adı (slug)", "descriptionPlaceholder": "Kategori açıklaması" },
+    "googleConsentMode": { "title": "Google İzin Modu (Consent Mode)", "description": "Bu kategorinin kontrol ettiği Google İzin Modu sinyallerini seçin." },
+    "posthog": { "title": "PostHog", "description": "Bu kategoriye dayalı olarak PostHog izleme iznini kontrol edin.", "checkbox": "PostHog izlemeye dahil ol/çık" },
+    "actions": { "saving": "Kaydediliyor...", "save": "Kaydet", "cancel": "İptal" }
+  },
+  "categorySection": {
+    "messages": { "successTitle": "Başarılı", "updated": "Kategori güncellendi", "cookieAdded": "Çerez eklendi", "cookieUpdated": "Çerez güncellendi", "cookieDeleted": "Çerez silindi", "categoryDeleted": "Kategori silindi", "cookieMoved": "Çerez taşındı" },
+    "errors": { "title": "Hata", "updateCategory": "Kategori güncellenemedi", "duplicateCookie": "Bu afişte bu isme sahip bir çerez zaten var", "addCookie": "Çerez eklenemedi", "updateCookie": "Çerez güncellenemedi", "deleteCookie": "Çerez silinemedi", "deleteCategory": "Kategori silinemedi", "reorder": "Yeniden sıralama başarısız oldu", "moveCookie": "Çerez taşınamadı" },
+    "deleteCookieConfirmation": "\"{{name}}\" adlı öğeyi silmek istediğinizden emin misiniz?",
+    "deleteCategoryConfirmation": "\"{{name}}\" adlı kategoriyi silmek istediğinizden emin misiniz? Bu kategorideki tüm çerezler Kategorize Edilmemiş olarak taşınacaktır.",
+    "required": "Gerekli", "blockHint": "İzin verilene kadar öğeleri engelle:", "googleConsentMode": "Google İzin Modu:", "posthog": "PostHog:", "trackingConsent": "İzleme (Tracking) izni",
+    "columns": { "name": "İsim", "type": "Tür", "duration": "Süre" },
+    "actions": { "edit": "Düzenle", "delete": "Sil", "include": "Dahil et", "exclude": "Hariç tut", "addCookie": "Çerez ekle" },
+    "trackerTypes": { "cookie": "Çerez", "localStorage": "localStorage", "sessionStorage": "sessionStorage", "indexedDb": "IndexedDB", "cacheStorage": "Önbellek depolama" },
+    "duration": { "session": "Oturum", "persistent": "Kalıcı", "year_one": "{{count}} yıl", "year_other": "{{count}} yıl", "month_one": "{{count}} ay", "month_other": "{{count}} ay", "week_one": "{{count}} hafta", "week_other": "{{count}} hafta", "day_one": "{{count}} gün", "day_other": "{{count}} gün", "hour_one": "{{count}} saat", "hour_other": "{{count}} saat", "minute_one": "{{count}} dakika", "minute_other": "{{count}} dakika", "second_one": "{{count}} saniye", "second_other": "{{count}} saniye" }
+  },
+  "categoryDialog": {
+    "title": "Kategori ekle",
+    "messages": { "successTitle": "Başarılı", "created": "Kategori oluşturuldu" },
+    "errors": { "title": "Hata", "create": "Kategori oluşturulamadı" },
+    "fields": { "name": "İsim", "slug": "Kısa ad (Slug)", "slugHelp": "data-cookie-consent nitelik değeri olarak kullanılır", "description": "Açıklama" },
+    "actions": { "saving": "Kaydediliyor...", "create": "Oluştur" }
+  },
+  "addCookieRow": {
+    "fields": { "namePlaceholder": "Çerez adı", "descriptionPlaceholder": "Açıklama" },
+    "actions": { "save": "Kaydet", "cancel": "İptal" }
+  },
+  "displayPage": {
+    "description": "Çerezleri kategoriler halinde düzenleyin ve sitenizin hangi çerezleri kullandığını beyan edin.",
+    "actions": { "addCategory": "Kategori ekle" },
+    "empty": "Henüz kategori yok. Çerezleri yönetmeye başlamak için bir kategori ekleyin."
+  },
+  "consentRecordsPage": {
+    "filters": { "allActions": "Tüm eylemler", "visitorId": "Ziyaretçi Kimliği", "bannerVersion": "Afiş sürümü" },
+    "actions": { "acceptAll": "Tümünü kabul et", "rejectAll": "Tümünü reddet", "customize": "Özelleştir", "gpc": "GPC", "acknowledge": "Kabul et (Acknowledge)" },
+    "columns": { "visitorId": "Ziyaretçi Kimliği", "action": "Eylem", "bannerVersion": "Afiş sürümü", "ipAddress": "IP adresi", "sdkVersion": "SDK sürümü", "regulation": "Mevzuat (Regulation)", "source": "Kaynak", "country": "Ülke", "subdivision": "Alt bölge", "date": "Tarih" },
+    "empty": { "title": "İzin kaydı yok", "description": "Ziyaretçiler çerez afişinizle etkileşime girdiğinde izin kayıtları burada görünecektir." }
+  },
+  "consentRecordPage": {
+    "title": "İzin kaydı",
+    "properties": { "visitorId": "Ziyaretçi Kimliği", "action": "Eylem", "bannerVersion": "Afiş sürümü", "ipAddress": "IP adresi", "userAgent": "Kullanıcı aracısı (User agent)", "sdkVersion": "SDK sürümü", "regulation": "Mevzuat", "regulationSource": "Mevzuat kaynağı", "country": "Ülke", "subdivision": "Alt bölge", "date": "Tarih" },
+    "actions": { "accept_all": "Tümünü kabul et", "reject_all": "Tümünü reddet", "customize": "Özelleştir", "gpc": "GPC", "acknowledge": "Kabul et" },
+    "consentData": "İzin verileri",
+    "required": "(Gerekli)",
+    "consent": { "accepted": "Kabul edildi", "rejected": "Reddedildi" },
+    "cookies": { "columns": { "cookie": "Çerez", "duration": "Süre", "description": "Açıklama" } }
+    },
+  "configLayout": {
+    "version": "v{{version}}",
+    "draft": " (taslak)",
+    "metadata": { "origin": "Orijin", "id": "Kimlik", "cookiePolicy": "Çerez politikası" },
+    "messages": { "successTitle": "Başarılı", "copiedTitle": "Kopyalandı", "activated": "Afiş etkinleştirildi", "deactivated": "Afiş devre dışı bırakıldı", "published": "Sürüm yayınlandı", "idCopied": "Afiş kimliği panoya kopyalandı", "deleted": "Çerez afişi başarıyla silindi" },
+    "errors": { "title": "Hata", "activate": "Etkinleştirilemedi", "deactivate": "Devre dışı bırakılamadı", "publish": "Yayınlanamadı", "delete": "Çerez afişi silinemedi" },
+    "deleteConfirmation": "Bu işlem, \"{{name}}\" adlı çerez afişini kalıcı olarak silecektir. Bu işlem geri alınamaz.",
+    "status": { "active": "Aktif", "inactive": "İnaktif" },
+    "actions": { "publishing": "Yayınlanıyor...", "publish": "Değişiklikleri yayınla", "activate": "Etkinleştir", "deactivate": "Devre dışı bırak", "delete": "Sil" },
+    "tabs": { "display": "Görünüm", "settings": "Ayarlar", "translations": "Çeviriler", "trackers": "İzleyiciler (Trackers)", "resources": "Kaynaklar (Resources)" }
+  },
+  "newCookieBannerPage": {
+    "pageTitle": "Yeni çerez afişi",
+    "title": "Çerez afişi oluştur",
+    "description": "Orijin URL'si ve izin yapılandırmasıyla yeni bir çerez izin afişi kurun.",
+    "messages": { "successTitle": "Başarılı", "created": "Çerez afişi başarıyla oluşturuldu" },
+    "errors": { "title": "Hata", "create": "Çerez afişi oluşturulamadı" },
+    "fields": {
+      "name": "İsim", "namePlaceholder": "Web sitem",
+      "origin": "Orijin URL'si", "originPlaceholder": "https://example.com",
+      "cookiePolicyUrl": "Çerez politikası URL'si", "cookiePolicyUrlPlaceholder": "https://example.com/cookies",
+      "privacyPolicyUrl": "Gizlilik politikası URL'si", "privacyPolicyUrlPlaceholder": "https://example.com/privacy",
+      "consentExpiryDays": "İzin süresi (gün)"
+    },
+    "actions": { "creating": "Oluşturuluyor...", "create": "Afiş oluştur" }
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "topBar": {
+    "tagline": "Çalışan Portalı"
+  },
+  "userMenu": {
+    "oauthTokens": "OAuth belirteçleri (tokens)",
+    "switchToDarkMode": "Karanlık moda geç",
+    "switchToLightMode": "Aydınlık moda geç",
+    "help": "Yardım",
+    "signOut": "Çıkış yap",
+    "signOutFailed": "Çıkış yapılamıyor"
+  },
+  "organizationsPage": {
+    "title": "Kuruluşlarınız",
+    "searchPlaceholder": "Kuruluşları ara",
+    "empty": "Henüz herhangi bir çalışan portalına erişiminiz yok.",
+    "emptySearch": "Aramanızla eşleşen kuruluş bulunamadı.",
+    "status": {
+      "authenticated": "Kimlik doğrulandı (Authenticated)",
+      "sessionExpired": "Oturum süresi doldu",
+      "authenticationRequired": "Kimlik doğrulama gerekiyor"
+    },
+    "actions": {
+      "open": "Aç",
+      "continue": "Devam et"
+    }
+  },
+  "breadcrumb": {
+    "nav": "Gezinme izi (Breadcrumb)"
+  },
+  "homePage": {
+    "breadcrumb": "Ana sayfa",
+    "welcome": "Hoş geldin {{name}}.",
+    "welcomeFallback": "Hoş geldiniz.",
+    "getStarted": {
+      "title": "Başlarken",
+      "description": "Çalışan portalı kurulumunuzu tamamlamak için gerekli adımları tamamlayın.",
+      "signatures": {
+        "count_one": "İmzalanacak {{count}} belge",
+        "count_other": "İmzalanacak {{count}} belge",
+        "description": "Size atanan belgeyi inceleyin ve imzalayın.",
+        "action": "İmzala"
+      },
+      "approvals": {
+        "count_one": "Onaylanacak {{count}} belge",
+        "count_other": "Onaylanacak {{count}} belge",
+        "description": "Size atanan belgeyi inceleyin ve onaylayın.",
+        "action": "Onayla"
+      }
+    },
+    "dashboard": {
+      "view": "Görüntüle",
+      "allDone": "Tüm işlemleri tamamladınız",
+      "signatures": {
+        "title": "İmzalar",
+        "description": "Atanan belgeleri imzalayın.",
+        "empty": "Henüz imzalanacak bir şey yok",
+        "pendingCount_one": "İmzalanacak {{count}} belge",
+        "pendingCount_other": "İmzalanacak {{count}} belge",
+        "action": "İmzalamaya başla"
+      },
+      "approvals": {
+        "title": "Onaylar",
+        "description": "Onay bekleyen belgeleri inceleyin.",
+        "empty": "Henüz onaylanacak bir şey yok",
+        "pendingCount_one": "Onaylanacak {{count}} belge",
+        "pendingCount_other": "Onaylanacak {{count}} belge",
+        "action": "Onaylamaya başla"
+      },
+      "devices": {
+        "title": "Cihazlar",
+        "description": "İş cihazlarınızı yönetin.",
+        "connected": "Cihaz bağlandı",
+        "action": "Cihaz kaydet"
+      },
+      "slack": {
+        "title": "Slack",
+        "description": "Probot'un size yardımcı olabilmesi için Slack hesabınızı bağlayın.",
+        "connected": "Slack bağlandı",
+        "hint": "Slack'te <cmd>/probot login</cmd> komutunu çalıştırın"
+      }
+    }
+  },
+  "common": {
+    "error": "Bir şeyler ters gitti"
+  },
+  "pagination": {
+    "previous": "Önceki",
+    "next": "Sonraki"
+  },
+  "queue": {
+    "previous": "Önceki belge",
+    "next": "Sonraki belge",
+    "close": "Kapat",
+    "progressSignatures": "{{total}} belgenin {{current}}. sırasındaki imzalanacak belge",
+    "progressApprovals": "{{total}} belgenin {{current}}. sırasındaki onaylanacak belge",
+    "empty": "Bu kuyrukta kalan belge yok"
+  },
+  "viewer": {
+    "pageOf": "Sayfa {{current}} / {{total}}",
+    "previousPage": "Önceki sayfa",
+    "nextPage": "Sonraki sayfa",
+    "zoomIn": "Yakınlaştır",
+    "zoomOut": "Uzaklaştır",
+    "download": "PDF İndir"
+  },
+  "documents": {
+    "lastUpdated": "Son güncelleme",
+    "columns": {
+      "title": "Başlık",
+      "classification": "Sınıflandırma",
+      "type": "Tür",
+      "status": "Durum",
+      "action": "Eylem"
+    },
+    "types": {
+      "other": "Diğer",
+      "governance": "Yönetim (Governance)",
+      "policy": "Politika",
+      "procedure": "Prosedür",
+      "plan": "Plan",
+      "register": "Kayıt (Register)",
+      "record": "Kayıt (Record)",
+      "report": "Rapor",
+      "template": "Şablon",
+      "statement_of_applicability": "Uygulanabilirlik Bildirgesi (Statement of applicability)"
+    },
+    "classifications": {
+      "public": "Genel (Public)",
+      "internal": "Dahili (Internal)",
+      "confidential": "Gizli (Confidential)",
+      "secret": "Çok Gizli (Secret)"
+    },
+    "versions": {
+      "heading": "Sürüm geçmişi",
+      "count_one": "{{count}} sürüm",
+      "count_other": "{{count}} sürüm",
+      "label": "v{{major}}.{{minor}}",
+      "current": "Mevcut",
+      "select": "Sürüm {{major}}.{{minor}} görüntüle",
+      "status": {
+        "inReview": "İncelemede",
+        "approved": "Onaylandı",
+        "rejected": "Reddedildi",
+        "voided": "İptal edildi (Voided)",
+        "signed": "İmzalandı"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "title": "Sayfa bulunamadı",
+      "description": "Aradığınız sayfa mevcut değil veya taşınmış olabilir."
+    },
+    "forbidden": {
+      "title": "Erişim reddedildi",
+      "description": "Bu sayfayı görüntüleme izniniz yok. Kuruluşlarınıza dönün veya bunun bir hata olduğunu düşünüyorsanız destek ile iletişime geçin."
+    },
+    "serverError": {
+      "title": "Bir şeyler ters gitti",
+      "description": "Bizim tarafımızda bir şeyler ters gitti. Tekrar deneyin veya sorun devam ederse destek ile iletişime geçin."
+    },
+    "generic": {
+      "title": "Sayfa yüklenemiyor",
+      "description": "Bu sayfayı yükleyemedik. Tekrar deneyin veya sorun devam ederse destek ile iletişime geçin."
+    },
+    "actions": {
+      "tryAgain": "Tekrar dene",
+      "backToOrganizations": "Kuruluşlara geri dön",
+      "contactSupport": "Destek ile iletişime geç"
+    }
+  }
+}
